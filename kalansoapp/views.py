@@ -50,8 +50,8 @@ llm = AzureChatOpenAI(
 
 from django.contrib.auth.models import Group, Permission
 
-# prof_group, created = Group.objects.get_or_create(name='Professeur')
-# student_group, created = Group.objects.get_or_create(name='Etudiant')
+prof_group, created = Group.objects.get_or_create(name='Professeur')
+student_group, created = Group.objects.get_or_create(name='Etudiant')
 
 
 email_address = settings.EMAIL_HOST_USER

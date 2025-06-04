@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <title>Dashboard Étudiant - Kalanso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #F4F1EB;
+            --primary-light: #F4F1EB;
+            --primary-dark: #F4F1EB;
+            --primary-transparent: rgba(244, 241, 235, 0.1);
+            --bg-dark: #1a1a1a;
+            --bg-darker: #2d2d2d;
+            --bg-card: #333333;
+            --text-light: #ffffff;
+            --text-muted: #cccccc;
+            --border-color: #444444;
+            --sidebar-width: 280px;
+        }
+
+        [data-theme="light"] {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --bg-dark: #ffffff;
+            --bg-darker: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-light: #1a1a1a;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            font-family: "Noto Serif", serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-darker);
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: var(--bg-dark);
+            border-right: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .sidebar-menu {
+            padding: 1rem 0;
+        }
+
+        .menu-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .menu-item:hover,
+        .menu-item.active {
+            background: var(--primary-transparent);
+            color: var(--primary);
+            border-right: 3px solid var(--primary);
+        }
+
+        .menu-item i {
+            width: 20px;
+            margin-right: 0.75rem;
+        }
+
+        .user-profile {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--bg-dark);
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .user-role {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: var(--bg-dark);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header-left h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: auto;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+        }
+
+        .notifications {
+            position: relative;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            padding: 2rem;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: between;
+            margin-bottom: 1rem;
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-transparent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-left: auto;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .stat-change.positive {
+            color: #10b981;
+        }
+
+        .stat-change.negative {
+            color: #ef4444;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: between;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        /* Course Grid */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-image {
+            height: 150px;
+            background: linear-gradient(135deg, var(--primary), #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .course-instructor {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-progress {
+            margin-bottom: 1rem;
+        }
+
+        .progress {
+            height: 6px;
+            background: var(--border-color);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: var(--primary);
+            height: 100%;
+            transition: width 0.3s;
+        }
+
+        .course-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg-dark);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Chat Interface */
+        .chat-container {
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .chat-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-dark);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            word-wrap: break-word;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background: var(--primary);
+            color: var(--bg-dark);
+        }
+
+        .message.ai {
+            align-self: flex-start;
+            background: var(--border-color);
+            color: var(--text-light);
+        }
+
+        .chat-input {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-darker);
+            color: var(--text-light);
+        }
+
+        .chat-input input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Schedule */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .schedule-day {
+            background: var(--bg-card);
+            padding: 1rem;
+            min-height: 120px;
+        }
+
+        .schedule-header {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .schedule-event {
+            background: var(--primary-transparent);
+            color: var(--primary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.mobile-open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--text-light);
+                font-size: 1.25rem;
+                cursor: pointer;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+        }
+
+        /* Quiz Styles */
+        .quiz-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .quiz-difficulty {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .difficulty-easy {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .difficulty-medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .difficulty-hard {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        /* Table Styles */
+        .table {
+            background: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table th {
+            background: var(--bg-darker);
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem;
+        }
+
+        .table td {
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+         <div class="sidebar-header">
+            <a  href="{% url 'home' %}" style="text-decoration: none;" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span> Kalanso</span>
+            </a>
+        </div>
+
+        <nav class="sidebar-menu">
+            <button class="menu-item active" data-section="dashboard">
+                <i class="fas fa-home"></i>Tableau de bord
+            </button>
+            <button class="menu-item" data-section="courses">
+                <i class="fas fa-book"></i>Mes Cours
+            </button>
+            <button class="menu-item" data-section="quiz">
+                <i class="fas fa-question-circle"></i>Quiz & Exercices
+            </button>
+            <button class="menu-item" data-section="ai-chat">
+                <i class="fas fa-robot"></i>Tuteur IA
+            </button>
+            <button class="menu-item" data-section="schedule">
+                <i class="fas fa-calendar"></i>Emploi du temps
+            </button>
+            <button class="menu-item" data-section="grades">
+                <i class="fas fa-star"></i>Notes
+            </button>
+            <button class="menu-item" data-section="statistics">
+                <i class="fas fa-chart-bar"></i>Statistiques
+            </button>
+            <button class="menu-item" data-section="messages">
+                <i class="fas fa-envelope"></i>Messagerie
+            </button>
+        </nav>
+
+        <div class="user-profile">
+            <div class="user-info">
+                <div class="user-avatar">JD</div>
+                <div>
+                    <div class="user-name">Jean Dupont</div>
+                    <div class="user-role">Étudiant</div>
+                </div>
+            </div>
+            <button class="btn btn-outline w-100">
+                <i class="fas fa-sign-out-alt"></i>Déconnexion
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>Tableau de bord</h1>
+            </div>
+            <div class="header-right">
+                <button class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <div class="content-section active" id="dashboard">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="stat-value">8</div>
+                    </div>
+                    <div class="stat-label">Cours inscrits</div>
+                    <div class="stat-change positive">+2 ce mois</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-value">87%</div>
+                    </div>
+                    <div class="stat-label">Moyenne générale</div>
+                    <div class="stat-change positive">+5% ce mois</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-value">24h</div>
+                    </div>
+                    <div class="stat-label">Temps d'étude</div>
+                    <div class="stat-change positive">+3h cette semaine</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="stat-value">15</div>
+                    </div>
+                    <div class="stat-label">Quiz complétés</div>
+                    <div class="stat-change positive">+7 cette semaine</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Cours récents</h3>
+                            <a href="#" class="btn btn-outline">Voir tout</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="course-card">
+                                        <div class="course-image">
+                                            <i class="fas fa-code"></i>
+                                        </div>
+                                        <div class="course-content">
+                                            <h4 class="course-title">Algorithmique avancée</h4>
+                                            <p class="course-instructor">Prof. Martin Dubois</p>
+                                            <div class="course-progress">
+                                                <div class="progress">
+                                                    <div class="progress-bar" style="width: 75%"></div>
+                                                </div>
+                                                <small class="text-muted">75% complété</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="course-card">
+                                        <div class="course-image">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div class="course-content">
+                                            <h4 class="course-title">Bases de données</h4>
+                                            <p class="course-instructor">Prof. Sophie Laurent</p>
+                                            <div class="course-progress">
+                                                <div class="progress">
+                                                    <div class="progress-bar" style="width: 45%"></div>
+                                                </div>
+                                                <small class="text-muted">45% complété</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Prochains événements</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-column gap-3">
+                                <div class="d-flex align-items-center gap-3 text-secondary">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold ">Quiz Algorithmique</div>
+                                        <small class="text-secondary ">Demain à 14h00</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-video"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold">Cours en ligne</div>
+                                        <small class="text-muted">Vendredi à 10h00</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="stat-icon">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-semibold">Rendu projet</div>
+                                        <small class="text-muted">Dans 5 jours</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Courses Section -->
+<div class="content-section" id="courses">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Mes Cours</h2>
+        <button class="btn btn-primary">
+            <i class="fas fa-plus"></i> S'inscrire à un cours
+        </button>
+    </div>
+
+    <div class="course-grid">
+        <div class="course-card">
+            <div class="course-image">
+                <i class="fas fa-code"></i>
+            </div>
+            <div class="course-content">
+                <h4 class="course-title">Algorithmique avancée</h4>
+                <p class="course-instructor">Prof. Martin Dubois</p>
+                <div class="course-progress">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 75%"></div>
+                    </div>
+                    <small class="text-muted">75% complété</small>
+                </div>
+                <div class="course-actions">
+                    <button class="btn btn-primary">Continuer</button>
+                    <button class="btn btn-outline">Résumé</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-image">
+                <i class="fas fa-database"></i>
+            </div>
+            <div class="course-content">
+                <h4 class="course-title">Bases de données</h4>
+                <p class="course-instructor">Prof. Sophie Laurent</p>
+                <div class="course-progress">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 45%"></div>
+                    </div>
+                    <small class="text-muted">45% complété</small>
+                </div>
+                <div class="course-actions">
+                    <button class="btn btn-primary">Continuer</button>
+                    <button class="btn btn-outline">Résumé</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-card">
+            <div class="course-image">
+                <i class="fas fa-brain"></i>
+            </div>
+            <div class="course-content">
+                <h4 class="course-title">Intelligence Artificielle</h4>
+                <p class="course-instructor">Prof. Alex Chen</p>
+                <div class="course-progress">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 20%"></div>
+                    </div>
+                    <small class="text-muted">20% complété</small>
+                </div>
+                <div class="course-actions">
+                    <button class="btn btn-primary">Commencer</button>
+                    <button class="btn btn-outline">Résumé</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tuteur IA Section -->
+<div id="tuteurSection" style="display: none;">
+    <button class="btn btn-secondary my-3 mx-3" id="backToCourses">
+        ← Retour aux cours
+    </button>
+
+    <h2 class="mb-4 mx-2">Tuteur IA - Assistant Personnel</h2>
+
+    <div class="row justify-content-center align-items-start">
+        <div class="col-lg-8">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="chat-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <div class="fw-semibold">Assistant IA Kalanso</div>
+                        <small class="text-muted">Tuteur virtuel alimenté par RAG</small>
+                    </div>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message ai">
+                        Bonjour Jean ! Je suis votre tuteur IA personnel. Je peux vous aider avec vos cours, répondre à vos questions, vous entraîner sur des exercices ou vous donner des conseils d'apprentissage. Comment puis-je vous aider aujourd'hui ?
+                    </div>
+                    <div class="message user">
+                        Peux-tu m'expliquer les différents algorithmes de tri ?
+                    </div>
+                    <div class="message ai">
+                        Excellente question ! Les algorithmes de tri sont fondamentaux en informatique. Voici les principaux :<br><br>
+                        <strong>1. Tri par bulle :</strong> Compare les éléments adjacents<br>
+                        <strong>2. Tri par insertion :</strong> Insère chaque élément à sa place<br>
+                        <strong>3. Tri par sélection :</strong> Sélectionne le minimum/maximum<br>
+                        <strong>4. Tri rapide (QuickSort) :</strong> Divise autour d'un pivot<br>
+                        <strong>5. Tri fusion (MergeSort) :</strong> Divise et fusionne<br><br>
+                        Voulez-vous que je détaille l'un d'eux ou que nous fassions un exercice pratique ?
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Tapez votre message..." id="chatInput">
+                    <button class="btn btn-primary" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h3 class="card-title">Contenu du Cours</h3>
+                </div>
+                <div class="card-body" style="height: 400px; overflow: auto;">
+                    <iframe src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                            width="100%" height="350px" style="border: none;"></iframe>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Suggestions d'entraînement</h3>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-column gap-3">
+                        <button class="btn btn-outline text-start">
+                            <i class="fas fa-code me-2"></i>
+                            Exercices d'algorithmique
+                        </button>
+                        <button class="btn btn-outline text-start">
+                            <i class="fas fa-database me-2"></i>
+                            Pratique SQL
+                        </button>
+                        <button class="btn btn-outline text-start">
+                            <i class="fas fa-brain me-2"></i>
+                            Quiz IA personnalisé
+                        </button>
+                        <button class="btn btn-outline text-start">
+                            <i class="fas fa-question-circle me-2"></i>
+                            Questions-réponses
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">Historique récent</h3>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-column gap-2">
+                        <small class="text-muted">Hier : Algorithmes de tri</small>
+                        <small class="text-muted">Il y a 2 jours : Requêtes SQL</small>
+                        <small class="text-muted">Il y a 3 jours : Structures de données</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <!-- Quiz Section -->
+        <div class="content-section" id="quiz">
+            <h2 class="mb-4">Quiz & Exercices</h2>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="quiz-card">
+                        <div class="quiz-header">
+                            <h4>Quiz Algorithmique - Tri et Recherche</h4>
+                            <span class="quiz-difficulty difficulty-medium">Moyen</span>
+                        </div>
+                        <p class="text-muted mb-3">15 questions • 30 minutes • Généré par IA</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary">Commencer</button>
+                            <button class="btn btn-outline">Réviser le cours</button>
+                        </div>
+                    </div>
+
+                    <div class="quiz-card">
+                        <div class="quiz-header">
+                            <h4>Quiz Intelligence Artificielle - Réseaux de neurones</h4>
+                            <span class="quiz-difficulty difficulty-hard">Difficile</span>
+                        </div>
+                        <p class="text-muted mb-3">20 questions • 45 minutes • Basé sur taxonomie de Bloom</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline">Pas encore disponible</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Statistiques Quiz</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-column gap-3">
+                                <div class="d-flex justify-content-between">
+                                    <span>Taux de réussite</span>
+                                    <span class="fw-bold text-success">87%</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span>Quiz complétés</span>
+                                    <span class="fw-bold">15/20</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span>Temps moyen</span>
+                                    <span class="fw-bold">18 min</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span>Meilleur score</span>
+                                    <span class="fw-bold text-success">98%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Chat Section -->
+        <div class="content-section" id="ai-chat">
+            <h2 class="mb-4">Tuteur IA - Assistant Personnel</h2>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="chat-container">
+                        <div class="chat-header">
+                            <div class="chat-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div>
+                                <div class="fw-semibold">Assistant IA Kalanso</div>
+                                <small class="text-muted">Tuteur virtuel alimenté par RAG</small>
+                            </div>
+                        </div>
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message ai">
+                                Bonjour Jean ! Je suis votre tuteur IA personnel. Je peux vous aider avec vos cours, répondre à vos questions, vous entraîner sur des exercices ou vous donner des conseils d'apprentissage. Comment puis-je vous aider aujourd'hui ?
+                            </div>
+                            <div class="message user">
+                                Peux-tu m'expliquer les différents algorithmes de tri ?
+                            </div>
+                            <div class="message ai">
+                                Excellente question ! Les algorithmes de tri sont fondamentaux en informatique. Voici les principaux :<br><br>
+                                <strong>1. Tri par bulle :</strong> Compare les éléments adjacents<br>
+                                <strong>2. Tri par insertion :</strong> Insère chaque élément à sa place<br>
+                                <strong>3. Tri par sélection :</strong> Sélectionne le minimum/maximum<br>
+                                <strong>4. Tri rapide (QuickSort) :</strong> Divise autour d'un pivot<br>
+                                <strong>5. Tri fusion (MergeSort) :</strong> Divise et fusionne<br><br>
+                                Voulez-vous que je détaille l'un d'eux ou que nous fassions un exercice pratique ?
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" placeholder="Tapez votre message..." id="chatInput">
+                            <button class="btn btn-primary" onclick="sendMessage()">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Suggestions d'entraînement</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-column gap-3">
+                                <button class="btn btn-outline text-start">
+                                    <i class="fas fa-code me-2"></i>
+                                    Exercices d'algorithmique
+                                </button>
+                                <button class="btn btn-outline text-start">
+                                    <i class="fas fa-database me-2"></i>
+                                    Pratique SQL
+                                </button>
+                                <button class="btn btn-outline text-start">
+                                    <i class="fas fa-brain me-2"></i>
+                                    Quiz IA personnalisé
+                                </button>
+                                <button class="btn btn-outline text-start">
+                                    <i class="fas fa-question-circle me-2"></i>
+                                    Questions-réponses
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h3 class="card-title">Historique récent</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-column gap-2">
+                                <small class="text-muted">Hier : Algorithmes de tri</small>
+                                <small class="text-muted">Il y a 2 jours : Requêtes SQL</small>
+                                <small class="text-muted">Il y a 3 jours : Structures de données</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schedule Section -->
+        <div class="content-section" id="schedule">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Emploi du temps recommandé</h2>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline">Semaine</button>
+                    <button class="btn btn-primary">Mois</button>
+                </div>
+            </div>
+
+            <div class="schedule-grid">
+                <div class="schedule-day">
+                    <div class="schedule-header">Lundi</div>
+                    <div class="schedule-event">09:00 - Algorithmique</div>
+                    <div class="schedule-event">14:00 - Quiz SQL</div>
+                </div>
+                <div class="schedule-day">
+                    <div class="schedule-header">Mardi</div>
+                    <div class="schedule-event">10:00 - Base de données</div>
+                    <div class="schedule-event">16:00 - Révisions</div>
+                </div>
+                <div class="schedule-day">
+                    <div class="schedule-header">Mercredi</div>
+                    <div class="schedule-event">08:00 - IA Course</div>
+                    <div class="schedule-event">15:00 - Exercices</div>
+                </div>
+                <div class="schedule-day">
+                    <div class="schedule-header">Jeudi</div>
+                    <div class="schedule-event">11:00 - Projet</div>
+                </div>
+                <div class="schedule-day">
+                    <div class="schedule-header">Vendredi</div>
+                    <div class="schedule-event">09:00 - Présentation</div>
+                    <div class="schedule-event">14:00 - Quiz final</div>
+                </div>
+                <div class="schedule-day">
+                    <div class="schedule-header">Samedi</div>
+                </div>
+                <div class="schedule-day">
+                    <div class="schedule-header">Dimanche</div>
+                    <div class="schedule-event">10:00 - Révisions libres</div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h3 class="card-title">Recommandations IA</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Optimisation suggérée</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-lightbulb text-warning me-2"></i>Réduire les sessions d'algorithmique à 1h30</li>
+                                <li class="mb-2"><i class="fas fa-lightbulb text-warning me-2"></i>Ajouter 30min de révision SQL quotidienne</li>
+                                <li class="mb-2"><i class="fas fa-lightbulb text-warning me-2"></i>Planifier une pause de 15min toutes les 2h</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Priorités cette semaine</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-exclamation-circle text-danger me-2"></i>Quiz d'algorithmique demain</li>
+                                <li class="mb-2"><i class="fas fa-clock text-info me-2"></i>Projet base de données à rendre</li>
+                                <li class="mb-2"><i class="fas fa-star text-success me-2"></i>Commencer le cours IA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grades Section -->
+        <div class="content-section" id="grades">
+            <h2 class="mb-4">Mes Notes</h2>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Résultats par matière</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Matière</th>
+                                            <th>Dernière note</th>
+                                            <th>Moyenne</th>
+                                            <th>Progression</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Algorithmique</td>
+                                            <td><span class="badge bg-success">18/20</span></td>
+                                            <td>16.5/20</td>
+                                            <td><span class="text-success">+2.1</span></td>
+                                            <td><button class="btn btn-sm btn-outline">Détails</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Base de données</td>
+                                            <td><span class="badge bg-warning">14/20</span></td>
+                                            <td>15.2/20</td>
+                                            <td><span class="text-danger">-0.8</span></td>
+                                            <td><button class="btn btn-sm btn-outline">Détails</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Intelligence Artificielle</td>
+                                            <td><span class="badge bg-info">En cours</span></td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td><button class="btn btn-sm btn-primary">Commencer</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Résumé des performances</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <div class="stat-value" style="font-size: 3rem; color: var(--primary);">87%</div>
+                                <div class="stat-label">Moyenne générale</div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Rang dans la classe</span>
+                                <span class="fw-bold">3/25</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Points acquis</span>
+                                <span class="fw-bold">145/180</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Quiz réussis</span>
+                                <span class="fw-bold">15/18</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mt-3">
+                        <div class="card-header">
+                            <h3 class="card-title">Recommandations</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info">
+                                <i class="fas fa-lightbulb me-2"></i>
+                                Concentrez-vous sur les bases de données pour améliorer votre moyenne.
+                            </div>
+                            <div class="alert alert-success">
+                                <i class="fas fa-trophy me-2"></i>
+                                Excellents progrès en algorithmique !
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="content-section" id="statistics">
+            <h2 class="mb-4">Statistiques détaillées</h2>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Temps d'étude par matière</h3>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="studyTimeChart" width="400" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Évolution des notes</h3>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="gradesChart" width="400" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Activité hebdomadaire</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-column gap-3">
+                                <div class="d-flex justify-content-between">
+                                    <span>Connexions</span>
+                                    <span class="fw-bold">28</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span>Heures d'étude</span>
+                                    <span class="fw-bold">24h</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span>Quiz complétés</span>
+                                    <span class="fw-bold">7</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span>Messages IA</span>
+                                    <span class="fw-bold">45</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Analyse prédictive IA</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>Probabilité de réussite</h5>
+                                    <div class="progress mb-2" style="height: 20px;">
+                                        <div class="progress-bar bg-success" style="width: 92%">92%</div>
+                                    </div>
+                                    <small class="text-muted">Basé sur vos performances actuelles</small>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Recommandations</h5>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>Maintenez le rythme en algorithmique</li>
+                                        <li><i class="fas fa-exclamation text-warning me-2"></i>Renforcez les bases SQL</li>
+                                        <li><i class="fas fa-lightbulb text-info me-2"></i>Commencez l'IA cette semaine</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages Section -->
+        <div class="content-section" id="messages">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Messagerie</h2>
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus"></i>Nouveau message
+                </button>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Conversations</h3>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item bg-transparent border-color">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="user-avatar">MD</div>
+                                        <div class="flex-grow-1">
+                                            <div class="fw-semibold">Prof. Martin Dubois</div>
+                                            <small class="text-muted">Quiz d'algorithmique demain</small>
+                                        </div>
+                                        <span class="notification-badge">1</span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item bg-transparent border-color">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="user-avatar">SL</div>
+                                        <div class="flex-grow-1">
+                                            <div class="fw-semibold">Prof. Sophie Laurent</div>
+                                            <small class="text-muted">Correction du TP SQL</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item bg-transparent border-color">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="user-avatar">AC</div>
+                                        <div class="flex-grow-1">
+                                            <div class="fw-semibold">Prof. Alex Chen</div>
+                                            <small class="text-muted">Bienvenue en IA !</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="user-avatar">MD</div>
+                                <div>
+                                    <div class="fw-semibold">Prof. Martin Dubois</div>
+                                    <small class="text-muted">En ligne</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" style="height: 400px; overflow-y: auto;">
+                            <div class="d-flex flex-column gap-3">
+                                <div class="message ai" style="align-self: flex-start;">
+                                    Bonjour Jean, j'espère que vous vous préparez bien pour le quiz de demain sur les algorithmes de tri. N'hésitez pas si vous avez des questions !
+                                </div>
+                                <div class="message user" style="align-self: flex-end;">
+                                    Bonjour Professeur ! J'ai une question sur la complexité du tri rapide dans le pire des cas.
+                                </div>
+                                <div class="message ai" style="align-self: flex-start;">
+                                    Excellente question ! Dans le pire des cas, QuickSort a une complexité O(n²). Cela arrive quand le pivot choisi est toujours le plus petit ou le plus grand élément. Voulez-vous que nous en discutions en détail ?
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex gap-2">
+                                <input type="text" class="form-control" placeholder="Tapez votre message...">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const html = document.documentElement;
+
+        // Load saved theme or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'light') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        // Sidebar Navigation
+        const menuItems = document.querySelectorAll('.menu-item');
+        const contentSections = document.querySelectorAll('.content-section');
+        const headerTitle = document.querySelector('.header-left h1');
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove active class from all items
+                menuItems.forEach(mi => mi.classList.remove('active'));
+                // Add active class to clicked item
+                item.classList.add('active');
+
+                // Hide all content sections
+                contentSections.forEach(section => section.classList.remove('active'));
+                // Show selected section
+                const targetSection = item.getAttribute('data-section');
+                document.getElementById(targetSection).classList.add('active');
+
+                // Update header title
+                const sectionTitles = {
+                    'dashboard': 'Tableau de bord',
+                    'courses': 'Mes Cours', 
+                    'quiz': 'Quiz & Exercices',
+                    'ai-chat': 'Tuteur IA',
+                    'schedule': 'Emploi du temps',
+                    'grades': 'Mes Notes',
+                    'statistics': 'Statistiques',
+                    'messages': 'Messagerie'
+                };
+                headerTitle.textContent = sectionTitles[targetSection];
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('mobile-open');
+        });
+
+        // Chat functionality
+        function sendMessage() {
+            const chatInput = document.getElementById('chatInput');
+            const chatMessages = document.getElementById('chatMessages');
+            const message = chatInput.value.trim();
+
+            if (message) {
+                // Add user message
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user';
+                userMessage.textContent = message;
+                chatMessages.appendChild(userMessage);
+
+                // Clear input
+                chatInput.value = '';
+
+                // Simulate AI response
+                setTimeout(() => {
+                    const aiMessage = document.createElement('div');
+                    aiMessage.className = 'message ai';
+                    aiMessage.innerHTML = 'Je comprends votre question. Laissez-moi vous expliquer en détail...<br><br>Voulez-vous que nous fassions un exercice pratique sur ce sujet ?';
+                    chatMessages.appendChild(aiMessage);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+
+        // Enter key for chat
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!sidebar.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    sidebar.classList.remove('mobile-open');
+                }
+            }
+        });
+
+        // Responsive handling
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('mobile-open');
+            }
+        });
+
+        // Simulate chart data (you would integrate with Chart.js or similar)
+        console.log('Dashboard loaded successfully');
+
+        // Initialize some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers for course cards
+            document.querySelectorAll('.course-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('btn')) {
+                        // Navigate to course detail (you would implement this)
+                        console.log('Navigate to course:', this.querySelector('.course-title').textContent);
+                    }
+                });
+            });
+
+            // Add hover effects for stat cards
+            document.querySelectorAll('.stat-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add notification click handler
+            document.querySelector('.notifications').addEventListener('click', function() {
+                // Show notifications dropdown (you would implement this)
+                alert('Notifications:\n- Quiz d\'algorithmique demain à 14h\n- Nouveau cours IA disponible\n- Message du Prof. Dubois');
+            });
+
+            // Add quiz start handlers
+            document.querySelectorAll('.quiz-card .btn-primary').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const quizTitle = this.closest('.quiz-card').querySelector('h4').textContent;
+                    if (confirm(`Commencer le quiz: ${quizTitle} ?`)) {
+                        // Start quiz (you would implement this)
+                        console.log('Starting quiz:', quizTitle);
+                    }
+                });
+            });
+
+            // Add schedule event click handlers
+            document.querySelectorAll('.schedule-event').forEach(event => {
+                event.addEventListener('click', function() {
+                    // Show event details (you would implement this)
+                    alert(`Détails de l'événement:\n${this.textContent}`);
+                });
+            });
+
+            // Add course action handlers
+            document.querySelectorAll('.course-actions .btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const action = this.textContent.trim();
+                    const courseTitle = this.closest('.course-card').querySelector('.course-title').textContent;
+                    
+                    switch(action) {
+                        case 'Continuer':
+                        case 'Commencer':
+                            console.log(`${action} le cours:`, courseTitle);
+                            // Navigate to course content
+                            break;
+                        case 'Résumé':
+                            console.log('Afficher résumé du cours:', courseTitle);
+                            // Show course summary modal
+                            showCourseSummary(courseTitle);
+                            break;
+                    }
+                });
+            });
+
+            // Add message input handlers for all message inputs
+            document.querySelectorAll('input[placeholder*="message"]').forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const message = this.value.trim();
+                        if (message) {
+                            console.log('Sending message:', message);
+                            this.value = '';
+                            // You would implement actual message sending here
+                        }
+                    }
+                });
+            });
+        });
+
+        // Function to show course summary (you would implement this with a modal)
+        function showCourseSummary(courseTitle) {
+            const summaries = {
+                'Algorithmique avancée': 'Ce cours couvre les algorithmes de tri, recherche, graphes et programmation dynamique. Objectifs: maîtriser les complexités algorithmiques et optimiser les performances.',
+                'Bases de données': 'Introduction aux SGBD, SQL, conception de bases de données relationnelles. Objectifs: concevoir et interroger des bases de données efficaces.',
+                'Intelligence Artificielle': 'Fondements de l\'IA, machine learning, réseaux de neurones. Objectifs: comprendre et implémenter des algorithmes d\'apprentissage automatique.'
+            };
+            
+            const summary = summaries[courseTitle] || 'Résumé du cours non disponible.';
+            alert(`Résumé du cours: ${courseTitle}\n\n${summary}`);
+        }
+
+        // Add smooth scrolling for better UX
+        function smoothScrollTo(element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Add loading states for dynamic content
+        function showLoading(element) {
+            element.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
+        }
+
+        // Add success/error message display
+        function showMessage(message, type = 'success') {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.body.appendChild(alertDiv);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 5000);
+        }
+
+        // Example usage of showMessage function
+        // showMessage('Bienvenue sur votre tableau de bord !', 'info');
+    </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const courseButtons = document.querySelectorAll(".course-actions .btn-primary");
+
+    courseButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            document.getElementById("courses").style.display = "none";
+            document.getElementById("tuteurSection").style.display = "block";
+        });
+    });
+
+    const backButton = document.getElementById("backToCourses");
+    if (backButton) {
+        backButton.addEventListener("click", function () {
+            document.getElementById("courses").style.display = "block";
+            document.getElementById("tuteurSection").style.display = "none";
+        });
+    }
+});
+</script>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

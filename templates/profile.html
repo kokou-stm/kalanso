@@ -1,0 +1,89 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+<body style="background: linear-gradient(rgba(0,0,0, 0.8), rgba(0,0,0, 0.8));">
+
+
+  
+ <!-- Section FAQ -->
+  <section class="container 
+  mt-5"></section>
+<section id="faq" class="bg-transparent py-5 mt-5">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="container redressed">
+                <form method="post">
+                    {% csrf_token %}
+                <div class="card bg-transparent p-4" style="border-bottom: none; border: solid 1px white;">
+                  <div class="card-header text-center">
+                    <h4 class="text-center my-4 text-light merriweather">
+                      
+                        Mon profile
+                    </h4>
+                  </div>
+            
+                  
+                 <div class="card-body">
+                  
+                        
+                
+                        
+
+                        <div class="input-group mb-5">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control merriweather" name="firstname" id="phone"  placeholder="Firstname"  aria-describedby="addon-wrapping" value="{{membre.username.first_name}}" required>
+                        </div>
+                        <div class="input-group mb-5">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control merriweather" name="lastname" id="phone"  placeholder="Lastname"  aria-describedby="addon-wrapping" value="{{membre.username.last_name}}" required>
+                        </div>
+                    
+                        <div class="input-group mb-5">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-phone"></i></span>
+                            <input type="text" class="form-control merriweather" name="phone" id="phone"  placeholder="Ex: 0754XXXXXX"  aria-describedby="addon-wrapping" value="{{membre.phone}}" required>
+                        </div>
+                        
+                  
+                
+                        <div class="input-group mb-5">
+                            <span class="input-group-text" id="addon-wrapping">N. de Carte :</span>
+                            <input type="text"  id="numero_de_carte" name="numero_de_carte" class="form-control merriweather"  value="{{membre.numero_de_carte}}"  placeholder="Numero de Badge" aria-label="Username" aria-describedby="addon-wrapping" required>
+                        </div>
+                      
+                
+                       
+                    </form>
+                 </div>
+            
+                  <div class="card-footer text-center">
+                    <h2 class="text-center my-4 text-light">
+                      <a class="btn btn-outline-light me-3" href="{% url 'home' %}">
+                        <strong>← Retour</strong>
+                      </a>
+                      <button class="btn btn-outline-primary me-3 text-light" type="submit">
+                        <strong>Enregistrer -> </strong>
+                      </button>
+                      
+                    </h2>
+                  </div>
+                </div>
+
+            </form>
+              </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    
+  
+</section>
+
+
+</body>
+
+{% endblock%}
+
+
+ 

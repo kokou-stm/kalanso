@@ -1,0 +1,108 @@
+
+{% include 'siteboat.html' %}
+ 
+ <!-- Sub Header -->
+ <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8">
+          <div class="left-content pt-2">
+            <h6 class="redressed text-light">Apprenez la cuisine <em>Autrement</em> grace à l'intelligence Artificielle</h6>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+          <div class="right-icons">
+            <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- ***** Header Area Start ***** -->
+   <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{% url 'profile' %}" class="logo merriweather">
+                       ChefQuiz
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav merriweather">
+                      
+                        <li ><a href="{% url 'home' %}" class="active">Accueil</a></li>
+                        <li><a href="{% url 'home' %}" class="merriweather">Cours</a></li>
+                        <li class="scroll-to-section" id="a_propos"><a href="#apply">A propos</a></li>
+                       
+                        <li class="scroll-to-section1"><a href="{% url 'home' %}">FAQ</a></li> 
+                        <li class="scroll-to-section" id="contactez-nous"><a href="#contact">Contactez-nous</a></li> 
+                        <li class="has-sub">
+                          <a href="javascript:void(0)">Compte</a>
+                          <ul class="sub-menu">
+                            <li><p class="bg-dark text-light text-center" >{{user.last_name}}</p></li>
+                            {% if  is_staff %}
+                            {% else %}
+                            <li class="bg-transparent text-center"> <p class="text-light">{{ progress_percentage }}%</p> 
+                              <div class="progress mx-2 my-2 " style="width: 100%;">
+                                <div class="progress-bar redressed text-muted" role="progressbar" style="width: {{ progress_percentage }}%;" 
+                                     aria-valuenow="{{ progress_percentage }}%" aria-valuemin="0" aria-valuemax="100">
+                                  {{ progress_percentage }}%
+                                </div>
+                              </div>
+                              
+                            </li>
+                            {% endif %}
+                              <li><a  href="{% url 'dashboard' %}">Tableau de Bord</a></li>
+                              <li><a  href="{% url 'home' %}">Mes Cours</a></li>
+                              
+                              <li><a href="{% url 'profile' %}">Edit Profile </a></li>
+                              
+                              <li><a href="{% url 'logout' %}">Deconnexion</a></li>
+                           
+                            </ul>
+                      </li>
+  
+  
+                       
+  
+  
+                    </ul>        
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script defer>
+        {% autoescape off %}
+        {% for ms in messages %}
+            swal('{{ms|safe}}');
+        {% endfor %}
+        {% endautoescape %}
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    const contactSection = document.getElementById("contact");
+    const contactButton = document.getElementById("contactez-nous");
+
+    if (!contactSection && contactButton) {
+        contactButton.style.display = "none";
+    }
+});
+
+    </script>

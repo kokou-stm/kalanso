@@ -1,6 +1,5 @@
 Django
 transformers
-accelerate
 torch
 faiss-cpu
 langchain

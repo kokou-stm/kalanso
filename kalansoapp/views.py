@@ -28,6 +28,13 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib, ssl
 
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .utils.pdf_utils import load_pdf_documents
+from .utils.rag import create_vectorstore, rag_answer
+import os
+
+
 from langchain_openai import AzureChatOpenAI
 # Azure LLM config
 llm = AzureChatOpenAI(
@@ -94,14 +101,38 @@ def upload_cours(request):
 
 @login_required(login_url='login')
 def home(request):
+
     indentifiant = str(request.user.username)[:2]
     context={"identifiant": indentifiant}
     if request.user.groups.filter(name='Professeur').exists():
         context['status'] = "Professeur"
+        
     else:
         context['status'] = "Etudiant"
     return render(request, template_name="home.html", context=context)
 
+
+def index(request):
+    indentifiant = str(request.user.username)[:2]
+    user = request.user
+    context = {
+        'user': user,
+        'is_staff': user.is_staff,
+    }
+    context["identifiant"]= indentifiant
+    if request.user.groups.filter(name='Professeur').exists():
+        context['status'] = "Professeur"
+        modules = Module.objects.filter(auteur=request.user)
+        courses = Cours.objects.filter(author=request.user)
+        print("Modules: ", courses)
+        context.update({"modules": modules, "courses": courses})
+        return render(request, template_name="prof_dash.html", context = context )
+        
+        
+    elif request.user.groups.filter(name='Etudiant').exists():
+        context['status'] = "Etudiant"
+        return render(request, "student_dashboard.html")
+    return render(request, "student_dashboard.html")
 # Create your views here.
 
 @login_required(login_url='login')
@@ -119,12 +150,6 @@ def user_dashboard(request):
 
 
 
-
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from .utils.pdf_utils import load_pdf_documents
-from .utils.rag import create_vectorstore, rag_answer
-import os
 
 @csrf_exempt
 def upload_pdf_view(request):
@@ -425,6 +450,7 @@ def profile(request):
     
 
     return render(request, 'profile.html', context)
+
 def dashboard(request):
      modules = Module.objects.filter(auteur=request.user)
      courses = Cours.objects.filter(author=request.user)
@@ -442,8 +468,8 @@ def module_details(request, code):
         module = Module.objects.get(code=code)
         data = {
             "titre": module.titre,
-            "cours": list(module.cours.values("titre", "contenu", "file")),  # Ajout du fichier
-           "exercices": [{"titre": e.titre,"question": json.loads(e.question),  "reponse_attendue": e.reponse_attendue}for e in module.exercices.all()],
+            "cours": list(module.cours.values("titre", "contenu", "file", "code")),  # Ajout du fichier
+            "exercices": [{"titre": e.titre,"question": json.loads(e.question),  "reponse_attendue": e.reponse_attendue}for e in module.exercices.all()],
             "quizz": list(module.quizz.values("question", "choix", "bonne_reponse")),
             "evaluations": list(module.evaluations.values("titre", "consignes", "contenu")),
         }
@@ -466,6 +492,9 @@ def module_details(request, code):
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Module, Cours, Exercice, Quiz, Evaluation
+from .utils.prompt import feedback_prompt
+from .utils.rag import rag_with_qa
+
 
 @csrf_exempt
 def create_content(request):
@@ -473,6 +502,7 @@ def create_content(request):
         data = request.POST
         content_type = data.get("contentType")
         module_code = data.get("module_code")
+        
         print("Content Type: ", content_type, "Module Code: ", module_code)
         print("Data: ", data)
         try:
@@ -482,9 +512,10 @@ def create_content(request):
                 file = request.FILES.get("file")
                 if not file:
                     return JsonResponse({"error": "Fichier PDF requis pour les cours"}, status=400)
-
+                cours_code = data.get("code")
                 # 🔹 Création du cours et sauvegarde du fichier
                 cours = Cours.objects.create(
+                    code =cours_code,
                     module=module,
                     titre=data.get("title"),
                     contenu=data.get("description"),
@@ -498,11 +529,16 @@ def create_content(request):
                 # 🔥 Indexation du document pour RAG
                 documents = load_pdf_documents(filepath)
                 create_vectorstore(documents, persist_path)
-
+                
+                result = rag_with_qa(persist_path, llm, feedback_prompt)
+                print(result)
+                cours.feedback = result
+                cours.save()
                 return JsonResponse({
                     "success": True,
                     "type": "cours",
-                    "content": {"titre": cours.titre, "code": module_code, "domain": module.domaine, "file_url": cours.file.url}
+                    "content": {"titre": cours.titre, "code": module_code, "domain": module.domaine, "file_url": cours.file.url},
+                    "feedback": result
                 })
 
             elif content_type == "exercice":
@@ -585,6 +621,16 @@ def create_content(request):
 
 
 
+
+
+def get_feedback(request, code):
+    try:
+        cours = Cours.objects.get(code=code)
+        return JsonResponse({'success': True, 'feedback': cours.feedback})
+    except Cours.DoesNotExist:
+        return JsonResponse({'success': False, 'error': 'Cours non trouvé'}, status=404)
+
+
 def connection(request):
     mess = ""
 
@@ -612,7 +658,7 @@ def connection(request):
                     print("Utilisateur infos: ", auth_user.username, auth_user.email)
                     login(request, auth_user)
                     
-                    return redirect("home")
+                    return redirect("index")
                 else :
                     mess = "Incorrect password"
             else:

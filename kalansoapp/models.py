@@ -108,6 +108,7 @@ class Module(models.Model):
 
 # Cours dans un module
 class Cours(models.Model):
+    code = models.CharField(max_length=255, null=True, blank=True)
     module = models.ForeignKey(Module, related_name='cours', on_delete=models.CASCADE)
     titre = models.CharField(max_length=255)
     contenu = models.TextField()
@@ -115,6 +116,7 @@ class Cours(models.Model):
     updated_at = models.DateTimeField(auto_now=True)    
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cours')
     file = models.FileField(upload_to=clean_filename,  blank=True, null=True)
+    feedback = models.TextField(blank=True, null = True)
 
 # Exercice généré par IA
 class Exercice(models.Model):

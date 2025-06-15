@@ -75,10 +75,25 @@ WSGI_APPLICATION = 'lms_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',  # Nom de la base de données
+        'USER': 'chefquizdb',  # Nom d'utilisateur de votre base de données
+        'PASSWORD': "Validation1@1221",  # Mot de passe (utilisez l'environnement pour plus de sécurité)
+        'HOST': "chefquizdb.postgres.database.azure.com",  # L'hôte de la base de données
+        'PORT': 5432,  # Le port, par défaut 5432 pour PostgreSQL
+        "OPTIONS": {
+           'sslmode': 'require',
+
+        }
     }
 }
 

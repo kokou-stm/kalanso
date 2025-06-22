@@ -112,6 +112,7 @@ def home(request):
     return render(request, template_name="home.html", context=context)
 
 
+@login_required
 def index(request):
     indentifiant = str(request.user.username)[:2]
     user = request.user
@@ -898,7 +899,7 @@ def register(request):
                     #err = " ".join(e)
                     
                     messages.error(request, f"Erreur survenue lors de la creation de compte, veuillez reessayer.")
-                    return render(request, template_name="/register.html")
+                    return render(request, template_name="register.html")
             
         else:
             messages.info(request, mess)
@@ -927,7 +928,7 @@ def forgotpassword(request):
             subject = "Password Reset Wufa"
 
             # Use a template for cleaner HTML
-            html_message = render_to_string('account/password_reset_email.html', {
+            html_message = render_to_string('/password_reset_email.html', {
                 'user': user,
                 'reset_link': f"{current_site}/updatepassword/{token}/{uid}/",
             })
@@ -946,7 +947,7 @@ def forgotpassword(request):
         else:
             messages.success(request, "The email address does not match any account.")
 
-    return render(request, "account/forgot_password.html")
+    return render(request, "forgot_password.html")
 
 def updatepassword(request, token, uid):
     print(request.user.username, token, uid)
@@ -980,4 +981,4 @@ def updatepassword(request, token, uid):
             else:
                  messages.eror(request, "Passwords not match")
         
-    return render(request, "account/update_password.html")
+    return render(request, "update_password.html")

@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'lms_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',  # Nom de la base de données
+        'NAME': 'kalansodatabase',  # Nom de la base de données
         'USER': 'chefquizdb',  # Nom d'utilisateur de votre base de données
         'PASSWORD': "Validation1@1221",  # Mot de passe (utilisez l'environnement pour plus de sécurité)
         'HOST': "chefquizdb.postgres.database.azure.com",  # L'hôte de la base de données

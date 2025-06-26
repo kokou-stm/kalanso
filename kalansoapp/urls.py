@@ -21,5 +21,7 @@ urlpatterns = [
      path("api/module-details/<str:code>/", module_details, name="module-details"),
      path("api/create-content/", create_content, name="create_content"),
       path('api/get-feedback/<str:code>/', get_feedback, name='get_feedback'),
+      path('api/save-training-data/', save_training_data, name='save_training_data'),
+     
  
 ]   

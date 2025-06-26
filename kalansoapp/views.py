@@ -120,6 +120,7 @@ def index(request):
         'user': user,
         'is_staff': user.is_staff,
     }
+    
     context["identifiant"]= indentifiant
     if request.user.groups.filter(name='Professeur').exists():
         context['status'] = "Professeur"
@@ -143,7 +144,6 @@ def user_dashboard(request):
     # profile = Profile.objects.get(user=user)
     context = {
         'user': user,
-        
         'is_staff': user.is_staff,
     }
     return render(request, 'student_dashboard.html', context)
@@ -494,7 +494,8 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import Module, Cours, Exercice, Quiz, Evaluation
 from .utils.prompt import feedback_prompt
-from .utils.rag import rag_with_qa
+from .utils.rag import *
+from .utils.ai_prompt import *
 
 
 @csrf_exempt
@@ -504,7 +505,7 @@ def create_content(request):
         content_type = data.get("contentType")
         module_code = data.get("module_code")
         
-        print("Content Type: ", content_type, "Module Code: ", module_code)
+        #print("Content Type: ", content_type, "Module Code: ", module_code)
         print("Data: ", data)
         try:
             module = Module.objects.get(code=module_code)
@@ -535,6 +536,11 @@ def create_content(request):
                 print(result)
                 cours.feedback = result
                 cours.save()
+
+                taxonomies_levels = ["remember", "understand", "apply", "analyse", "evaluate", "create"]
+                for index, tax in enumerate(taxonomies_levels):
+                    PromptMemoire.objects.get_or_create(cours= cours,niveau_taxonomie=tax, prompt = prompts[index] )
+
                 return JsonResponse({
                     "success": True,
                     "type": "cours",
@@ -543,18 +549,41 @@ def create_content(request):
                 })
 
             elif content_type == "exercice":
+                cours_code = data.get("code")
+                cours = Cours.objects.get(code = "BD3935")
+                
+                
+                TAXONOMY_CHOICES = {
+                   'connaissance':'remember',
+                    'comprehension': 'understand', 
+                     'Appliquer': 'apply',
+                     'Analyser': 'analyse',
+                     'Évaluer': 'evaluate',
+                     'Créer': 'create',
+                }
+                bloomLevel = TAXONOMY_CHOICES[data.get("bloomLevel").lower()]
+                
+                prompt_update = PromptMemoire.objects.filter(cours = cours, niveau_taxonomie = bloomLevel)[0]
+                print("Les prompts: ", prompts)
                 persist_path = os.path.join("media", "chroma", module_code+"_1")  # 🔹 Récupération de l'index des cours liés
                 # question_prompt = f"Génère une question d'exercice basée sur les connaissances du module {module_code}."
                 question_prompt = f"""
                 Génère un exercice à questions détaillées de type '{data.get("exerciseType")[0]}' pour le module '{module.titre}' en '{data.get("domain")[0]}'.
 
-                L'exercice doit correspondre à un niveau '{data.get("aiDifficulty")[0]}' et contenir {data.get("questionCount")[0]} questions sous forme de '{data.get("questionType")[0]}'.
+                L'exercice doit correspondre à un niveau '{data.get("aiDifficulty")[0]}' et contenir {data.get("questionCount")[:]} questions sous forme de '{data.get("questionType")[0]}'.
 
                 Le type d'évaluation attendu est '{data.get("evaluationType")[0]}' avec un score maximal de {data.get("maxScore")[0]} points.
 
                 Description de l'exercice : {data.get("description")[0]}.
+                
+                les questions doivent etre un peu dans le sens:
+                {prompt_update.prompt} .
+                Voici quelques exemples de types de questions proposés par l'enseignant: 
+                
+                {prompt_update.retour_enseignant}
 
                 Renvoi l'exercice sous le format ci dessus et assure-toi que les questions respectent le niveau attendu.
+                
                 Format de l'exerice attendu:
                
                 [
@@ -564,17 +593,17 @@ def create_content(request):
                 "3. Texte de la question 3",
                 ...
                 ]
-                
+                Rapelle toi que tu dois générer {data.get("questionCount")[:]} questions
                 """
 
                 print("Question Prompt: ", question_prompt)
+                print("--"*10)
 
                 # 🔥 Récupération du contexte via RAG
                 rag_response = rag_answer(question_prompt, persist_path, llm)
 
                 print(rag_response)
                
-                 
                 # 🔹 Création de l'exercice avec la réponse générée
                 exercice = Exercice.objects.create(
                     titre = data.get("title"),
@@ -582,6 +611,9 @@ def create_content(request):
                    question=json.dumps(rag_response),
                     reponse_attendue="Réponse attendue à compléter."
                 )
+                print("=="*10)
+                print(exercice.question)
+                print("=="*10)
 
                 return JsonResponse({
                     "success": True,
@@ -622,6 +654,159 @@ def create_content(request):
 
 
 
+@login_required
+@csrf_exempt
+def save_training_data(request):
+
+    """
+    Sauvegarde les données d'entraînement fournies par l'enseignant
+    """
+    try:
+        data = json.loads(request.body)
+        course_code = data.get('course_code')
+        training_data = data.get('training_data', {})
+        #print("Data: ", data, course_code, training_data)
+        print(training_data)
+        if not course_code:
+            return JsonResponse({
+                'error': 'Code du cours manquant'
+            }, status=400)
+        
+        # Récupérer le cours
+        cours = get_object_or_404(Cours, code=course_code, author=request.user)
+        
+        # Taxonomies supportées
+        taxonomies_levels = ["remember", "understand", "apply", "analyse", "evaluate", "create"]
+        
+        # Sauvegarder les données pour chaque niveau de taxonomie
+        for index, level in enumerate(taxonomies_levels):
+            if level in training_data and training_data[level]:
+                # Récupérer ou créer le PromptMemoire pour ce niveau
+                prompt_memoire, created = PromptMemoire.objects.get_or_create(
+                    cours=cours,
+                    niveau_taxonomie=level,
+                    defaults={
+                        'prompt': f'{prompts[index]}'
+                    }
+                )
+                
+                # Traitement des exemples existants et nouveaux
+                existing_examples = []
+                if prompt_memoire.retour_enseignant:
+                    try:
+                        existing_data = json.loads(prompt_memoire.retour_enseignant)
+                        if isinstance(existing_data, list):
+                            existing_examples = existing_data
+                        elif isinstance(existing_data, dict) and 'examples' in existing_data:
+                            existing_examples = existing_data['examples']
+                    except json.JSONDecodeError:
+                        existing_examples = []
+                
+                # Fusionner les nouveaux exemples avec les existants
+                new_examples = training_data[level]
+                all_examples = existing_examples.copy()
+                
+                # Éviter les doublons en comparant les questions
+                existing_questions = {ex.get('question', '') for ex in existing_examples}
+                for new_example in new_examples:
+                    if new_example.get('question', '') not in existing_questions:
+                        all_examples.append(new_example)
+                
+                # Sauvegarder dans retour_enseignant
+                updated_data = {
+                    'examples': all_examples,
+                    'total_examples': len(all_examples),
+                    'last_updated': str(timezone.now()),
+                    'level_description': get_taxonomy_description(level)
+                }
+                
+                prompt_memoire.retour_enseignant = json.dumps(updated_data, ensure_ascii=False)
+                prompt_memoire.save()
+        
+        return JsonResponse({
+            'success': True,
+            'message': 'Données d\'entraînement sauvegardées avec succès',
+            'saved_levels': list(training_data.keys())
+        })
+        
+    except Cours.DoesNotExist:
+        return JsonResponse({
+            'error': 'Cours non trouvé'
+        }, status=404)
+    except json.JSONDecodeError:
+        return JsonResponse({
+            'error': 'Format JSON invalide'
+        }, status=400)
+    except Exception as e:
+        return JsonResponse({
+            'error': f'Erreur lors de la sauvegarde: {str(e)}'
+        }, status=500)
+
+
+@login_required
+@require_http_methods(["GET"])
+def get_taxonomy_examples(request, course_code, taxonomy_level):
+    """
+    Récupère les exemples pour un niveau de taxonomie spécifique
+    """
+    try:
+        cours = get_object_or_404(Cours, code=course_code, author=request.user)
+        
+        try:
+            prompt_memoire = PromptMemoire.objects.get(
+                cours=cours,
+                niveau_taxonomie=taxonomy_level
+            )
+            
+            examples = []
+            if prompt_memoire.retour_enseignant:
+                try:
+                    data = json.loads(prompt_memoire.retour_enseignant)
+                    if isinstance(data, dict) and 'examples' in data:
+                        examples = data['examples']
+                    elif isinstance(data, list):
+                        examples = data
+                except json.JSONDecodeError:
+                    pass
+            
+            return JsonResponse({
+                'success': True,
+                'examples': examples,
+                'level': taxonomy_level,
+                'total': len(examples)
+            })
+            
+        except PromptMemoire.DoesNotExist:
+            return JsonResponse({
+                'success': True,
+                'examples': [],
+                'level': taxonomy_level,
+                'total': 0
+            })
+            
+    except Cours.DoesNotExist:
+        return JsonResponse({
+            'error': 'Cours non trouvé'
+        }, status=404)
+    except Exception as e:
+        return JsonResponse({
+            'error': f'Erreur: {str(e)}'
+        }, status=500)
+    
+    
+def get_taxonomy_description(level):
+    """
+    Retourne la description d'un niveau de taxonomie
+    """
+    descriptions = {
+        'remember': 'Rappeler des faits, termes, concepts de base',
+        'understand': 'Expliquer des idées ou concepts',
+        'apply': 'Utiliser l\'information dans de nouvelles situations',
+        'analyse': 'Décomposer l\'information en parties',
+        'evaluate': 'Justifier une position ou décision',
+        'create': 'Produire un travail original'
+    }
+    return descriptions.get(level, 'Description non disponible')
 
 
 def get_feedback(request, code):

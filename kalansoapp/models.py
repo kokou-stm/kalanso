@@ -118,6 +118,9 @@ class Cours(models.Model):
     file = models.FileField(upload_to=clean_filename,  blank=True, null=True)
     feedback = models.TextField(blank=True, null = True)
 
+    def __str__(self):
+        return self.titre
+
 # Exercice généré par IA
 class Exercice(models.Model):
     titre = models.CharField(max_length=255, blank=True, null=True)
@@ -158,3 +161,13 @@ class ResultatEvaluation(models.Model):
     def __str__(self):
         return self.description
 
+
+class PromptMemoire(models.Model):
+    cours = models.ForeignKey(Cours, on_delete=models.CASCADE)
+    niveau_taxonomie = models.CharField(max_length=50)
+    prompt = models.TextField()
+    retour_enseignant = models.TextField(blank=True, null=True)
+    date_ajout = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.niveau_taxonomie} {self.cours.titre}'

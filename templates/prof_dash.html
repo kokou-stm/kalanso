@@ -3706,8 +3706,14 @@
                 <div class="modal-body">
                     <div id="markdownContent"></div>
                 </div>
+                <!-- 1. MODIFICATION DU MODAL FEEDBACK EXISTANT -->
+                <!-- Ajoutez ce bouton dans le modal-footer du feedback existant -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-primary" id="openTaxonomyChat"
+                        onclick="openTaxonomyTraining()">
+                        <i class="fas fa-brain"></i> Entraîner l'IA sur les Taxonomies
+                    </button>
                 </div>
             </div>
         </div>
@@ -4977,10 +4983,13 @@
                                 </span>
                             </div>
                             <div class="btn-group">
-                                <button class="btn btn-outline-secondary" onclick="goBackToExerciseList()">
+                                 <button class="btn btn-outline-secondary" id="back-btn" onclick="goBackTocontentList('${title}', '${code}')">
+                        <i class="fas fa-arrow-left"></i> Retour
+                    </button>
+                                <!-- button class="btn btn-outline-secondary" onclick="goBackToExerciseList()">
                                     <i class="fas fa-arrow-left"></i>
                                     Retour
-                                </button>
+                                </button -->
                                 <button class="btn btn-success" onclick="regenerateExercises()">
                                     <i class="fas fa-sync-alt"></i>
                                     Régénérer
@@ -5278,36 +5287,555 @@
 
 
     </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.3/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.3/purify.min.js"></script>
 
-<script>
-    
+    <script>
+
         document.addEventListener('click', async function (e) {
-    if (e.target.closest('.btn-feedback')) {
-        const button = e.target.closest('.btn-feedback');
-        const code = button.getAttribute('data-code');
+            if (e.target.closest('.btn-feedback')) {
+                const button = e.target.closest('.btn-feedback');
+                const code = button.getAttribute('data-code');
 
-        try {
-            const response = await fetch(`/api/get-feedback/${code}/`);
-            const data = await response.json();
+                try {
+                    const response = await fetch(`/api/get-feedback/${code}/`);
+                    const data = await response.json();
 
-            if (response.ok && data.feedback) {
-                const markdownHtml = marked.parse(data.feedback);
-                document.getElementById('markdownContent').innerHTML = DOMPurify.sanitize(markdownHtml);
+                    if (response.ok && data.feedback) {
+                        const markdownHtml = marked.parse(data.feedback);
+                        document.getElementById('markdownContent').innerHTML = DOMPurify.sanitize(markdownHtml);
 
-                const markdownModal = new bootstrap.Modal(document.getElementById('markdownModal'));
-                markdownModal.show();
-            } else {
-                showMessage("Aucun feedback disponible", "warning");
+                        const markdownModal = new bootstrap.Modal(document.getElementById('markdownModal'));
+                        markdownModal.show();
+                    } else {
+                        showMessage("Aucun feedback disponible", "warning");
+                    }
+                } catch (error) {
+                    console.error(error);
+                    showMessage("Erreur lors de la récupération du feedback", "danger");
+                }
             }
-        } catch (error) {
-            console.error(error);
-            showMessage("Erreur lors de la récupération du feedback", "danger");
-        }
-    }
-});
+        });
 
-</script>
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 2. NOUVEAU MODAL POUR L'INTERFACE DE CHAT TAXONOMIE -->
+    <div class="modal fade" id="taxonomyModal" tabindex="-1" aria-labelledby="taxonomyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="taxonomyModalLabel">
+                        <i class="fas fa-brain me-2"></i>Entraînement IA - Taxonomie de Bloom
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="row g-0 h-100">
+                        <!-- Sidebar des niveaux de taxonomie -->
+                        <div class="col-md-4 border-end bg-light">
+                            <div class="p-3">
+                                <h6 class="fw-bold mb-3">Niveaux de Taxonomie</h6>
+                                <div class="list-group" id="taxonomyLevels">
+                                    <button type="button" class="list-group-item list-group-item-action"
+                                        data-level="remember">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fas fa-lightbulb text-warning me-2"></i>
+                                                <strong>Se souvenir</strong>
+                                            </div>
+                                            <span class="badge bg-secondary" id="count-remember">0</span>
+                                        </div>
+                                        <small class="text-muted">Rappeler des faits, termes, concepts</small>
+                                    </button>
+                                    <button type="button" class="list-group-item list-group-item-action"
+                                        data-level="understand">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fas fa-eye text-info me-2"></i>
+                                                <strong>Comprendre</strong>
+                                            </div>
+                                            <span class="badge bg-secondary" id="count-understand">0</span>
+                                        </div>
+                                        <small class="text-muted">Expliquer des idées ou concepts</small>
+                                    </button>
+                                    <button type="button" class="list-group-item list-group-item-action"
+                                        data-level="apply">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fas fa-cogs text-primary me-2"></i>
+                                                <strong>Appliquer</strong>
+                                            </div>
+                                            <span class="badge bg-secondary" id="count-apply">0</span>
+                                        </div>
+                                        <small class="text-muted">Utiliser l'information dans de nouvelles
+                                            situations</small>
+                                    </button>
+                                    <button type="button" class="list-group-item list-group-item-action"
+                                        data-level="analyse">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fas fa-search text-success me-2"></i>
+                                                <strong>Analyser</strong>
+                                            </div>
+                                            <span class="badge bg-secondary" id="count-analyse">0</span>
+                                        </div>
+                                        <small class="text-muted">Décomposer l'information en parties</small>
+                                    </button>
+                                    <button type="button" class="list-group-item list-group-item-action"
+                                        data-level="evaluate">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fas fa-balance-scale text-warning me-2"></i>
+                                                <strong>Évaluer</strong>
+                                            </div>
+                                            <span class="badge bg-secondary" id="count-evaluate">0</span>
+                                        </div>
+                                        <small class="text-muted">Justifier une position ou décision</small>
+                                    </button>
+                                    <button type="button" class="list-group-item list-group-item-action"
+                                        data-level="create">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fas fa-star text-danger me-2"></i>
+                                                <strong>Créer</strong>
+                                            </div>
+                                            <span class="badge bg-secondary" id="count-create">0</span>
+                                        </div>
+                                        <small class="text-muted">Produire un travail original</small>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Zone de chat -->
+                        <div class="col-md-8 d-flex flex-column">
+                            <!-- Header du niveau sélectionné -->
+                            <div class="p-3 border-bottom bg-white" id="selectedLevelHeader" style="display: none;">
+                                <div class="d-flex align-items-center">
+                                    <span id="selectedLevelIcon" class="me-2"></span>
+                                    <h6 class="mb-0" id="selectedLevelTitle">Sélectionnez un niveau de taxonomie</h6>
+                                </div>
+                                <small class="text-muted" id="selectedLevelDescription"></small>
+                            </div>
+
+                            <!-- Zone de messages -->
+                            <div class="flex-grow-1 p-3" style="height: 400px; overflow-y: auto;" id="chatMessages">
+                                <div class="text-center text-muted mt-5">
+                                    <i class="fas fa-comments fa-3x mb-3"></i>
+                                    <p>Sélectionnez un niveau de taxonomie pour commencer l'entraînement</p>
+                                </div>
+                            </div>
+
+                            <!-- Zone de saisie -->
+                            <div class="p-3 border-top bg-light" id="inputArea" style="display: none;">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Exemple de question :</label>
+                                    <textarea class="form-control" id="questionInput" rows="2"
+                                        placeholder="Tapez votre exemple de question..."></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Exemple de réponse :</label>
+                                    <textarea class="form-control" id="answerInput" rows="3"
+                                        placeholder="Tapez l'exemple de réponse attendue..."></textarea>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn btn-primary" id="sendExample">
+                                        <i class="fas fa-paper-plane me-1"></i>Envoyer l'exemple
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary" id="clearInputs">
+                                        <i class="fas fa-eraser me-1"></i>Effacer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-success" id="saveTraining">
+                        <i class="fas fa-save me-1"></i>Sauvegarder l'entraînement
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Styles pour l'interface de taxonomie */
+        .taxonomy-message {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .taxonomy-message.user {
+            flex-direction: row-reverse;
+        }
+
+        .taxonomy-message .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+
+        .taxonomy-message.user .avatar {
+            background: #007bff;
+            color: white;
+        }
+
+        .taxonomy-message.system .avatar {
+            background: #6c757d;
+            color: white;
+        }
+
+        .taxonomy-message .content {
+            flex: 1;
+            max-width: 70%;
+        }
+
+        .taxonomy-message.user .content {
+            background: #007bff;
+            color: white;
+            border-radius: 18px 18px 4px 18px;
+        }
+
+        .taxonomy-message.system .content {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 18px 18px 18px 4px;
+        }
+
+        .taxonomy-message .content .message-body {
+            padding: 0.75rem 1rem;
+        }
+
+        .taxonomy-message .content .timestamp {
+            padding: 0 1rem 0.5rem;
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .list-group-item.active {
+            background-color: #007bff !important;
+            border-color: #007bff !important;
+        }
+
+        .example-card {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+
+        .example-question {
+            font-weight: 600;
+            color: #1976d2;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-answer {
+            color: #424242;
+            font-style: italic;
+        }
+    </style>
+
+    <script>
+        // Variables globales
+        let currentCourseCode = '';
+        let currentTaxonomyLevel = '';
+        let trainingData = {};
+
+        // Fonction pour ouvrir l'interface d'entraînement
+        function openTaxonomyTraining() {
+            // Récupérer le code du cours depuis le bouton feedback
+            const feedbackButton = document.querySelector('.btn-feedback[data-code]');
+            if (feedbackButton) {
+                currentCourseCode = feedbackButton.getAttribute('data-code');
+            }
+
+            // Fermer le modal de feedback et ouvrir celui de taxonomie
+            const feedbackModal = bootstrap.Modal.getInstance(document.getElementById('markdownModal'));
+            if (feedbackModal) {
+                feedbackModal.hide();
+            }
+
+            const taxonomyModal = new bootstrap.Modal(document.getElementById('taxonomyModal'));
+            taxonomyModal.show();
+
+            // Charger les données existantes
+            loadExistingTrainingData();
+        }
+
+        // Charger les données d'entraînement existantes
+        async function loadExistingTrainingData() {
+            try {
+                const response = await fetch(`/api/get-training-data/${currentCourseCode}/`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    trainingData = data.training_data || {};
+                    updateTaxonomyCounts();
+                }
+            } catch (error) {
+                console.error('Erreur lors du chargement des données:', error);
+            }
+        }
+
+        // Mettre à jour les compteurs de chaque niveau
+        function updateTaxonomyCounts() {
+            const levels = ['remember', 'understand', 'apply', 'analyse', 'evaluate', 'create'];
+            levels.forEach(level => {
+                const count = trainingData[level] ? trainingData[level].length : 0;
+                document.getElementById(`count-${level}`).textContent = count;
+            });
+        }
+
+        // Gestion de la sélection d'un niveau de taxonomie
+        document.getElementById('taxonomyLevels').addEventListener('click', function (e) {
+            const button = e.target.closest('.list-group-item');
+            if (!button) return;
+
+            // Mettre à jour l'interface
+            document.querySelectorAll('.list-group-item').forEach(item => item.classList.remove('active'));
+            button.classList.add('active');
+
+            currentTaxonomyLevel = button.getAttribute('data-level');
+
+            // Afficher le header du niveau sélectionné
+            updateSelectedLevelHeader(currentTaxonomyLevel);
+
+            // Afficher la zone de saisie
+            document.getElementById('inputArea').style.display = 'block';
+
+            // Charger les messages pour ce niveau
+            loadMessagesForLevel(currentTaxonomyLevel);
+        });
+
+        // Mettre à jour le header du niveau sélectionné
+        function updateSelectedLevelHeader(level) {
+            const levelInfo = {
+                'remember': {
+                    icon: '<i class="fas fa-lightbulb text-warning"></i>',
+                    title: 'Se souvenir',
+                    description: 'Rappeler des faits, termes, concepts de base'
+                },
+                'understand': {
+                    icon: '<i class="fas fa-eye text-info"></i>',
+                    title: 'Comprendre',
+                    description: 'Expliquer des idées ou concepts'
+                },
+                'apply': {
+                    icon: '<i class="fas fa-cogs text-primary"></i>',
+                    title: 'Appliquer',
+                    description: 'Utiliser l\'information dans de nouvelles situations'
+                },
+                'analyse': {
+                    icon: '<i class="fas fa-search text-success"></i>',
+                    title: 'Analyser',
+                    description: 'Décomposer l\'information en parties'
+                },
+                'evaluate': {
+                    icon: '<i class="fas fa-balance-scale text-warning"></i>',
+                    title: 'Évaluer',
+                    description: 'Justifier une position ou décision'
+                },
+                'create': {
+                    icon: '<i class="fas fa-star text-danger"></i>',
+                    title: 'Créer',
+                    description: 'Produire un travail original'
+                }
+            };
+
+            const info = levelInfo[level];
+            document.getElementById('selectedLevelIcon').innerHTML = info.icon;
+            document.getElementById('selectedLevelTitle').textContent = info.title;
+            document.getElementById('selectedLevelDescription').textContent = info.description;
+            document.getElementById('selectedLevelHeader').style.display = 'block';
+        }
+
+        // Charger les messages pour un niveau donné
+        function loadMessagesForLevel(level) {
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = '';
+
+            // Message d'accueil
+            addSystemMessage(`Vous entraînez l'IA pour le niveau "${level.toUpperCase()}". Ajoutez des exemples de questions et réponses pour améliorer la génération automatique.`);
+
+            // Afficher les exemples existants
+            if (trainingData[level] && trainingData[level].length > 0) {
+                trainingData[level].forEach((example, index) => {
+                    addExampleMessage(example.question, example.answer, index + 1);
+                });
+            }
+        }
+
+        // Ajouter un message système
+        function addSystemMessage(text) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageElement = document.createElement('div');
+            messageElement.className = 'taxonomy-message system';
+            messageElement.innerHTML = `
+        <div class="avatar">IA</div>
+        <div class="content">
+            <div class="message-body">${text}</div>
+            <div class="timestamp">${new Date().toLocaleTimeString()}</div>
+        </div>
+    `;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Ajouter un message d'exemple
+        function addExampleMessage(question, answer, number) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageElement = document.createElement('div');
+            messageElement.className = 'taxonomy-message user';
+            messageElement.innerHTML = `
+        <div class="avatar">P</div>
+        <div class="content">
+            <div class="message-body">
+                <div class="example-card">
+                    <div class="example-question">Exemple ${number} - Question :</div>
+                    <div>${question}</div>
+                    <div class="example-question mt-2">Réponse :</div>
+                    <div class="example-answer">${answer}</div>
+                </div>
+            </div>
+            <div class="timestamp">${new Date().toLocaleTimeString()}</div>
+        </div>
+    `;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Envoyer un exemple
+        document.getElementById('sendExample').addEventListener('click', function () {
+            const question = document.getElementById('questionInput').value.trim();
+            const answer = document.getElementById('answerInput').value.trim();
+
+            if (!question || !answer) {
+                alert('Veuillez remplir la question et la réponse');
+                return;
+            }
+
+            if (!currentTaxonomyLevel) {
+                alert('Veuillez sélectionner un niveau de taxonomie');
+                return;
+            }
+
+            // Ajouter à la structure de données
+            if (!trainingData[currentTaxonomyLevel]) {
+                trainingData[currentTaxonomyLevel] = [];
+            }
+
+            const example = { question, answer };
+            trainingData[currentTaxonomyLevel].push(example);
+
+            // Afficher le message
+            const exampleNumber = trainingData[currentTaxonomyLevel].length;
+            addExampleMessage(question, answer, exampleNumber);
+
+            // Effacer les champs
+            document.getElementById('questionInput').value = '';
+            document.getElementById('answerInput').value = '';
+
+            // Mettre à jour le compteur
+            updateTaxonomyCounts();
+
+            // Message de confirmation
+            addSystemMessage(`Exemple ajouté avec succès pour le niveau "${currentTaxonomyLevel}".`);
+        });
+
+        // Effacer les champs de saisie
+        document.getElementById('clearInputs').addEventListener('click', function () {
+            document.getElementById('questionInput').value = '';
+            document.getElementById('answerInput').value = '';
+        });
+
+        // Sauvegarder l'entraînement
+        document.getElementById('saveTraining').addEventListener('click', async function () {
+            const button = this;
+            const originalText = button.innerHTML;
+
+            try {
+                button.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Sauvegarde...';
+                button.disabled = true;
+
+                const response = await fetch('/api/save-training-data/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: JSON.stringify({
+                        course_code: currentCourseCode,
+                        training_data: trainingData
+                    })
+                });
+
+                if (response.ok) {
+                    addSystemMessage('✅ Entraînement sauvegardé avec succès !');
+                    setTimeout(() => {
+                        const modal = bootstrap.Modal.getInstance(document.getElementById('taxonomyModal'));
+                        modal.hide();
+                    }, 1500);
+                } else {
+                    throw new Error('Erreur lors de la sauvegarde');
+                }
+
+            } catch (error) {
+                console.error('Erreur:', error);
+                addSystemMessage('❌ Erreur lors de la sauvegarde');
+            } finally {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }
+        });
+
+        // Fonction utilitaire pour récupérer le token CSRF
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+
+
+
+
 
 </body>
 

@@ -205,14 +205,118 @@ from django.conf import settings
 import json
 import os
 
+
+@login_required
+@require_http_methods(["POST"])
+def create_module(request):
+    """Créer un nouveau module"""
+    try:
+        # Récupération des données
+        titre = request.POST.get('titre', '').strip()
+        description = request.POST.get('description', '').strip()
+        code = request.POST.get('code', '').strip()
+        domaine = request.POST.get('domaine', '').strip()
+        niveau = request.POST.get('niveau', '').strip()
+        
+        # Log pour debugging
+        print(f"Données reçues: {request.POST}")
+        print(f"Titre: {titre}, Description: {description}, Code: {code}")
+        
+        # Validation des champs obligatoires
+        if not titre:
+            return JsonResponse({
+                'success': False,
+                'error': 'Le titre est obligatoire'
+            }, status=400)
+            
+        if not description:
+            return JsonResponse({
+                'success': False,
+                'error': 'La description est obligatoire'
+            }, status=400)
+        
+        # Vérifier si le code existe déjà (si fourni)
+        if code and Module.objects.filter(code=code).exists():
+            return JsonResponse({
+                'success': False,
+                'error': 'Ce code de cours existe déjà'
+            }, status=400)
+        
+        # Créer le module
+        module = Module.objects.create(
+            titre=titre,
+            description=description,
+            code=code,
+            domaine=domaine,
+            niveau=niveau,
+            auteur=request.user
+        )
+        
+        # Log de succès
+        print(f"Module créé avec succès: ID={module.id}, Titre={module.titre}")
+        
+        # Préparer la réponse avec toutes les données nécessaires
+        module_data = {
+            'id': module.id,
+            'titre': module.titre,
+            'description': module.description,
+            'code': module.code,
+            'domaine': module.domaine,
+            'niveau': module.niveau,
+            'date_creation': module.date_creation.isoformat(),
+            'auteur': module.auteur.username if module.auteur else None,
+            # Ajouter d'autres champs si nécessaire
+        }
+        
+        return JsonResponse({
+            'success': True,
+            'message': 'Module créé avec succès',
+            'module': module_data
+        }, status=201)
+        
+    except Exception as e:
+        # Log de l'erreur
+        print(f"Erreur lors de la création du module: {str(e)}")
+        
+        return JsonResponse({
+            'success': False,
+            'error': f'Erreur serveur: {str(e)}'
+        }, status=500)
+
+
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+from .models import Module
+
+@login_required
+def api_modules(request):
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        modules = Module.objects.filter(auteur=request.user)
+        data = [
+            {
+                "titre": m.titre,
+                "code": m.code,
+                "nb_etudiants": getattr(m, 'nb_etudiants', 0),
+                "nb_quiz": getattr(m, 'nb_quiz', 0),
+                "progress": getattr(m, 'progress', 0)
+            }
+            for m in modules
+        ]
+        return JsonResponse(data, safe=False)
+    return JsonResponse({'error': 'Requête invalide'}, status=400)
+
+
+# Fonction utilitaire pour lister les modules (si nécessaire)
 @login_required
 @require_http_methods(["GET"])
 def list_modules(request):
-    """Récupérer tous les modules de l'utilisateur"""
+    """Lister tous les modules de l'utilisateur"""
     try:
-        modules = Module.objects.filter(auteur=request.user)
-        modules_data = []
+        # Récupérer les modules de l'utilisateur connecté
+        modules = Module.objects.filter(auteur=request.user).order_by('-date_creation')
         
+        # Sérialiser les données
+        modules_data = []
         for module in modules:
             modules_data.append({
                 'id': module.id,
@@ -222,81 +326,22 @@ def list_modules(request):
                 'domaine': module.domaine,
                 'niveau': module.niveau,
                 'date_creation': module.date_creation.isoformat(),
-                'fichier_url': module.fichier.url if module.fichier else None,
-                'fichier_nom': os.path.basename(module.fichier.name) if module.fichier else None
+                'auteur': module.auteur.username,
             })
         
         return JsonResponse({
             'success': True,
-            'modules': modules_data
+            'modules': modules_data,
+            'count': len(modules_data)
         })
         
     except Exception as e:
+        print(f"Erreur lors de la récupération des modules: {str(e)}")
         return JsonResponse({
             'success': False,
-            'error': str(e)
+            'error': 'Erreur lors du chargement des modules'
         }, status=500)
-
-@login_required
-@require_http_methods(["POST"])
-def create_module(request):
-    """Créer un nouveau module"""
-    # try:
-    titre = request.POST.get('titre')
-    description = request.POST.get('description')
-    code = request.POST.get('code')
-    domaine = request.POST.get('domaine')
-    niveau = request.POST.get('niveau')
-    print(request.POST)
-    # fichier = request.FILES.get('fichier')
-    print(titre, description, code, domaine, niveau)
     
-    # Validation
-    if not titre or not description:
-        return JsonResponse({
-            'success': False,
-            'error': 'Le titre et la description sont obligatoires'
-        }, status=400)
-    
-    # Vérifier si le code existe déjà
-    if code and Module.objects.filter(code=code).exists():
-        return JsonResponse({
-            'success': False,
-            'error': 'Ce code de cours existe déjà'
-        }, status=400)
-    
-    # Créer le module
-    module = Module.objects.create(
-        titre=titre,
-        description=description,
-        code=code,
-        domaine=domaine,
-        niveau=niveau,
-        # fichier=fichier,
-        auteur=request.user
-    )
-    
-    return JsonResponse({
-        'success': True,
-        'message': 'Module créé avec succès',
-        'module': {
-            'id': module.id,
-            'titre': module.titre,
-            'description': module.description,
-            'code': module.code,
-            'domaine': module.domaine,
-            'niveau': module.niveau,
-            'date_creation': module.date_creation.isoformat(),
-            # 'fichier_url': module.fichier.url if module.fichier else None,
-            #'fichier_nom': os.path.basename(module.fichier.name) if module.fichier else None
-        }
-    })
-        
-    # except Exception as e:
-    #     return JsonResponse({
-    #         'success': False,
-    #         'error': str(e)
-    #     }, status=500)
 
 @login_required
 @require_http_methods(["DELETE"])
@@ -1100,6 +1145,8 @@ def logout_view(request):
 from django.core.mail import send_mail  # Use Django's email sending
 from django.utils.html import strip_tags # For plain text version
 from django.template.loader import render_to_string # For cleaner HTML
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 def forgotpassword(request):
     if request.method == "POST":
@@ -1113,7 +1160,7 @@ def forgotpassword(request):
             subject = "Password Reset Wufa"
 
             # Use a template for cleaner HTML
-            html_message = render_to_string('/password_reset_email.html', {
+            html_message = render_to_string('password_reset_email.html', {
                 'user': user,
                 'reset_link': f"{current_site}/updatepassword/{token}/{uid}/",
             })

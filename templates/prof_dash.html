@@ -1520,553 +1520,7 @@
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- Section Détails du Cours avec Modification -->
-            <!-- <div id="course-details-section" class="content-section" style="display: block;">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h4 id="course-title">Nom du Cours</h4>
-                                <span class="badge badge-info">Cours</span>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn btn-outline-secondary" onclick="goBackToCourseList()">
-                                    <i class="fas fa-arrow-left"></i>
-                                    Retour
-                                </button>
-                                <button class="btn btn-primary" id="edit-course-btn" onclick="toggleCourseEditMode()">
-                                    <i class="fas fa-edit"></i>
-                                    Modifier
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                  
-                        <div id="course-view-mode">
-                            <div class="row">
-                               
-                                <div class="col-md-4">
-                                    <div class="course-info-panel">
-                                        <h5>Informations du Cours</h5>
-                                        <div class="info-item">
-                                            <strong>Titre :</strong>
-                                            <span id="display-course-title">Introduction aux Algorithmes</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Description :</strong>
-                                            <span id="display-course-description">Ce cours couvre les concepts
-                                                fondamentaux des algorithmes...</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Fichier :</strong>
-                                            <span id="display-file-name">intro_algo.pdf</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Taille :</strong>
-                                            <span id="display-file-size">2.5 MB</span>
-                                        </div>
-                                        <div class="info-item">
-                                            <strong>Dernière modification :</strong>
-                                            <span id="display-last-modified">15 Jan 2024</span>
-                                        </div>
-
-                                       
-                                        <div class="file-actions mt-3">
-                                            <button class="btn btn-success btn-sm" onclick="downloadCourseFile()">
-                                                <i class="fas fa-download"></i>
-                                                Télécharger
-                                            </button>
-                                            <button class="btn btn-info btn-sm" onclick="openCourseInNewTab()">
-                                                <i class="fas fa-external-link-alt"></i>
-                                                Ouvrir
-                                            </button>
-                                            <button class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                data-bs-target="#replaceCourseFileModal">
-                                                <i class="fas fa-upload"></i>
-                                                Remplacer
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-8">
-                                    <div class="pdf-preview-container">
-                                        <div class="pdf-toolbar">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <h6 class="mb-0">Aperçu du Document</h6>
-                                                <div class="pdf-controls">
-                                                    <button class="btn btn-sm btn-outline-secondary"
-                                                        onclick="zoomOut()">
-                                                        <i class="fas fa-search-minus"></i>
-                                                    </button>
-                                                    <span class="zoom-level">100%</span>
-                                                    <button class="btn btn-sm btn-outline-secondary" onclick="zoomIn()">
-                                                        <i class="fas fa-search-plus"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-outline-secondary"
-                                                        onclick="toggleFullscreen()">
-                                                        <i class="fas fa-expand"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="pdf-viewer-wrapper">
-                                            <iframe id="course-pdf-viewer" src="" class="course-pdf-display"
-                                                frameborder="0">
-                                                <div class="pdf-fallback">
-                                                    <i class="fas fa-file-pdf fa-3x text-muted mb-3"></i>
-                                                    <p>Impossible d'afficher le PDF dans le navigateur</p>
-                                                    <button class="btn btn-primary" onclick="downloadCourseFile()">
-                                                        <i class="fas fa-download"></i>
-                                                        Télécharger le fichier
-                                                    </button>
-                                                </div>
-                                            </iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                       
-                        <div id="course-edit-mode" style="display: none;">
-                            <form id="course-edit-form">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label">Titre du Cours</label>
-                                            <input type="text" class="form-control" id="edit-course-title" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label class="form-label">Code du Cours</label>
-                                            <input type="text" class="form-control" id="edit-course-code" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Description</label>
-                                    <textarea class="form-control" id="edit-course-description" rows="4"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Fichier du Cours</label>
-                                    <div class="current-file-info">
-                                        <div class="alert alert-info">
-                                            <i class="fas fa-file-pdf me-2"></i>
-                                            <span id="current-file-display">intro_algo.pdf</span>
-                                            <button type="button" class="btn btn-sm btn-outline-primary ms-2"
-                                                data-bs-toggle="modal" data-bs-target="#replaceCourseFileModal">
-                                                Changer le fichier
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="edit-actions">
-                                    <button type="button" class="btn btn-outline-secondary"
-                                        onclick="cancelCourseEdit()">
-                                        Annuler
-                                    </button>
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-save"></i>
-                                        Sauvegarder
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-
-
-            <!-- Section Détails des Exercices (Générés par IA)
-            <div id="exercise-details-section" class="content-section" style="display: block;">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h4 id="exercise-title">Exercices Pratiques</h4>
-                                <span class="badge badge-warning">Exercices</span>
-                                <span class="badge badge-success ms-2">
-                                    <i class="fas fa-robot me-1"></i>
-                                    Généré par IA
-                                </span>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn btn-outline-secondary" onclick="goBackToExerciseList()">
-                                    <i class="fas fa-arrow-left"></i>
-                                    Retour
-                                </button>
-                                <button class="btn btn-success" onclick="regenerateExercises()">
-                                    <i class="fas fa-sync-alt"></i>
-                                    Régénérer
-                                </button>
-                                <button class="btn btn-primary" onclick="addCustomExercise()">
-                                    <i class="fas fa-plus"></i>
-                                    Ajouter
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                       
-                        <div class="generation-info mb-4">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Difficulté</span>
-                                        <span class="stat-value" id="exercise-difficulty">Intermédiaire</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Nombre d'exercices</span>
-                                        <span class="stat-value" id="exercise-count">8</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Basé sur</span>
-                                        <span class="stat-value" id="exercise-source">Cours PDF</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Généré le</span>
-                                        <span class="stat-value" id="exercise-generated-date">20 Jan 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                       
-                        <div class="regeneration-panel mb-4" style="display: none;" id="regeneration-options">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6>Options de Régénération</h6>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label class="form-label">Difficulté</label>
-                                            <select class="form-select" id="regen-difficulty">
-                                                <option value="facile">Facile</option>
-                                                <option value="intermediaire" selected>Intermédiaire</option>
-                                                <option value="difficile">Difficile</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="form-label">Nombre d'exercices</label>
-                                            <input type="number" class="form-control" id="regen-count" value="8" min="1"
-                                                max="20">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="form-label">Focus sur</label>
-                                            <select class="form-select" id="regen-focus">
-                                                <option value="general">Général</option>
-                                                <option value="pratique">Pratique</option>
-                                                <option value="theorie">Théorie</option>
-                                                <option value="application">Application</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="mt-3">
-                                        <button class="btn btn-outline-secondary btn-sm"
-                                            onclick="hideRegenerationOptions()">Annuler</button>
-                                        <button class="btn btn-success btn-sm" onclick="confirmRegeneration()">
-                                            <i class="fas fa-magic"></i>
-                                            Générer
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                      
-                        <div class="exercises-list" id="exercises-container">
-                           
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-
-
-            <!-- Section Détails du Quiz (Généré par IA) -->
-            <!-- <div id="quiz-details-section" class="content-section" style="display: block;">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h4 id="quiz-title">Quiz Chapitre 1</h4>
-                                <span class="badge badge-success">Quiz</span>
-                                <span class="badge badge-info ms-2">
-                                    <i class="fas fa-robot me-1"></i>
-                                    Généré par IA
-                                </span>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn btn-outline-secondary" onclick="goBackToQuizList()">
-                                    <i class="fas fa-arrow-left"></i>
-                                    Retour
-                                </button>
-                                <button class="btn btn-warning" onclick="previewQuiz()">
-                                    <i class="fas fa-eye"></i>
-                                    Aperçu
-                                </button>
-                                <button class="btn btn-success" onclick="regenerateQuiz()">
-                                    <i class="fas fa-sync-alt"></i>
-                                    Régénérer
-                                </button>
-                                <button class="btn btn-primary" onclick="publishQuiz()">
-                                    <i class="fas fa-paper-plane"></i>
-                                    Publier
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                 
-                        <div class="quiz-config mb-4">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Questions</span>
-                                        <span class="stat-value" id="quiz-question-count">10</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Durée</span>
-                                        <span class="stat-value" id="quiz-duration">15 min</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Points total</span>
-                                        <span class="stat-value" id="quiz-total-points">50</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Difficulté</span>
-                                        <span class="stat-value" id="quiz-difficulty">Intermédiaire</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Statut</span>
-                                        <span class="badge badge-warning" id="quiz-status">Brouillon</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="quiz-settings mb-4">
-                            <button class="btn btn-outline-primary btn-sm" onclick="toggleQuizSettings()">
-                                <i class="fas fa-cog"></i>
-                                Paramètres Avancés
-                            </button>
-                        </div>
-
-                        <div class="quiz-advanced-settings" id="quiz-advanced-panel" style="display: none;">
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label class="form-label">Tentatives autorisées</label>
-                                            <select class="form-select">
-                                                <option value="1" selected>1 tentative</option>
-                                                <option value="2">2 tentatives</option>
-                                                <option value="3">3 tentatives</option>
-                                                <option value="unlimited">Illimitées</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="form-label">Mélanger les questions</label>
-                                            <select class="form-select">
-                                                <option value="yes" selected>Oui</option>
-                                                <option value="no">Non</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="form-label">Afficher les résultats</label>
-                                            <select class="form-select">
-                                                <option value="immediately" selected>Immédiatement</option>
-                                                <option value="after_due">Après la date limite</option>
-                                                <option value="never">Jamais</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                      
-                        <div class="quiz-questions" id="quiz-questions-container">
-                          
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-
-
-            <!-- Section Détails de l'Évaluation (Générée par IA) -->
-            <!-- <div id="evaluation-details-section" class="content-section" style="display: block;">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <h4 id="evaluation-title">Évaluation Finale</h4>
-                                <span class="badge badge-danger">Évaluation</span>
-                                <span class="badge badge-info ms-2">
-                                    <i class="fas fa-robot me-1"></i>
-                                    Généré par IA
-                                </span>
-                            </div>
-                            <div class="btn-group">
-                                <button class="btn btn-outline-secondary" onclick="goBackToEvaluationList()">
-                                    <i class="fas fa-arrow-left"></i>
-                                    Retour
-                                </button>
-                                <button class="btn btn-info" onclick="previewEvaluation()">
-                                    <i class="fas fa-eye"></i>
-                                    Aperçu
-                                </button>
-                                <button class="btn btn-success" onclick="regenerateEvaluation()">
-                                    <i class="fas fa-sync-alt"></i>
-                                    Régénérer
-                                </button>
-                                <button class="btn btn-warning" onclick="launchEvaluation()">
-                                    <i class="fa-solid fa-comment-dots"></i>
-                                    Feedback
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                   
-                        <div class="evaluation-control-panel mb-4">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Questions</span>
-                                        <span class="stat-value" id="eval-question-count">15</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Durée</span>
-                                        <span class="stat-value" id="eval-duration">90 min</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Points total</span>
-                                        <span class="stat-value" id="eval-total-points">100</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Date limite</span>
-                                        <span class="stat-value" id="eval-due-date">Non définie</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Statut</span>
-                                        <span class="badge badge-secondary" id="eval-status">Préparation</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="evaluation-config mb-4">
-                            <button class="btn btn-outline-primary btn-sm" onclick="toggleEvaluationSettings()">
-                                <i class="fas fa-cog"></i>
-                                Configuration de l'Évaluation
-                            </button>
-                        </div>
-
-                        <div class="evaluation-settings-panel" id="evaluation-settings-panel" style="display: none;">
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="form-label">Date et heure de début</label>
-                                            <input type="datetime-local" class="form-control" id="eval-start-date">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="form-label">Date et heure de fin</label>
-                                            <input type="datetime-local" class="form-control" id="eval-end-date">
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-md-4">
-                                            <label class="form-label">Note de passage (%)</label>
-                                            <input type="number" class="form-control" value="60" min="0" max="100">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="form-label">Tentatives</label>
-                                            <select class="form-select">
-                                                <option value="1" selected>1 seule tentative</option>
-                                                <option value="2">2 tentatives</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="form-label">Surveillance</label>
-                                            <select class="form-select">
-                                                <option value="none">Aucune</option>
-                                                <option value="basic" selected>Basique</option>
-                                                <option value="advanced">Avancée</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="evaluation-questions" id="evaluation-questions-container">
-                         
-                        </div>
-
-                     
-                        <div class="launch-controls mt-4" style="display: none;" id="launch-controls">
-                            <div class="alert alert-warning">
-                                <i class="fas fa-exclamation-triangle me-2"></i>
-                                <strong>Attention :</strong> Une fois lancée, l'évaluation sera accessible aux étudiants
-                                selon la planification définie.
-                            </div>
-                            <div class="d-flex gap-2">
-                                <button class="btn btn-outline-secondary"
-                                    onclick="hideLaunchControls()">Annuler</button>
-                                <button class="btn btn-warning" onclick="confirmLaunchEvaluation()">
-                                    <i class="fas fa-rocket"></i>
-                                    Confirmer le Lancement
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-
-
-
+        
         </div>
 
 
@@ -4021,7 +3475,7 @@
             }
 
             // Créer la carte du module
-            const moduleCard = createModuleCard(module);
+            const moduleCard = createModuleCard1(module);
 
             // Ajouter avec animation
             moduleCard.style.opacity = '0';
@@ -4038,60 +3492,9 @@
             console.log('Module ajouté à l\'interface:', module.titre);
         }
 
-        // Fonction utilitaire pour créer une carte de module
-        function createModuleCard(module) {
-            const card = document.createElement('div');
-            card.className = 'course-card';
-            card.setAttribute('data-module-id', module.id);
-
-            // Déterminer l'icône selon le domaine
-            const domainIcons = {
-                'informatique': 'fas fa-code',
-                'mathematiques': 'fas fa-calculator',
-                'sciences': 'fas fa-flask',
-                'lettres': 'fas fa-book',
-                'physique': 'fas fa-atom',
-                'chimie': 'fas fa-vial',
-                'biologie': 'fas fa-dna'
-            };
-
-            const icon = domainIcons[module.domaine?.toLowerCase()] || 'fas fa-graduation-cap';
-
-            card.innerHTML = `
-        <div class="course-image">
-            <i class="${icon}"></i>
-        </div>
-        <div class="course-content">
-            <h4 class="course-title">${module.titre}</h4>
-            <div class="course-meta">
-                Code: ${module.code || 'N/A'} • Niveau: ${module.niveau || 'N/A'}
-                <br>
-                <small class="text-muted">Créé le ${formatDate(module.date_creation)}</small>
-            </div>
-            <div class="course-description">
-                
-            </div>
-            <div class="course-actions mt-3">
-                <button class="btn btn-sm btn-primary" onclick="editModule(${module.id})">
-                    <i class="fas fa-edit"></i>
-                    Modifier
-                </button>
-                <button class="btn btn-sm btn-success" onclick="showModuleDetails('${module.titre}', '${module.code}')">
-                    <i class="fas fa-eye"></i>
-                    Détails
-                </button>
-                <button class="btn btn-sm btn-danger" onclick="deleteModule(${module.id}, '${module.titre}')">
-                    <i class="fas fa-trash"></i>
-                    Supprimer
-                </button>
-            </div>
-        </div>
-    `;
-
-            return card;
-        }
-
-        // Fonction pour supprimer un module
+      
+        
+            // Fonction pour supprimer un module
         function deleteModule(moduleId, moduleName) {
             moduleToDelete = moduleId;
             document.getElementById('module-to-delete-name').textContent = moduleName;
@@ -4184,7 +3587,7 @@
                         // Ajouter chaque module avec animation
                         data.modules.forEach((module, index) => {
                             setTimeout(() => {
-                                const moduleCard = createModuleCard(module);
+                                const moduleCard = createModuleCard1(module);
                                 moduleCard.style.opacity = '0';
                                 moduleCard.style.transform = 'translateY(20px)';
                                 container.appendChild(moduleCard);
@@ -4913,15 +4316,16 @@
 
                 if (response.ok && dataadd.success) {
                     console.log('Contenu créé avec succès:', dataadd.type);
-
+              
                     // Chargement des détails du module
                     const detailResponse = await fetch(`/api/module-details/${dataadd.content.code}/`);
                     const detailData = await detailResponse.json();
                     const moduleContentList = document.getElementById('module-content-list');
-
+                    console.log('Détails du module chargés:', detailData);
+                
                     if (detailResponse.ok) {
                         moduleContentList.innerHTML = '';
-
+                        
                         detailData.cours.forEach(cours => {
                             const courseCard = createModuleCard("cours", cours.titre, code, "fas fa-book", "Cours", cours.file_url ?? null, cours.code ?? null);
                             moduleContentList.appendChild(courseCard);
@@ -5292,71 +4696,7 @@
                 document.getElementById('module-content-list').innerHTML = `<p class="text-danger">Impossible de charger les données.</p>`;
             }
 
-            // 🔥 Fonction générique pour créer une carte de module
-            function createModuleCard(type, title, code, iconClass, badgeText, fileUrl = null, data = null) {
-                console.log("Data Exercice: ", data)
-                console.log("Lien: ", fileUrl);
-                console.log("Type: ", type);
-                const card = document.createElement("div");
-                let code_cours = null;
-                card.className = "course-card";
-                card.setAttribute("data-type", type);
-                card.setAttribute("data-title", title);
-                card.setAttribute("data-code", code);
-                if (type == 'exercice') {
-                    card.setAttribute("data-exercice", JSON.stringify(data));
-                }
-                if (type == 'cours') {
-                    code_cours = data
-                }
-
-
-
-                card.innerHTML = `
-        <div class="course-image">
-            <i class="${iconClass}"></i>
-        </div>
-        <div class="course-content">
-            <h4 class="course-title">${title}</h4>
-            <div class="course-meta">Code: ${code}</div>
-            <div class="badge badge-info mb-2">${badgeText}</div>
-            <div class="progress">
-                <div class="progress-bar" style="width: 0%"></div>
-            </div>
-            <div class="course-actions mt-3">
-               <button class="btn btn-sm btn-success btn-feedback" data-code="${code_cours}">
-                <i class="fa-solid fa-comment-dots"></i> Feedback
-            </button>
-
-                <button class="btn btn-sm btn-secondary">
-                  <i class="fa-solid fa-pen-to-square"></i> Modifier
-                </button>
-                
-               <button class="btn btn-sm btn-info show-details-btn">
-  <i class="fas fa-eye"></i> Détails
-</button>
-
-                <button class="btn btn-sm btn-danger">
-                    <i class="fas fa-trash"></i> Supprimer
-                </button>
-            </div>
-        </div>
-    `;
-                const detailsBtn = card.querySelector(".show-details-btn");
-                if (type == 'exercice') {
-                    detailsBtn.addEventListener("click", () => {
-                        const exerciceData = JSON.parse(card.getAttribute("data-exercice"));
-                        showContentDetails(type, title, code, fileUrl, exerciceData);
-                    });
-                } else if (type == 'cours') {
-                    detailsBtn.addEventListener("click", () => {
-                        showContentDetails(type, title, code, fileUrl);
-                    });
-                }
-
-
-                return card;
-            }
+ 
         }
 
         // Retour aux modules
@@ -6300,6 +5640,138 @@
             }
             return cookieValue;
         }
+
+
+
+
+
+
+
+
+
+
+
+          // Fonction utilitaire pour créer une carte de module
+        function createModuleCard1(module) {
+            console.log('Création de la carte pour le module:' ,module);
+            const card = document.createElement('div');
+            card.className = 'course-card';
+            card.setAttribute('data-module-id', module.id);
+
+            // Déterminer l'icône selon le domaine
+            const domainIcons = {
+                'informatique': 'fas fa-code',
+                'mathematiques': 'fas fa-calculator',
+                'sciences': 'fas fa-flask',
+                'lettres': 'fas fa-book',
+                'physique': 'fas fa-atom',
+                'chimie': 'fas fa-vial',
+                'biologie': 'fas fa-dna'
+            };
+
+            const icon = domainIcons[module.domaine?.toLowerCase()] || 'fas fa-graduation-cap';
+
+            card.innerHTML = `
+        <div class="course-image">
+            <i class="${icon}"></i>
+        </div>
+        <div class="course-content">
+            <h4 class="course-title">${module.titre}</h4>
+            <div class="course-meta">
+                Code: ${module.code || 'N/A'} • Niveau: ${module.niveau || 'N/A'}
+                <br>
+                <small class="text-muted">Créé le ${formatDate(module.date_creation)}</small>
+            </div>
+            <div class="course-description">
+                
+            </div>
+            <div class="course-actions mt-3">
+                <button class="btn btn-sm btn-primary" onclick="editModule(${module.id})">
+                    <i class="fas fa-edit"></i>
+                    Modifier
+                </button>
+                <button class="btn btn-sm btn-success" onclick="showModuleDetails('${module.titre}', '${module.code}')">
+                    <i class="fas fa-eye"></i>
+                    Détails
+                </button>
+                <button class="btn btn-sm btn-danger" onclick="deleteModule(${module.id}, '${module.titre}')">
+                    <i class="fas fa-trash"></i>
+                    Supprimer
+                </button>
+            </div>
+        </div>
+    `;
+
+            return card;
+        }
+
+
+                   // 🔥 Fonction générique pour créer une carte de module
+        function createModuleCard(type, title, code, iconClass, badgeText, fileUrl = null, data = null) {
+                console.log("Data Exercice: ", data)
+                console.log("Lien: ", fileUrl);
+                console.log("Type: ", type);
+                const card = document.createElement("div");
+                let code_cours = null;
+                card.className = "course-card";
+                card.setAttribute("data-type", type);
+                card.setAttribute("data-title", title);
+                card.setAttribute("data-code", code);
+                if (type == 'exercice') {
+                    card.setAttribute("data-exercice", JSON.stringify(data));
+                }
+                if (type == 'cours') {
+                    code_cours = data
+                }
+
+
+
+                card.innerHTML = `
+        <div class="course-image">
+            <i class="${iconClass}"></i>
+        </div>
+        <div class="course-content">
+            <h4 class="course-title">${title}</h4>
+            <div class="course-meta">Code: ${code}</div>
+            <div class="badge badge-info mb-2">${badgeText}</div>
+            <div class="progress">
+                <div class="progress-bar" style="width: 0%"></div>
+            </div>
+            <div class="course-actions mt-3">
+               <button class="btn btn-sm btn-success btn-feedback" data-code="${code_cours}">
+                <i class="fa-solid fa-comment-dots"></i> Feedback
+            </button>
+
+                <button class="btn btn-sm btn-secondary">
+                  <i class="fa-solid fa-pen-to-square"></i> Modifier
+                </button>
+                
+               <button class="btn btn-sm btn-info show-details-btn">
+  <i class="fas fa-eye"></i> Détails
+</button>
+
+                <button class="btn btn-sm btn-danger">
+                    <i class="fas fa-trash"></i> Supprimer
+                </button>
+            </div>
+        </div>
+    `;
+                const detailsBtn = card.querySelector(".show-details-btn");
+                if (type == 'exercice') {
+                    detailsBtn.addEventListener("click", () => {
+                        const exerciceData = JSON.parse(card.getAttribute("data-exercice"));
+                        showContentDetails(type, title, code, fileUrl, exerciceData);
+                    });
+                } else if (type == 'cours') {
+                    detailsBtn.addEventListener("click", () => {
+                        showContentDetails(type, title, code, fileUrl);
+                    });
+                }
+
+
+                return card;
+            }
+        
     </script>
 
 

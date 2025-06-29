@@ -21,4 +21,4 @@ djangorestframework_simplejwt
 django-cors-headers
 django-storages[azure]
 azure-storage-blob
-
+sentence-transformers

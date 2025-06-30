@@ -527,7 +527,7 @@ def module_details(request, code):
                 host = request.get_host()
                 cours["file_url"] = f"{host}" + settings.MEDIA_URL + str(file_instance)  # Génération de l'URL complète
                 cours["file"] = f"{host}" + settings.MEDIA_URL + str(file_instance)  # Génération de l'URL complète
-        print("Data: ", data)        
+        #print("Data: ", data)        
 
         return JsonResponse(data)
 
@@ -551,7 +551,9 @@ def create_content(request):
         module_code = data.get("module_code")
         
         #print("Content Type: ", content_type, "Module Code: ", module_code)
-        print("Data: ", data)
+        print("=="*10)
+        print("Données: ", data)
+        print("=="*10)
         try:
             module = Module.objects.get(code=module_code)
 
@@ -594,8 +596,9 @@ def create_content(request):
                 })
 
             elif content_type == "exercice":
-                cours_code = data.get("code")
-                cours = Cours.objects.get(code = "BD3935")
+                cours_id = data.get("course_id")
+                
+                cours = Cours.objects.get(id = int(cours_id))
                 
                 
                 TAXONOMY_CHOICES = {
@@ -632,7 +635,7 @@ def create_content(request):
                 Format de l'exerice attendu:
                
                 [
-                "Contexte ou introduction ou consigne de l'exercice",
+                "consigne de l'exercice",
                 "1. Texte de la question 1",
                 "2. Texte de la question 2",
                 "3. Texte de la question 3",
@@ -648,12 +651,13 @@ def create_content(request):
                 rag_response = rag_answer(question_prompt, persist_path, llm)
 
                 print(rag_response)
+                
                
                 # 🔹 Création de l'exercice avec la réponse générée
                 exercice = Exercice.objects.create(
                     titre = data.get("title"),
                     module=module,
-                   question=json.dumps(rag_response),
+                   question=json.dumps(rag_response[1:]),
                     reponse_attendue="Réponse attendue à compléter."
                 )
                 print("=="*10)

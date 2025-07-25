@@ -111,6 +111,7 @@ def home(request):
         context['status'] = "Etudiant"
     return render(request, template_name="home.html", context=context)
 
+from django.utils.translation import gettext as _
 
 @login_required
 def index(request):
@@ -123,7 +124,8 @@ def index(request):
     
     context["identifiant"]= indentifiant
     if request.user.groups.filter(name='Professeur').exists():
-        context['status'] = "Professeur"
+        prof = _("Professeur")
+        context['status'] = prof
         modules = Module.objects.filter(auteur=request.user)
         courses = Cours.objects.filter(author=request.user)
         print("Modules: ", courses)
@@ -516,10 +518,10 @@ def module_details(request, code):
             "titre": module.titre,
             "cours": list(module.cours.values("titre", "contenu", "file", "code")),  # Ajout du fichier
             "exercices": [{"titre": e.titre,"question": json.loads(e.question),  "reponse_attendue": e.reponse_attendue}for e in module.exercices.all()],
-            "quizz": list(module.quizz.values("question", "choix", "bonne_reponse")),
-            "evaluations": list(module.evaluations.values("titre", "consignes", "contenu")),
+            "quizz": list(module.quizz.values("questions", "max_score", "quiz_title")),
+           # "evaluations": list(module.evaluations.values("titre", "consignes", "contenu")),
         }
-
+        print(data['quizz'])
         # 🔹 Générer l'URL du fichier correctement
         for cours in data["cours"]:
             if cours.get("file"):
@@ -537,10 +539,142 @@ def module_details(request, code):
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import Module, Cours, Exercice, Quiz, Evaluation
+from .models import *
 from .utils.prompt import feedback_prompt
 from .utils.rag import *
 from .utils.ai_prompt import *
+
+import json
+import re
+from openai import AzureOpenAI
+2
+
+def extract_json(text):
+    """
+    Extrait un objet JSON valide depuis un texte potentiellement bruité.
+    """
+    try:
+        # Essai direct
+        print("$$", "debut transformation")
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+
+    # Recherche d'un bloc JSON avec des accolades
+    match = re.search(r"\{[\s\S]+\}", text)
+    if match:
+        try:
+            return json.loads(match.group(0))
+        except json.JSONDecodeError:
+            pass
+
+    # Si rien ne marche
+    print("Impossible d'extraire du JSON valide depuis le texte renvoyé.")
+    raise ValueError("Impossible d'extraire du JSON valide depuis le texte renvoyé.")
+
+
+def relevant_docs(path):
+    print("__"*10)
+    llm_azure = AzureChatOpenAI(
+        openai_api_version="2024-07-01-preview",
+        deployment_name="gpt-35-turbo-chefquiz",
+        openai_api_key=settings.AZURE_EMBEDDING_API_KEY,
+        openai_api_type='azure',
+        azure_endpoint="https://realtimekokou.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-08-01-preview",
+    )
+
+    # URL du fichier FAISS dans Azure Blob Storage
+    faiss_url = f"https://chefquizstockage.blob.core.windows.net/media/{path}/index.faiss"
+    pickle_url = f"https://chefquizstockage.blob.core.windows.net/media/{path}/index.pkl"
+
+    # Créer un chemin temporaire local pour les fichiers téléchargés
+    folder_path = os.path.join(settings.MEDIA_ROOT, path)
+    temp_file_path_faiss = os.path.join(folder_path, "index.faiss")
+    temp_file_path_pickle = os.path.join(folder_path, "index.pkl")
+
+    print(folder_path, )
+    # Télécharger les fichiers depuis Azure Blob Storage
+    download_file_from_url(faiss_url, temp_file_path_faiss)
+    download_file_from_url(pickle_url, temp_file_path_pickle)
+    print("=="*10, "downlad")
+    # Charger l'index FAISS localement depuis le fichier téléchargé
+    vectordb = FAISS.load_local(folder_path, embeddings, allow_dangerous_deserialization=True)
+    
+    # Supprimer les fichiers locaux temporaires après utilisation
+    if os.path.exists(temp_file_path_faiss):
+        os.remove(temp_file_path_faiss)
+        print(f"Fichier local temporaire {temp_file_path_faiss} supprimé.")
+
+    if os.path.exists(temp_file_path_pickle):
+        os.remove(temp_file_path_pickle)
+        print(f"Fichier local temporaire {temp_file_path_pickle} supprimé.")
+
+    # Exécuter la chaîne de questions-réponses
+    qa_chain = RetrievalQA.from_chain_type(
+        llm_azure,
+        retriever=vectordb.as_retriever(),
+        return_source_documents=True,
+    )
+    print("="*4, qa_chain, "="*4)
+    result = qa_chain.invoke({
+        "query": "Donne moi les parties les plus pertinentes de ce document un peu difficiles à comprendre",
+        "search_kwargs": {"k": 8}
+    })
+
+    documents = " ".join([docs.page_content for docs in result['source_documents']])
+    print(result)
+    return documents
+
+
+def chat_with_openai(number, difficulty, path):
+    AZURE_CHAT_ENDPOINT = "https://realtimekokou.openai.azure.com/openai/deployments/gpt-4-0613/chat/completions?api-version=2024-10-21"
+    AZURE_CHAT_API_KEY = "h5R1YOBt2Q5WU56488stKWc7GiO9nEG3Z344ITLK3mTb6uGkdlKLJQQJ99BAACYeBjFXJ3w3AAABACOGLM5j"
+
+    client = AzureOpenAI(
+        api_key=AZURE_CHAT_API_KEY,
+        api_version="2024-10-21",
+        azure_endpoint=AZURE_CHAT_ENDPOINT
+    )
+
+    print('path: ', path, "==" * 4)
+    context = relevant_docs(path)
+    print("Context: ", context)
+
+    prompt = f"""
+    Génère un quiz de {number} questions basé sur ce texte :
+
+    {context}
+
+    Niveau de difficulté : {difficulty}.
+    Le quiz doit être en français.
+    Le format de sortie doit être exactement :
+    {json.dumps(RESPONSE_JSON, ensure_ascii=False, indent=2)}
+
+    Ne mets **rien d’autre** autour du JSON.
+    Les options doivent être des phrases complètes, pas juste des mots.
+    """
+
+    print("Seconde step: ", "==" * 5)
+
+    chat_completion = client.chat.completions.create(
+        model="gpt-4-0613",
+        messages=[
+            {"role": "system", "content": "Tu es un expert en création de QCM."},
+            {"role": "user", "content": prompt},
+        ]
+    )
+
+    print("Initialisation terminée.")
+    response_text = chat_completion.choices[0].message.content
+    print("Réponse OpenAI :\n", response_text)
+
+    json_data = extract_json(response_text)
+    # except ValueError as e:
+    #     print("Erreur d'extraction JSON :", e)
+    #     json_data = None
+    print("=="*10)
+    return json_data
+
 
 
 @csrf_exempt
@@ -554,6 +688,14 @@ def create_content(request):
         print("=="*10)
         print("Données: ", data)
         print("=="*10)
+        TAXONOMY_CHOICES = {
+                   'connaissance':'remember',
+                    'comprehension': 'understand', 
+                     'application': 'apply',
+                     'analyse': 'analyse',
+                     'Évaluation': 'evaluate',
+                     'Créer': 'create',
+                }
         try:
             module = Module.objects.get(code=module_code)
 
@@ -601,14 +743,7 @@ def create_content(request):
                 cours = Cours.objects.get(id = int(cours_id))
                 
                 
-                TAXONOMY_CHOICES = {
-                   'connaissance':'remember',
-                    'comprehension': 'understand', 
-                     'Appliquer': 'apply',
-                     'Analyser': 'analyse',
-                     'Évaluer': 'evaluate',
-                     'Créer': 'create',
-                }
+                
                 bloomLevel = TAXONOMY_CHOICES[data.get("bloomLevel").lower()]
                 
                 prompt_update = PromptMemoire.objects.filter(cours = cours, niveau_taxonomie = bloomLevel)[0]
@@ -671,17 +806,202 @@ def create_content(request):
                 })
 
             elif content_type == "quiz":
-                quiz = Quiz.objects.create(
-                    module=module,
-                    question=data.get("title"),
-                    choix={"A": "Choix A", "B": "Choix B", "C": "Choix C", "D": "Choix D"},
-                    bonne_reponse="A"
+                print("--"*8, "quiz", "-"*8)
+                cours_id = data.get("course_id")
+                cours = Cours.objects.filter(id = cours_id)[0]
+                bloomLevel = TAXONOMY_CHOICES[data.get("bloomLevel").lower()]
+                prompt_update = PromptMemoire.objects.filter(cours = cours, niveau_taxonomie = bloomLevel)[0]
+                persist_path = os.path.join("media", "chroma", module_code+"_1") 
+                question_prompt = f"""
+                
+
+                
+                ---
+
+               Tu es un assistant pédagogique intelligent qui génère les quiz..
+
+                ---
+
+                🎯 **CONSIGNES DE CONCEPTION** :
+
+                Analyse les éléments suivants pour personnaliser le quiz :
+                - Niveau de maîtrise actuel de l'élève
+                - Progression d'apprentissage
+                - Objectifs pédagogiques associés
+                - Exemples de questions types fournis par l'enseignant
+
+                Utilise ce prompt de référence pédagogique :
+                {prompt_update.prompt}
+
+                Et les exemples fournis par l'enseignant :
+                {prompt_update.retour_enseignant}
+
+                ---
+
+                🎲 **SÉLECTION DES FORMATS DE QUESTIONS** :
+
+                - Pour les niveaux *Se souvenir / Comprendre* :
+                    - QCM à réponse unique
+                    - Vrai/faux avec justification
+                    - Remplissage des blancs
+                    - Questions courtes
+
+                - Pour les niveaux *Appliquer / Analyser* :
+                    - QCM scénarisés
+                    - Études de cas
+                    - Résolution de problèmes
+
+                - Pour les niveaux *Évaluer / Créer* :
+                    - Mini-dissertations
+                    - Défis créatifs
+                    - Tâches ouvertes
+
+                Tu dois mélanger les types suivants :
+                - `mcq` : QCM à une seule bonne réponse
+                - `multi_mcq` : QCM à plusieurs bonnes réponses
+                - `fill_blank` : Complétion de phrase
+                - `short_answer` : Réponse courte
+
+                ---
+
+                ✅ **CRITÈRES DE QUALITÉ** :
+
+                Chaque question doit respecter :
+                - L’alignement avec le niveau de Bloom demandé
+                - Un langage clair, sans ambiguïté
+                - Une pertinence pédagogique forte
+                - Une difficulté adaptée à la progression de l’élève
+                - Une capacité à différencier les niveaux de compréhension
+                - Une authenticité liée à des situations réelles si possible
+
+                ---
+                
+                Ta tâche est de générer un **quiz personnalisé** pour le module **'{module.titre}'** contenant {data.get("questionCount")[:]} questions QCM, dans le domaine **'{data.get("domain")[0]}'**.
+
+                Ce quiz vise un niveau **{bloomLevel}** selon la **Taxonomie de Bloom**, avec un **niveau de difficulté '{data.get("aiDifficulty")[0]}'**, adapté au niveau actuel de l’élève.
+                
+                 **MÉTADONNÉES DU QUIZ** :
+                - Sujet : {data.get("domain")[0]}
+                - Niveau Cognitif : {bloomLevel}
+                - Dimension de Connaissance : {data.get("evaluationType")[0]}
+                - Objectif pédagogique visé : {bloomLevel}
+                - Difficulté estimée : {data.get("aiDifficulty")[0]}
+                - Type d’évaluation : {data.get("evaluationType")[0]}
+                - Score maximal : {data.get("maxScore")[0]} points
+                - Nombre de questions : {data.get("questionCount")[:]} questions
+
+                *** Tout le texte du quiz doit etre en **Markdown** (pour les blakn filling, les checkbox, les inputs...) ***
+                \n -----------------\n 
+                - Utilise toujours les  (") et non les single quote ('), comme c'est un json
+                \n -----------------\n 
+                **FORMAT DE SORTIE JSON DU QUIZ ATTENDU** :
+
+                [
+                    {{
+                        "no": 1,
+                        "type": "mcq" | "multi_mcq" | "fill_blank" | "short_answer",
+                        "question": "*Texte de la question*",
+                        "options": [  
+                             Berlin  ,
+                           Madrid  ,
+                            Paris  ,
+                            Rome 
+                            ],  # uniquement si type = mcq ou multi_mcq
+                        "correct": "Réponse attendue ou liste des réponses si multi_mcq",
+                        "score": 10
+                    }},
+                    ...
+                ]
+                  
+                 Assure-toi que le format est strictement respecté. Varie les types de questions et que le texte soit en **markdown**.
+                 Assures-toi d'avoir generer {data.get("questionCount")[:]} nombres de questions.
+                 Tout le texte du quiz doit etre en **Markdown** (pour les blakn filling, les checkbox, les inputs...)
+                """
+
+                print("Question Prompt:\n", question_prompt)
+                print("--" * 10)
+
+                # 🔥 Génération via RAG
+                rag_response = rag_answer(question_prompt, persist_path, llm)
+
+                print(rag_response)
+               
+               
+                # Création du quiz
+                quiz = Quiz_AI.objects.create(
+                    quiz_title=data.get("title"),
+                    quiz_description=data.get("description"),
+                    course=cours,
+                    max_score=sum(q['score'] for q in rag_response),
+                    module = module,
+                   
                 )
+
+                # Enregistrement des questions
+                for q in rag_response:
+                    QuestionAnswers.objects.create(
+                        quiz=quiz,
+                        numero=q['no'],
+                        question_text=q['question'],
+                        options=q.get('options'),  # JSONField accepte None si absent
+                        great_answer=q['correct'],
+                        score=q['score'],
+                        required_time=60  # valeur par défaut, à adapter si besoin
+                    )
+                quiz.questions = [q.question_text for q in QuestionAnswers.objects.filter(quiz=quiz)]
+                quiz.save()
+
+                print("✅ Quiz et questions enregistrés avec succès.")
+
                 return JsonResponse({
-                    "success": True,
-                    "type": "quiz",
-                    "content": {"titre": quiz.question, "code": module_code}
-                })
+                "success": True,
+                "type": "quiz",
+                "quiz_title": data.get("title"),
+                "content": {
+                    "titre": [
+                        {
+                            "numero": q.numero,
+                            "question_text": q.question_text,
+                            "score": q.score,
+                            "options": q.options,
+                            "great_answer": q.great_answer,
+                        }
+                        for q in QuestionAnswers.objects.filter(quiz=quiz)
+                    ],
+                    "code": module_code
+                }
+            })
+
+
+                # data = raw_response
+                # # try:
+                # #     data = json.loads(raw_response)
+                # # except json.JSONDecodeError:
+                # #     return JsonResponse({'error': 'Réponse JSON invalide du modèle IA.', 'raw': raw_response}, status=500)
+                
+                # print("==", "save begin", "==")
+                # # Création des questions
+                # for key, value in data.items():
+                #     QuestionAnswers.objects.create(
+                #         quiz=quiz,
+                #         question_text=value.get('mcq', ''),
+                #         numero=int(value.get("no", 0)),
+                #         options=value.get("options", []),
+                #         great_answer=value.get('correct', ''),
+                #         required_time=60,
+                #         score=10,
+                #     )
+                # quiz = Quiz.objects.create(
+                #     module=module,
+                #     question=data.get("title"),
+                #     choix={"A": "Choix A", "B": "Choix B", "C": "Choix C", "D": "Choix D"},
+                #     bonne_reponse="A"
+                # )
+                # return JsonResponse({
+                #     "success": True,
+                #     "type": "quiz",
+                #     "content": {"titre": quiz.question, "code": module_code}
+                # })
 
             elif content_type == "evaluation":
                 evaluation = Evaluation.objects.create(

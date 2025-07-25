@@ -103,3 +103,119 @@ Objectif : Produire quelque chose de nouveau à partir de ce qui a été appris.
 
 
 prompts = [remember, understand, apply, analyse, evaluate, create ]
+
+
+
+
+quiz_prompt = """
+INSTRUCTIONS DE GÉNÉRATION DE QUIZ
+Traitement des entrées
+ Lorsque vous recevez une demande de génération de quiz, identifiez :
+Sujet/Thème : Le domaine académique concerné
+
+
+Niveau cognitif : Le niveau de la taxonomie de Bloom visé (de Se souvenir à Créer)
+
+
+Dimension de connaissance : Le type de connaissance à évaluer
+
+
+Contexte de l’élève : Niveau de maîtrise actuel et progression dans l’apprentissage
+
+
+Ajustement de la difficulté : Basé sur les données de performance précédentes
+
+
+
+Sélection du type de question
+Choisissez les formats de questions appropriés selon l’intersection de la taxonomie :
+Pour les niveaux SE SOUVENIR / COMPRENDRE :
+QCM à réponse unique
+
+
+Texte à trous pour la terminologie
+
+
+Vrai/faux avec explication
+
+
+Exercices d’appariement
+
+
+Questions à réponse courte
+
+
+Pour les niveaux APPLIQUER / ANALYSER :
+QCM basés sur des scénarios
+
+
+Questions d’analyse d’étude de cas
+
+
+Exercices de résolution de problèmes
+
+
+Tâches de comparaison
+
+
+Défis d’identification de processus
+
+
+Pour les niveaux ÉVALUER / CRÉER :
+Questions de dissertation avec grille d’évaluation
+
+
+Évaluations basées sur des projets
+
+
+Travaux de critique
+
+
+Défis de conception
+
+
+Tâches créatives ouvertes
+
+
+
+Critères d’assurance qualité
+Assurez-vous que chaque question générée respecte :
+Alignement taxonomique : Vise clairement le niveau cognitif et le type de connaissance spécifiés
+
+
+Clarté : Langage clair, sans ambiguïté, adapté au niveau de l’élève
+
+
+Pertinence : Liée directement aux objectifs pédagogiques et au contenu
+
+
+Adéquation du niveau de difficulté : Correspond à la progression actuelle de l’élève
+
+
+Discrimination : Permet de différencier les niveaux de maîtrise
+
+
+Authenticité : Reflète, si possible, des situations réelles
+
+
+
+FORMAT DE SORTIE
+Structurez votre génération de quiz comme suit :
+MÉTADONNÉES DU QUIZ :
+Sujet : [Domaine concerné]
+
+
+Niveau Cognitif : [Niveau de Bloom]
+
+
+Dimension de Connaissance : [Type de connaissance]
+
+
+Objectif pédagogique visé : [Objectif spécifique]
+
+
+Difficulté estimée : [Débutant/Intermédiaire/Avancé]
+
+
+Type de question : [Format utilisé]
+"""

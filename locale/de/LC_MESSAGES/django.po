@@ -1,0 +1,2698 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-25 02:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\kalansoapp\views.py:127 .\templates\prof_dash.html:1504
+msgid "Professeur"
+msgstr "Lehrer"
+
+#: .\lms_project\settings.py:138 .\templates\prof_dash.html:1585
+msgid "English"
+msgstr "Englisch"
+
+#: .\lms_project\settings.py:139 .\templates\prof_dash.html:1584
+#: .\templates\prof_dash.html:2823
+msgid "Français"
+msgstr "Französisch"
+
+#: .\lms_project\settings.py:140 .\templates\prof_dash.html:1586
+msgid "Deutsch"
+msgstr "Deutsch"
+
+#: .\templates\prof_dash.html:1467 .\templates\prof_dash.html:1568
+msgid "Tableau de bord"
+msgstr ""
+
+#: .\templates\prof_dash.html:1471
+msgid "Modules"
+msgstr "Module"
+
+#: .\templates\prof_dash.html:1475
+msgid "Générateur Quiz IA"
+msgstr "KI-Quiz-Generator"
+
+#: .\templates\prof_dash.html:1479
+msgid "Liste des Quiz"
+msgstr "Quizliste"
+
+#: .\templates\prof_dash.html:1483 .\templates\prof_dash.html:2210
+msgid "Mes Étudiants"
+msgstr "Meine Studenten"
+
+#: .\templates\prof_dash.html:1487 .\templates\prof_dash.html:1749
+#: .\templates\prof_dash.html:2164 .\templates\prof_dash.html:2191
+#: .\templates\prof_dash.html:2356
+msgid "Statistiques"
+msgstr "Statistiken"
+
+#: .\templates\prof_dash.html:1491 .\templates\prof_dash.html:2432
+#: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
+msgid "Messages"
+msgstr "Nachrichten"
+
+#: .\templates\prof_dash.html:1495 .\templates\prof_dash.html:2509
+msgid "Paramètres"
+msgstr "Einstellungen"
+
+#: .\templates\prof_dash.html:1509
+msgid "Accueil"
+msgstr "Startseite"
+
+#: .\templates\prof_dash.html:1513
+msgid "Déconnexion"
+msgstr "Abmelden"
+
+#: .\templates\prof_dash.html:1525
+msgid "Remplacer le Fichier du Cours"
+msgstr "Kursdatei ersetzen"
+
+#: .\templates\prof_dash.html:1531
+msgid "Glissez-déposez votre nouveau fichier ici"
+msgstr "Ziehen Sie Ihre neue Datei hierher"
+
+#: .\templates\prof_dash.html:1532
+msgid "ou cliquez pour parcourir"
+msgstr "oder klicken Sie zum Durchsuchen"
+
+#: .\templates\prof_dash.html:1533
+msgid "Formats acceptés: PDF, DOC, DOCX, PPT, PPTX (Max: 50MB)"
+msgstr "Erlaubte Formate: PDF, DOC, DOCX, PPT, PPTX (Max: 50MB)"
+
+#: .\templates\prof_dash.html:1549 .\templates\prof_dash.html:2652
+#: .\templates\prof_dash.html:2683 .\templates\prof_dash.html:3053
+msgid "Annuler"
+msgstr "Abbrechen"
+
+#: .\templates\prof_dash.html:1553
+msgid "Remplacer"
+msgstr "Ersetzen"
+
+#: .\templates\prof_dash.html:1583 .\templates\prof_dash.html:2819
+msgid "Langue"
+msgstr "Sprache"
+
+#: .\templates\prof_dash.html:1634
+msgid "Cours créés"
+msgstr "Erstellte Kurse"
+
+#: .\templates\prof_dash.html:1637
+msgid "+3 ce mois"
+msgstr "+3 diesen Monat"
+
+#: .\templates\prof_dash.html:1648
+msgid "Étudiants inscrits"
+msgstr "Eingeschriebene Studenten"
+
+#: .\templates\prof_dash.html:1651
+msgid "+18 cette semaine"
+msgstr "+18 diese Woche"
+
+#: .\templates\prof_dash.html:1662
+msgid "Quiz générés"
+msgstr "Erstellte Quizze"
+
+#: .\templates\prof_dash.html:1665
+msgid "+8 cette semaine"
+msgstr "+8 diese Woche"
+
+#: .\templates\prof_dash.html:1676
+msgid "Taux de réussite moyen"
+msgstr "Durchschnittliche Erfolgsquote"
+
+#: .\templates\prof_dash.html:1679
+#, python-format
+msgid "+5%% ce mois"
+msgstr "+5%% diesen Monat"
+
+#: .\templates\prof_dash.html:1689
+msgid "Activité récente"
+msgstr "Letzte Aktivität"
+
+#: .\templates\prof_dash.html:1690
+msgid "Voir tout"
+msgstr "Alles anzeigen"
+
+#: .\templates\prof_dash.html:1699
+msgid "Quiz \\"
+msgstr "Quiz \\"
+
+#: .\templates\prof_dash.html:1700
+msgid "Il y a 2 heures • 15 questions • Niveau Intermédiaire"
+msgstr "Vor 2 Stunden • 15 Fragen • Mittelstufe"
+
+#: .\templates\prof_dash.html:1702
+msgid "Nouveau"
+msgstr "Neu"
+
+#: .\templates\prof_dash.html:1709
+msgid "3 nouveaux étudiants inscrits"
+msgstr "3 neue Studenten eingeschrieben"
+
+#: .\templates\prof_dash.html:1710
+msgid "Il y a 4 heures • Cours \\"
+msgstr "Vor 4 Stunden • Kurs \\"
+
+#: .\templates\prof_dash.html:1712
+msgid "Inscription"
+msgstr "Einschreibung"
+
+#: .\templates\prof_dash.html:1719
+msgid "Marie Dubois a obtenu 18/20 au quiz"
+msgstr "Marie Dubois hat 18/20 im Quiz erreicht"
+
+#: .\templates\prof_dash.html:1720
+msgid "Il y a 6 heures • Quiz \\"
+msgstr "Vor 6 Stunden • Quiz \\"
+
+#: .\templates\prof_dash.html:1722
+msgid "Résultat"
+msgstr "Ergebnis"
+
+#: .\templates\prof_dash.html:1731
+msgid "Actions rapides"
+msgstr "Schnellaktionen"
+
+#: .\templates\prof_dash.html:1737
+msgid "Créer un cours"
+msgstr "Kurs erstellen"
+
+#: .\templates\prof_dash.html:1741
+msgid "Générer un quiz"
+msgstr "Quiz generieren"
+
+#: .\templates\prof_dash.html:1745
+msgid "Voir les étudiants"
+msgstr "Studenten anzeigen"
+
+#: .\templates\prof_dash.html:1761 .\templates\prof_dash.html:2700
+#, fuzzy
+#| msgid "Modules"
+msgid "Mes Modules"
+msgstr "Module"
+
+#: .\templates\prof_dash.html:1762
+#, fuzzy
+#| msgid "Liste des Quiz"
+msgid "Afficher le Quiz"
+msgstr "Quizliste"
+
+#: .\templates\prof_dash.html:1766 .\templates\prof_dash.html:2703
+msgid "Ajouter un nouveau module"
+msgstr ""
+
+#: .\templates\prof_dash.html:1779
+#, fuzzy
+#| msgid "Mes Étudiants"
+msgid "étudiants"
+msgstr "Meine Studenten"
+
+#: .\templates\prof_dash.html:1779
+msgid "quiz"
+msgstr ""
+
+#: .\templates\prof_dash.html:1779 .\templates\prof_dash.html:2798
+msgid "Code"
+msgstr ""
+
+#: .\templates\prof_dash.html:1786 .\templates\prof_dash.html:2158
+#: .\templates\prof_dash.html:2185
+msgid "Modifier"
+msgstr ""
+
+#: .\templates\prof_dash.html:1795 .\templates\prof_dash.html:2304
+#: .\templates\prof_dash.html:2338
+msgid "Détails"
+msgstr ""
+
+#: .\templates\prof_dash.html:1801
+msgid "Aucun module disponible."
+msgstr ""
+
+#: .\templates\prof_dash.html:1816
+msgid "Détails du Module"
+msgstr ""
+
+#: .\templates\prof_dash.html:1825
+msgid "Rechercher du contenu..."
+msgstr ""
+
+#: .\templates\prof_dash.html:1829
+msgid "Effacer la recherche"
+msgstr ""
+
+#: .\templates\prof_dash.html:1839 .\templates\prof_dash.html:1847
+msgid "Tous les types"
+msgstr ""
+
+#: .\templates\prof_dash.html:1857 .\templates\prof_dash.html:2137
+#: .\templates\prof_dash.html:2273 .\templates\prof_dash.html:2781
+msgid "Cours"
+msgstr ""
+
+#: .\templates\prof_dash.html:1865
+msgid "Exercices"
+msgstr ""
+
+#: .\templates\prof_dash.html:1872 .\templates\prof_dash.html:2020
+#: .\templates\prof_dash.html:2152 .\templates\prof_dash.html:2736
+#, fuzzy
+#| msgid "Quiz \\"
+msgid "Quiz"
+msgstr "Quiz \\"
+
+#: .\templates\prof_dash.html:1880
+msgid "Évaluations"
+msgstr ""
+
+#: .\templates\prof_dash.html:1897
+msgid "Nom (A-Z)"
+msgstr ""
+
+#: .\templates\prof_dash.html:1902
+msgid "Nom (Z-A)"
+msgstr ""
+
+#: .\templates\prof_dash.html:1907
+msgid "Plus récent"
+msgstr ""
+
+#: .\templates\prof_dash.html:1912
+msgid "Plus ancien"
+msgstr ""
+
+#: .\templates\prof_dash.html:1922 .\templates\prof_dash.html:2771
+msgid "Ajouter du contenu"
+msgstr ""
+
+#: .\templates\prof_dash.html:1924
+msgid "Ajouter"
+msgstr ""
+
+#: .\templates\prof_dash.html:1926 .\templates\prof_dash.html:2759
+#: .\templates\prof_dash.html:3071 .\templates\prof_dash.html:3095
+msgid "Fermer"
+msgstr ""
+
+#: .\templates\prof_dash.html:1938
+msgid "Effacer les filtres"
+msgstr ""
+
+#: .\templates\prof_dash.html:1949
+msgid "Recherche en cours..."
+msgstr ""
+
+#: .\templates\prof_dash.html:1957
+msgid "Aucun résultat trouvé"
+msgstr ""
+
+#: .\templates\prof_dash.html:1958
+msgid "Essayez de modifier vos critères de recherche ou vos filtres."
+msgstr ""
+
+#: .\templates\prof_dash.html:1960
+msgid "Réinitialiser les filtres"
+msgstr ""
+
+#: .\templates\prof_dash.html:1978
+msgid "4 éléments trouvés"
+msgstr ""
+
+#: .\templates\prof_dash.html:1981 .\templates\prof_dash.html:2221
+msgid "Exporter"
+msgstr ""
+
+#: .\templates\prof_dash.html:1984
+#, fuzzy
+#| msgid "Actions rapides"
+msgid "Actions groupées"
+msgstr "Schnellaktionen"
+
+#: .\templates\prof_dash.html:1999
+#, fuzzy
+#| msgid "Générateur Quiz IA"
+msgid "Générateur de Quiz IA (RAG)"
+msgstr "KI-Quiz-Generator"
+
+#: .\templates\prof_dash.html:2006 .\templates\prof_dash.html:2731
+#, fuzzy
+#| msgid "Cours créés"
+msgid "Cours associé"
+msgstr "Erstellte Kurse"
+
+#: .\templates\prof_dash.html:2008
+#, fuzzy
+#| msgid "Créer un cours"
+msgid "Sélectionner un cours"
+msgstr "Kurs erstellen"
+
+#: .\templates\prof_dash.html:2009 .\templates\prof_dash.html:2119
+#: .\templates\prof_dash.html:2151 .\templates\prof_dash.html:2215
+#: .\templates\prof_dash.html:2732
+msgid "Algorithmique avancée"
+msgstr ""
+
+#: .\templates\prof_dash.html:2010 .\templates\prof_dash.html:2120
+#: .\templates\prof_dash.html:2178 .\templates\prof_dash.html:2216
+msgid "Base de données"
+msgstr ""
+
+#: .\templates\prof_dash.html:2011 .\templates\prof_dash.html:2121
+#: .\templates\prof_dash.html:2217
+msgid "Intelligence Artificielle"
+msgstr ""
+
+#: .\templates\prof_dash.html:2017 .\templates\prof_dash.html:2735
+#: .\templates\prof_dash.html:2778
+msgid "Type de contenu"
+msgstr ""
+
+#: .\templates\prof_dash.html:2019 .\templates\prof_dash.html:2780
+msgid "Sélectionner le type"
+msgstr ""
+
+#: .\templates\prof_dash.html:2021 .\templates\prof_dash.html:2968
+msgid "Exercices pratiques"
+msgstr ""
+
+#: .\templates\prof_dash.html:2022 .\templates\prof_dash.html:2059
+#: .\templates\prof_dash.html:2924
+msgid "Évaluation"
+msgstr ""
+
+#: .\templates\prof_dash.html:2023
+msgid "Questions de révision"
+msgstr ""
+
+#: .\templates\prof_dash.html:2032 .\templates\prof_dash.html:2739
+#: .\templates\prof_dash.html:2887
+msgid "Nombre de questions"
+msgstr ""
+
+#: .\templates\prof_dash.html:2039 .\templates\prof_dash.html:2743
+#: .\templates\prof_dash.html:2865 .\templates\prof_dash.html:2902
+msgid "Niveau de difficulté"
+msgstr ""
+
+#: .\templates\prof_dash.html:2041 .\templates\prof_dash.html:2053
+#: .\templates\prof_dash.html:2621 .\templates\prof_dash.html:2630
+#: .\templates\prof_dash.html:2808 .\templates\prof_dash.html:2821
+#: .\templates\prof_dash.html:2836 .\templates\prof_dash.html:2867
+msgid "Sélectionner"
+msgstr ""
+
+#: .\templates\prof_dash.html:2042 .\templates\prof_dash.html:2622
+#: .\templates\prof_dash.html:2868 .\templates\prof_dash.html:2906
+msgid "Débutant"
+msgstr ""
+
+#: .\templates\prof_dash.html:2043 .\templates\prof_dash.html:2154
+#: .\templates\prof_dash.html:2623 .\templates\prof_dash.html:2744
+#: .\templates\prof_dash.html:2869 .\templates\prof_dash.html:2907
+msgid "Intermédiaire"
+msgstr ""
+
+#: .\templates\prof_dash.html:2044 .\templates\prof_dash.html:2181
+#: .\templates\prof_dash.html:2624 .\templates\prof_dash.html:2870
+#: .\templates\prof_dash.html:2908
+msgid "Avancé"
+msgstr ""
+
+#: .\templates\prof_dash.html:2045 .\templates\prof_dash.html:2909
+msgid "Expert"
+msgstr ""
+
+#: .\templates\prof_dash.html:2051 .\templates\prof_dash.html:2747
+#: .\templates\prof_dash.html:2915
+msgid "Taxonomie de Bloom"
+msgstr ""
+
+#: .\templates\prof_dash.html:2054 .\templates\prof_dash.html:2919
+msgid "Connaissance"
+msgstr ""
+
+#: .\templates\prof_dash.html:2055 .\templates\prof_dash.html:2920
+msgid "Compréhension"
+msgstr ""
+
+#: .\templates\prof_dash.html:2056 .\templates\prof_dash.html:2149
+#: .\templates\prof_dash.html:2748 .\templates\prof_dash.html:2921
+msgid "Application"
+msgstr ""
+
+#: .\templates\prof_dash.html:2057 .\templates\prof_dash.html:2176
+#: .\templates\prof_dash.html:2922
+msgid "Analyse"
+msgstr ""
+
+#: .\templates\prof_dash.html:2058 .\templates\prof_dash.html:2923
+msgid "Synthèse"
+msgstr ""
+
+#: .\templates\prof_dash.html:2068
+msgid "Mot de passe du quiz"
+msgstr ""
+
+#: .\templates\prof_dash.html:2069 .\templates\prof_dash.html:3030
+msgid "Optionnel"
+msgstr ""
+
+#: .\templates\prof_dash.html:2074 .\templates\prof_dash.html:2933
+msgid "Durée (minutes)"
+msgstr ""
+
+#: .\templates\prof_dash.html:2082
+msgid "Description (Optionnel)"
+msgstr ""
+
+#: .\templates\prof_dash.html:2084
+msgid "Instructions, contexte, objectifs..."
+msgstr ""
+
+#: .\templates\prof_dash.html:2090
+#, fuzzy
+#| msgid "Générateur Quiz IA"
+msgid "Générer avec l'IA"
+msgstr "KI-Quiz-Generator"
+
+#: .\templates\prof_dash.html:2094 .\templates\prof_dash.html:2161
+#: .\templates\prof_dash.html:2188
+msgid "Aperçu"
+msgstr ""
+
+#: .\templates\prof_dash.html:2098
+msgid "Réinitialiser"
+msgstr ""
+
+#: .\templates\prof_dash.html:2105
+#, fuzzy
+#| msgid "Quiz générés"
+msgid "Quiz généré avec succès !"
+msgstr "Erstellte Quizze"
+
+#: .\templates\prof_dash.html:2106
+msgid "Le quiz a été créé et est maintenant disponible pour vos étudiants."
+msgstr ""
+
+#: .\templates\prof_dash.html:2115
+#, fuzzy
+#| msgid "Liste des Quiz"
+msgid "Liste des Quiz et Exercices"
+msgstr "Quizliste"
+
+#: .\templates\prof_dash.html:2118 .\templates\prof_dash.html:2214
+msgid "Tous les cours"
+msgstr ""
+
+#: .\templates\prof_dash.html:2125
+#, fuzzy
+#| msgid "Nouveau"
+msgid "Nouveau quiz"
+msgstr "Neu"
+
+#: .\templates\prof_dash.html:2136 .\templates\prof_dash.html:2607
+#: .\templates\prof_dash.html:2792
+msgid "Titre"
+msgstr ""
+
+#: .\templates\prof_dash.html:2138
+msgid "Type"
+msgstr ""
+
+#: .\templates\prof_dash.html:2139
+msgid "Questions"
+msgstr ""
+
+#: .\templates\prof_dash.html:2140 .\templates\prof_dash.html:2905
+msgid "Difficulté"
+msgstr ""
+
+#: .\templates\prof_dash.html:2141
+msgid "Date"
+msgstr ""
+
+#: .\templates\prof_dash.html:2142 .\templates\prof_dash.html:2277
+#, fuzzy
+#| msgid "Actions rapides"
+msgid "Actions"
+msgstr "Schnellaktionen"
+
+#: .\templates\prof_dash.html:2148 .\templates\prof_dash.html:2394
+msgid "Algorithmes de tri"
+msgstr ""
+
+#: .\templates\prof_dash.html:2167 .\templates\prof_dash.html:2194
+#: .\templates\prof_dash.html:2686
+msgid "Supprimer"
+msgstr ""
+
+#: .\templates\prof_dash.html:2175
+msgid "Requêtes SQL avancées"
+msgstr ""
+
+#: .\templates\prof_dash.html:2179
+msgid "Exercice"
+msgstr ""
+
+#: .\templates\prof_dash.html:2212
+msgid "Rechercher..."
+msgstr ""
+
+#: .\templates\prof_dash.html:2234
+#, fuzzy
+#| msgid "Voir les étudiants"
+msgid "Total étudiants"
+msgstr "Studenten anzeigen"
+
+#: .\templates\prof_dash.html:2243
+#, fuzzy
+#| msgid "+3 ce mois"
+msgid "Actifs ce mois"
+msgstr "+3 diesen Monat"
+
+#: .\templates\prof_dash.html:2252
+#, fuzzy
+#| msgid "Taux de réussite moyen"
+msgid "Taux de réussite"
+msgstr "Durchschnittliche Erfolgsquote"
+
+#: .\templates\prof_dash.html:2261
+msgid "Temps moyen/semaine"
+msgstr ""
+
+#: .\templates\prof_dash.html:2271
+#, fuzzy
+#| msgid "Mes Étudiants"
+msgid "Étudiant"
+msgstr "Meine Studenten"
+
+#: .\templates\prof_dash.html:2272 .\templates\prof_dash.html:2524
+msgid "Email"
+msgstr ""
+
+#: .\templates\prof_dash.html:2274
+msgid "Dernière activité"
+msgstr ""
+
+#: .\templates\prof_dash.html:2275
+msgid "Moyenne"
+msgstr ""
+
+#: .\templates\prof_dash.html:2276
+msgid "Statut"
+msgstr ""
+
+#: .\templates\prof_dash.html:2293
+msgid "3 cours"
+msgstr ""
+
+#: .\templates\prof_dash.html:2294
+#, fuzzy
+#| msgid "Il y a 6 heures • Quiz \\"
+msgid "Il y a 2 heures"
+msgstr "Vor 6 Stunden • Quiz \\"
+
+#: .\templates\prof_dash.html:2301
+msgid "Actif"
+msgstr ""
+
+#: .\templates\prof_dash.html:2309 .\templates\prof_dash.html:2341
+#, fuzzy
+#| msgid "Messages"
+msgid "Message"
+msgstr "Nachrichten"
+
+#: .\templates\prof_dash.html:2327
+msgid "2 cours"
+msgstr ""
+
+#: .\templates\prof_dash.html:2328
+msgid "Il y a 1 jour"
+msgstr ""
+
+#: .\templates\prof_dash.html:2335
+msgid "Moyen"
+msgstr ""
+
+#: .\templates\prof_dash.html:2362
+msgid "Performance par cours"
+msgstr ""
+
+#: .\templates\prof_dash.html:2374
+#, fuzzy
+#| msgid "Étudiants inscrits"
+msgid "Évolution des inscriptions"
+msgstr "Eingeschriebene Studenten"
+
+#: .\templates\prof_dash.html:2389
+msgid "Quiz les plus difficiles"
+msgstr ""
+
+#: .\templates\prof_dash.html:2395
+#, python-format
+msgid "45%% réussite"
+msgstr ""
+
+#: .\templates\prof_dash.html:2398
+msgid "Requêtes complexes"
+msgstr ""
+
+#: .\templates\prof_dash.html:2399
+#, python-format
+msgid "62%% réussite"
+msgstr ""
+
+#: .\templates\prof_dash.html:2402
+msgid "Réseaux de neurones"
+msgstr ""
+
+#: .\templates\prof_dash.html:2403
+#, python-format
+msgid "78%% réussite"
+msgstr ""
+
+#: .\templates\prof_dash.html:2412
+msgid "Recommandations IA"
+msgstr ""
+
+#: .\templates\prof_dash.html:2416
+msgid "Suggestions basées sur l'analyse IA :"
+msgstr ""
+
+#: .\templates\prof_dash.html:2418
+msgid "Renforcer les exercices sur les algorithmes de tri (taux d'échec élevé)"
+msgstr ""
+
+#: .\templates\prof_dash.html:2419
+msgid "Pierre Laurent nécessite un suivi personnalisé en base de données"
+msgstr ""
+
+#: .\templates\prof_dash.html:2420
+#, python-format
+msgid "Le cours d'IA connaît une excellente progression (+25%% de réussite)"
+msgstr ""
+
+#: .\templates\prof_dash.html:2435
+#, fuzzy
+#| msgid "Nouveau"
+msgid "Nouveau message"
+msgstr "Neu"
+
+#: .\templates\prof_dash.html:2443
+msgid "Conversations"
+msgstr ""
+
+#: .\templates\prof_dash.html:2452
+msgid "Question sur le devoir..."
+msgstr ""
+
+#: .\templates\prof_dash.html:2462
+msgid "Demande d'aide SQL"
+msgstr ""
+
+#: .\templates\prof_dash.html:2477
+msgid "En ligne"
+msgstr ""
+
+#: .\templates\prof_dash.html:2484
+msgid "Bonjour Professeur, j'ai une question concernant l'exercice 3 du TP."
+msgstr ""
+
+#: .\templates\prof_dash.html:2487
+msgid "Bonjour Marie, quel est le problème exactement ?"
+msgstr ""
+
+#: .\templates\prof_dash.html:2490
+msgid ""
+"Je ne comprends pas comment implémenter l'algorithme de tri fusion. Pouvez-"
+"vous m'expliquer ?"
+msgstr ""
+
+#: .\templates\prof_dash.html:2496
+msgid "Écrire un message..."
+msgstr ""
+
+#: .\templates\prof_dash.html:2515
+msgid "Profil"
+msgstr ""
+
+#: .\templates\prof_dash.html:2520
+msgid "Nom complet"
+msgstr ""
+
+#: .\templates\prof_dash.html:2528
+msgid "Spécialité"
+msgstr ""
+
+#: .\templates\prof_dash.html:2529 .\templates\prof_dash.html:2631
+#: .\templates\prof_dash.html:2809 .\templates\prof_dash.html:2837
+msgid "Informatique"
+msgstr ""
+
+#: .\templates\prof_dash.html:2532
+msgid "Bio"
+msgstr ""
+
+#: .\templates\prof_dash.html:2534
+msgid ""
+"Professeur d'informatique spécialisé en algorithmique et bases de données."
+msgstr ""
+
+#: .\templates\prof_dash.html:2536
+msgid "Enregistrer"
+msgstr ""
+
+#: .\templates\prof_dash.html:2544
+msgid "Sécurité"
+msgstr ""
+
+#: .\templates\prof_dash.html:2549
+msgid "Mot de passe actuel"
+msgstr ""
+
+#: .\templates\prof_dash.html:2553
+msgid "Nouveau mot de passe"
+msgstr ""
+
+#: .\templates\prof_dash.html:2557
+msgid "Confirmer le nouveau mot de passe"
+msgstr ""
+
+#: .\templates\prof_dash.html:2560
+msgid "Changer le mot de passe"
+msgstr ""
+
+#: .\templates\prof_dash.html:2567
+msgid "Préférences"
+msgstr ""
+
+#: .\templates\prof_dash.html:2571
+msgid "Thème"
+msgstr ""
+
+#: .\templates\prof_dash.html:2573
+msgid "Sombre"
+msgstr ""
+
+#: .\templates\prof_dash.html:2574
+msgid "Clair"
+msgstr ""
+
+#: .\templates\prof_dash.html:2575
+msgid "Système"
+msgstr ""
+
+#: .\templates\prof_dash.html:2580
+msgid "Notifications par email"
+msgstr ""
+
+#: .\templates\prof_dash.html:2584
+msgid "Rapport hebdomadaire"
+msgstr ""
+
+#: .\templates\prof_dash.html:2598
+#, fuzzy
+#| msgid "Créer un cours"
+msgid "Créer un nouveau Module"
+msgstr "Kurs erstellen"
+
+#: .\templates\prof_dash.html:2599 .\templates\prof_dash.html:2671
+#: .\templates\prof_dash.html:2720 .\templates\prof_dash.html:2772
+msgid "Close"
+msgstr ""
+
+#: .\templates\prof_dash.html:2611
+msgid "Code du Module"
+msgstr ""
+
+#: .\templates\prof_dash.html:2619
+#, fuzzy
+#| msgid "Nouveau"
+msgid "Niveau"
+msgstr "Neu"
+
+#: .\templates\prof_dash.html:2628 .\templates\prof_dash.html:2806
+#: .\templates\prof_dash.html:2834
+msgid "Domaine"
+msgstr ""
+
+#: .\templates\prof_dash.html:2632 .\templates\prof_dash.html:2810
+#: .\templates\prof_dash.html:2838
+#, fuzzy
+#| msgid "Statistiques"
+msgid "Mathématiques"
+msgstr "Statistiken"
+
+#: .\templates\prof_dash.html:2633 .\templates\prof_dash.html:2811
+#: .\templates\prof_dash.html:2839
+msgid "Sciences"
+msgstr ""
+
+#: .\templates\prof_dash.html:2634 .\templates\prof_dash.html:2812
+#: .\templates\prof_dash.html:2840
+msgid "Lettres"
+msgstr ""
+
+#: .\templates\prof_dash.html:2645 .\templates\prof_dash.html:3008
+#, fuzzy
+#| msgid "Inscription"
+msgid "Description"
+msgstr "Einschreibung"
+
+#: .\templates\prof_dash.html:2654
+#, fuzzy
+#| msgid "Créer un cours"
+msgid "Créer le cours"
+msgstr "Kurs erstellen"
+
+#: .\templates\prof_dash.html:2657 .\templates\prof_dash.html:3057
+msgid "Création..."
+msgstr ""
+
+#: .\templates\prof_dash.html:2670
+msgid "Confirmer la suppression"
+msgstr ""
+
+#: .\templates\prof_dash.html:2676
+msgid "Êtes-vous sûr ?"
+msgstr ""
+
+#: .\templates\prof_dash.html:2677
+msgid "Cette action supprimera définitivement le module"
+msgstr ""
+
+#: .\templates\prof_dash.html:2678
+msgid "et toutes ses données associées."
+msgstr ""
+
+#: .\templates\prof_dash.html:2679
+msgid "Cette action est irréversible."
+msgstr ""
+
+#: .\templates\prof_dash.html:2689
+msgid "Suppression..."
+msgstr ""
+
+#: .\templates\prof_dash.html:2719
+msgid "Aperçu des paramètres du quiz"
+msgstr ""
+
+#: .\templates\prof_dash.html:2725
+msgid ""
+"Ceci est un aperçu des paramètres qui seront utilisés pour générer le quiz "
+"avec l'IA."
+msgstr ""
+
+#: .\templates\prof_dash.html:2751
+msgid "Durée"
+msgstr ""
+
+#: .\templates\prof_dash.html:2752
+msgid "30 minutes"
+msgstr ""
+
+#: .\templates\prof_dash.html:2760
+#, fuzzy
+#| msgid "Générer un quiz"
+msgid "Générer le quiz"
+msgstr "Quiz generieren"
+
+#: .\templates\prof_dash.html:2782
+msgid "Exercice (IA)"
+msgstr ""
+
+#: .\templates\prof_dash.html:2783
+#, fuzzy
+#| msgid "Quiz \\"
+msgid "Quiz (IA)"
+msgstr "Quiz \\"
+
+#: .\templates\prof_dash.html:2784
+msgid "Évaluation (IA)"
+msgstr ""
+
+#: .\templates\prof_dash.html:2813 .\templates\prof_dash.html:2841
+msgid "Histoire-Géographie"
+msgstr ""
+
+#: .\templates\prof_dash.html:2814 .\templates\prof_dash.html:2842
+#, fuzzy
+#| msgid "Langue"
+msgid "Langues"
+msgstr "Sprache"
+
+#: .\templates\prof_dash.html:2822
+msgid "Anglais"
+msgstr ""
+
+#: .\templates\prof_dash.html:2824
+#, fuzzy
+#| msgid "Deutsch"
+msgid "Deutch"
+msgstr "Deutsch"
+
+#: .\templates\prof_dash.html:2850
+#, fuzzy
+#| msgid "Remplacer le Fichier du Cours"
+msgid "Fichier du cours"
+msgstr "Kursdatei ersetzen"
+
+#: .\templates\prof_dash.html:2853
+#, fuzzy
+#| msgid "Formats acceptés: PDF, DOC, DOCX, PPT, PPTX (Max: 50MB)"
+msgid "Formats acceptés: PDF, Word, PowerPoint (Max 10MB)"
+msgstr "Erlaubte Formate: PDF, DOC, DOCX, PPT, PPTX (Max: 50MB)"
+
+#: .\templates\prof_dash.html:2859
+msgid "Durée estimée (heures)"
+msgstr ""
+
+#: .\templates\prof_dash.html:2881
+msgid "Contenu généré par IA"
+msgstr ""
+
+#: .\templates\prof_dash.html:2881
+msgid ""
+"Configurez les paramètres ci-dessous pour que l'IA génère automatiquement le "
+"contenu."
+msgstr ""
+
+#: .\templates\prof_dash.html:2890
+msgid "Nombre"
+msgstr ""
+
+#: .\templates\prof_dash.html:2891
+msgid "5 questions"
+msgstr ""
+
+#: .\templates\prof_dash.html:2892
+msgid "10 questions"
+msgstr ""
+
+#: .\templates\prof_dash.html:2893
+msgid "15 questions"
+msgstr ""
+
+#: .\templates\prof_dash.html:2894
+msgid "20 questions"
+msgstr ""
+
+#: .\templates\prof_dash.html:2895
+msgid "25 questions"
+msgstr ""
+
+#: .\templates\prof_dash.html:2896
+msgid "30 questions"
+msgstr ""
+
+#: .\templates\prof_dash.html:2918
+msgid "Niveau Bloom"
+msgstr ""
+
+#: .\templates\prof_dash.html:2940
+msgid "Type de questions"
+msgstr ""
+
+#: .\templates\prof_dash.html:2942
+msgid "Mixte (QCM + Texte libre)"
+msgstr ""
+
+#: .\templates\prof_dash.html:2943
+msgid "QCM uniquement"
+msgstr ""
+
+#: .\templates\prof_dash.html:2944
+msgid "Texte libre uniquement"
+msgstr ""
+
+#: .\templates\prof_dash.html:2945
+msgid "Vrai/Faux"
+msgstr ""
+
+#: .\templates\prof_dash.html:2952
+msgid "Sélectionner le Cours"
+msgstr ""
+
+#: .\templates\prof_dash.html:2966
+msgid "Type d'exercice"
+msgstr ""
+
+#: .\templates\prof_dash.html:2969
+msgid "Résolution de problèmes"
+msgstr ""
+
+#: .\templates\prof_dash.html:2970
+msgid "Études de cas"
+msgstr ""
+
+#: .\templates\prof_dash.html:2971
+msgid "Simulations"
+msgstr ""
+
+#: .\templates\prof_dash.html:2981
+msgid "Type d'évaluation"
+msgstr ""
+
+#: .\templates\prof_dash.html:2983
+msgid "Évaluation formative"
+msgstr ""
+
+#: .\templates\prof_dash.html:2984
+msgid "Évaluation sommative"
+msgstr ""
+
+#: .\templates\prof_dash.html:2985
+msgid "Évaluation diagnostique"
+msgstr ""
+
+#: .\templates\prof_dash.html:2991
+msgid "Note maximale"
+msgstr ""
+
+#: .\templates\prof_dash.html:3000
+msgid "Instructions spéciales pour l'IA"
+msgstr ""
+
+#: .\templates\prof_dash.html:3002
+msgid ""
+"Ex: Inclure des exemples concrets, se concentrer sur les aspects pratiques..."
+msgstr ""
+
+#: .\templates\prof_dash.html:3010
+msgid "Description du contenu, objectifs pédagogiques..."
+msgstr ""
+
+#: .\templates\prof_dash.html:3019
+msgid "Paramètres avancés (optionnel)"
+msgstr ""
+
+#: .\templates\prof_dash.html:3028
+msgid "Mot de passe d'accès"
+msgstr ""
+
+#: .\templates\prof_dash.html:3035
+msgid "Date de publication"
+msgstr ""
+
+#: .\templates\prof_dash.html:3044
+#, fuzzy
+#| msgid "3 nouveaux étudiants inscrits"
+msgid "Visible par tous les étudiants inscrits"
+msgstr "3 neue Studenten eingeschrieben"
+
+#: .\templates\prof_dash.html:3055
+msgid "Créer"
+msgstr ""
+
+#: .\templates\prof_dash.html:3070
+msgid "Feedback IA"
+msgstr ""
+
+#: .\templates\prof_dash.html:3077
+msgid "Génération du feedback en cours..."
+msgstr ""
+
+#: .\templates\prof_dash.html:3083
+msgid "Aucun feedback disponible"
+msgstr ""
+
+#: .\templates\prof_dash.html:3084
+msgid "Le feedback n'a pas encore été généré pour ce contenu."
+msgstr ""
+
+#: .\templates\prof_dash.html:3100
+msgid "Entraîner l'IA sur les Taxonomies"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\_termui_impl.py:600
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\_termui_impl.py:604
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1084
+#: .\venv\Lib\site-packages\click\core.py:1121
+#, python-brace-format
+msgid "{text} {deprecated_message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1140
+#: .\venv\Lib\site-packages\typer\core.py:608
+#: .\venv\Lib\site-packages\typer\rich_utils.py:93
+msgid "Options"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1202
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\core.py:1221
+msgid "DeprecationWarning: The command {name!r} is deprecated.{extra_message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1405
+#: .\venv\Lib\site-packages\typer\core.py:248
+msgid "Aborted!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1779
+#: .\venv\Lib\site-packages\typer\rich_utils.py:94
+msgid "Commands"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1810
+msgid "Missing command."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:1888
+msgid "No such command {name!r}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2303
+msgid "Value must be an iterable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2324
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\core.py:2404
+msgid ""
+"DeprecationWarning: The {param_type} {name!r} is deprecated.{extra_message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2807
+#: .\venv\Lib\site-packages\typer\core.py:547
+#, python-brace-format
+msgid "env var: {var}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2810
+#: .\venv\Lib\site-packages\typer\core.py:365
+#: .\venv\Lib\site-packages\typer\core.py:568
+#, python-brace-format
+msgid "default: {default}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\core.py:2870
+#: .\venv\Lib\site-packages\typer\core.py:117
+msgid "(dynamic)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\decorators.py:465
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\decorators.py:522
+msgid "Show the version and exit."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\decorators.py:548
+msgid "Show this message and exit."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:50
+#: .\venv\Lib\site-packages\click\exceptions.py:89
+#, python-brace-format
+msgid "Error: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:81
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:130
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:132
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:190
+msgid "Missing argument"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:192
+msgid "Missing option"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:194
+msgid "Missing parameter"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:196
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:203
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:223
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:235
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:282
+msgid "unknown error"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\exceptions.py:289
+msgid "Could not open file {filename!r}: {message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\formatting.py:156
+msgid "Usage:"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\parser.py:200
+msgid "Argument {name!r} takes {nargs} values."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\parser.py:383
+msgid "Option {name!r} does not take a value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\parser.py:444
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\shell_completion.py:326
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\shell_completion.py:333
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:162
+msgid "Repeat for confirmation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:178
+msgid "Error: The value you entered was invalid."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:180
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:191
+msgid "Error: The two entered values do not match."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:247
+msgid "Error: invalid input"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\termui.py:866
+msgid "Press any key to continue..."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:332
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:369
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\types.py:460
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\click\types.py:482
+msgid "{value!r} is not a valid {number_type}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:538
+#, python-brace-format
+msgid "{value} is not in the range {range}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:679
+msgid "{value!r} is not a valid boolean."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:703
+msgid "{value!r} is not a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:893
+msgid "file"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:895
+msgid "directory"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:897
+msgid "path"
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:944
+msgid "{name} {filename!r} does not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:953
+msgid "{name} {filename!r} is a file."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:961
+msgid "{name} {filename!r} is a directory."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:970
+msgid "{name} {filename!r} is not readable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:979
+msgid "{name} {filename!r} is not writable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:988
+msgid "{name} {filename!r} is not executable."
+msgstr ""
+
+#: .\venv\Lib\site-packages\click\types.py:1055
+#, python-brace-format
+msgid "{len_type} values are required, but {len_value} was given."
+msgid_plural "{len_type} values are required, but {len_value} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\venv\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:32
+msgid "That page number is not an integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:33
+msgid "That page number is less than 1"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\paginator.py:34
+msgid "That page contains no results"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:70
+msgid "Enter a valid domain name."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:153
+#: .\venv\Lib\site-packages\django\forms\fields.py:775
+msgid "Enter a valid URL."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:200
+msgid "Enter a valid integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:211
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\venv\Lib\site-packages\django\core\validators.py:289
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:297
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:309
+#: .\venv\Lib\site-packages\django\core\validators.py:318
+#: .\venv\Lib\site-packages\django\core\validators.py:332
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2220
+#, python-format
+msgid "Enter a valid %(protocol)s address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:311
+msgid "IPv4"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:320
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:43
+msgid "IPv6"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:334
+msgid "IPv4 or IPv6"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:375
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:381
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:416
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:425
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:434
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:441
+#, python-format
+msgid ""
+"Ensure this value is a multiple of step size %(limit_value)s, starting from "
+"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:473
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:491
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:514
+#: .\venv\Lib\site-packages\django\forms\fields.py:366
+#: .\venv\Lib\site-packages\django\forms\fields.py:405
+msgid "Enter a number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:516
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:521
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:526
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:597
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\core\validators.py:659
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1600
+#: .\venv\Lib\site-packages\django\forms\models.py:908
+msgid "and"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\base.py:1602
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\constraints.py:22
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:134
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:135
+msgid "This field cannot be null."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:136
+msgid "This field cannot be blank."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:137
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:141
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:180
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1162
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1163
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1165
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1215
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1217
+msgid "String (unlimited)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1326
+msgid "Comma-separated integers"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1427
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1431
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1566
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1435
+msgid "Date (without time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1562
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1570
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1575
+msgid "Date (with time)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1702
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1704
+msgid "Decimal number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1864
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1868
+msgid "Duration"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1920
+msgid "Email address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1945
+msgid "File path"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2023
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2025
+msgid "Floating point number"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2065
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2067
+msgid "Integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2163
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2180
+msgid "Small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2188
+msgid "IPv4 address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2219
+msgid "IP address"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2310
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2311
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2313
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2364
+msgid "Positive big integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2379
+msgid "Positive integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2394
+msgid "Positive small integer"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2410
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2446
+msgid "Text"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2526
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2530
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2534
+msgid "Time"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2642
+msgid "URL"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2666
+msgid "Raw binary data"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2731
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:2733
+msgid "Universally unique identifier"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:244
+msgid "File"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\files.py:420
+msgid "Image"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:24
+msgid "A JSON object"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "Value must be valid JSON."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:978
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:981
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1275
+msgid "One-to-one relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1332
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1334
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\db\models\fields\related.py:1382
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: .\venv\Lib\site-packages\django\forms\boundfield.py:185
+msgid ":?.!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:95
+msgid "This field is required."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:315
+msgid "Enter a whole number."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:486
+#: .\venv\Lib\site-packages\django\forms\fields.py:1267
+msgid "Enter a valid date."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:509
+#: .\venv\Lib\site-packages\django\forms\fields.py:1268
+msgid "Enter a valid time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:536
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:570
+msgid "Enter a valid duration."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:571
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:640
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:641
+msgid "No file was submitted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:642
+msgid "The submitted file is empty."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:644
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:649
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:717
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:889
+#: .\venv\Lib\site-packages\django\forms\fields.py:975
+#: .\venv\Lib\site-packages\django\forms\models.py:1592
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:977
+#: .\venv\Lib\site-packages\django\forms\fields.py:1096
+#: .\venv\Lib\site-packages\django\forms\models.py:1590
+msgid "Enter a list of values."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1097
+msgid "Enter a complete value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1339
+msgid "Enter a valid UUID."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\fields.py:1369
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: .\venv\Lib\site-packages\django\forms\forms.py:97
+msgid ":"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\forms.py:239
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:61
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:65
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:70
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:484
+#: .\venv\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:901
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:906
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:913
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:922
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1359
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1450
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\models.py:1594
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\utils.py:229
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:527
+msgid "Clear"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:528
+msgid "Currently"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:529
+msgid "Change"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:866
+msgid "Unknown"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:867
+msgid "Yes"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\forms\widgets.py:868
+msgid "No"
+msgstr ""
+
+#. Translators: Please do not add spaces around commas.
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:873
+msgid "yes,no,maybe"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:903
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:920
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:922
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:924
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:926
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:928
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\template\defaultfilters.py:930
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:74
+msgid "p.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:75
+msgid "a.m."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:80
+msgid "PM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:81
+msgid "AM"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:153
+msgid "midnight"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dateformat.py:155
+msgid "noon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\ipv6.py:20
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:76
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\text.py:287
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: .\venv\Lib\site-packages\django\utils\text.py:306
+#: .\venv\Lib\site-packages\django\utils\timesince.py:135
+msgid ", "
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:29
+msgid "Forbidden"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:30
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:34
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:40
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:45
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:54
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:60
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\csrf.py:66
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:64
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:115
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:353
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:384
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:680
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\dates.py:720
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\generic\list.py:173
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:49
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:51
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\static.py:68
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:8
+#: .\venv\Lib\site-packages\django\views\templates\directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:204
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:208
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:217
+msgid "Django Documentation"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:218
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:226
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:227
+msgid "Get started with Django"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:235
+msgid "Django Community"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:236
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: .\venv\Lib\site-packages\sympy\solvers\simplex.py:563
+msgid "x"
+msgstr ""
+
+#: .\venv\Lib\site-packages\sympy\solvers\simplex.py:564
+msgid "y"
+msgstr ""
+
+#: .\venv\Lib\site-packages\typer\core.py:367
+#: .\venv\Lib\site-packages\typer\core.py:577
+msgid "required"
+msgstr ""
+
+#: .\venv\Lib\site-packages\typer\core.py:605
+#: .\venv\Lib\site-packages\typer\rich_utils.py:92
+msgid "Arguments"
+msgstr ""
+
+#: .\venv\Lib\site-packages\typer\rich_utils.py:86
+msgid "(deprecated) "
+msgstr ""
+
+#: .\venv\Lib\site-packages\typer\rich_utils.py:87
+msgid "[default: {}]"
+msgstr ""
+
+#: .\venv\Lib\site-packages\typer\rich_utils.py:88
+msgid "[env var: {}]"
+msgstr ""
+
+#: .\venv\Lib\site-packages\typer\rich_utils.py:90
+msgid "[required]"
+msgstr ""
+
+#: .\venv\Lib\site-packages\typer\rich_utils.py:95
+msgid "Error"
+msgstr ""
+
+#: .\venv\Lib\site-packages\typer\rich_utils.py:96
+msgid "Aborted."
+msgstr ""
+
+#: .\venv\Lib\site-packages\typer\rich_utils.py:97
+#, python-brace-format
+msgid "Try [blue]'{command_path} {help_option}'[/] for help."
+msgstr ""

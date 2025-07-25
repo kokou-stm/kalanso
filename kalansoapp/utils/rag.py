@@ -7,6 +7,8 @@ from langchain.prompts import PromptTemplate
 import os
 import torch
 
+import json
+
 # Embedding model et prompt statiques
 EMBEDDING_MODEL = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 PROMPT = PromptTemplate(
@@ -45,15 +47,18 @@ def rag_with_qa(persist_path, llm, prompt):
     # response = qa_chain.invoke(prompt)
     return response
 
-
 # RAG pipeline
 def rag_answer(question, persist_path, llm):
     vectorstore = load_vectorstore(persist_path)
     retrieved_docs = vectorstore.similarity_search(question, k=8)
     context = "\n\n".join([doc.page_content for doc in retrieved_docs])
     full_prompt = PROMPT.format(context=context, question=question)
-    
-    response = eval(llm.invoke(full_prompt).content)  # ou json.loads(...) si tu modifies le prompt
+    llm_output = llm.invoke(full_prompt).content
+    print(llm_output)
+    try:
+     response = json.loads(llm_output)  # ou json.loads(...) si tu modifies le prompt
+    except:
+       response = eval(llm_output)
 
     return response
 

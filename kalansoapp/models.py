@@ -130,14 +130,35 @@ class Exercice(models.Model):
     source_rag = models.TextField(blank=True, null=True)
     date_creation = models.DateTimeField(auto_now_add=True)
 
-# Quiz généré par IA
-class Quiz(models.Model):
+
+
+class Quiz_AI(models.Model):
     module = models.ForeignKey(Module, related_name='quizz', on_delete=models.CASCADE)
-    question = models.TextField()
-    choix = models.JSONField()  # Ex: {"a": "...", "b": "...", "c": "...", "d": "..."}
-    bonne_reponse = models.CharField(max_length=1)
-    source_rag = models.TextField(blank=True, null=True)
-    date_creation = models.DateTimeField(auto_now_add=True)
+    quiz_title = models.CharField(max_length=255)
+    quiz_description = models.CharField(max_length=255)
+    course = models.ForeignKey(Cours, on_delete=models.CASCADE, related_name="quizzes")
+    total_score = models.IntegerField(null=True, blank=True )
+    max_score = models.IntegerField(null=True, blank=True )
+    questions = models.TextField()
+    
+   
+
+    def __str__(self):
+        return self.quiz_title
+
+
+class QuestionAnswers(models.Model):
+    # Correction : Ajoutez la clé étrangère pour lier la question au quiz
+    quiz = models.ForeignKey(Quiz_AI, on_delete=models.CASCADE, related_name="questions_quiz")
+    numero = models.IntegerField(default=True, blank=True)
+    question_text = models.CharField(max_length=1000)
+    options = models.JSONField(null=True, blank=True)
+    required_time = models.FloatField(default=60)  # Temps requis en secondes
+    user_answer = models.CharField(max_length=500, null=True, blank=True)  # Autorisez le champ vide
+    great_answer = models.CharField(max_length=500)  # Réponse détaillée ou explication
+    score = models.FloatField(null=True, blank=True)  # Score associé à la question
+    def __str__(self):
+        return self.quiz.quiz_title
 
 # Évaluation (plus globale, type examen ou test de fin)
 class Evaluation(models.Model):

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-25 02:08+0200\n"
+"POT-Creation-Date: 2025-07-26 15:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,1124 +18,1115 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\kalansoapp\views.py:127 .\templates\prof_dash.html:1504
+#: .\kalansoapp\views.py:127 .\templates\prof_dash.html:1507
 msgid "Professeur"
 msgstr "Lehrer"
 
-#: .\lms_project\settings.py:138 .\templates\prof_dash.html:1585
+#: .\lms_project\settings.py:138 .\templates\prof_dash.html:1588
 msgid "English"
 msgstr "Englisch"
 
-#: .\lms_project\settings.py:139 .\templates\prof_dash.html:1584
-#: .\templates\prof_dash.html:2823
+#: .\lms_project\settings.py:139 .\templates\prof_dash.html:1587
+#: .\templates\prof_dash.html:2826
 msgid "Français"
 msgstr "Französisch"
 
-#: .\lms_project\settings.py:140 .\templates\prof_dash.html:1586
+#: .\lms_project\settings.py:140 .\templates\prof_dash.html:1589
+#: .\templates\prof_dash.html:2827
 msgid "Deutsch"
 msgstr "Deutsch"
 
-#: .\templates\prof_dash.html:1467 .\templates\prof_dash.html:1568
+#: .\templates\prof_dash.html:1470 .\templates\prof_dash.html:1571
 msgid "Tableau de bord"
-msgstr ""
+msgstr "Anzeigentafel"
 
-#: .\templates\prof_dash.html:1471
+#: .\templates\prof_dash.html:1474
 msgid "Modules"
 msgstr "Module"
 
-#: .\templates\prof_dash.html:1475
+#: .\templates\prof_dash.html:1478
 msgid "Générateur Quiz IA"
 msgstr "KI-Quiz-Generator"
 
-#: .\templates\prof_dash.html:1479
+#: .\templates\prof_dash.html:1482
 msgid "Liste des Quiz"
 msgstr "Quizliste"
 
-#: .\templates\prof_dash.html:1483 .\templates\prof_dash.html:2210
+#: .\templates\prof_dash.html:1486 .\templates\prof_dash.html:2213
 msgid "Mes Étudiants"
 msgstr "Meine Studenten"
 
-#: .\templates\prof_dash.html:1487 .\templates\prof_dash.html:1749
-#: .\templates\prof_dash.html:2164 .\templates\prof_dash.html:2191
-#: .\templates\prof_dash.html:2356
+#: .\templates\prof_dash.html:1490 .\templates\prof_dash.html:1752
+#: .\templates\prof_dash.html:2167 .\templates\prof_dash.html:2194
+#: .\templates\prof_dash.html:2359
 msgid "Statistiques"
 msgstr "Statistiken"
 
-#: .\templates\prof_dash.html:1491 .\templates\prof_dash.html:2432
+#: .\templates\prof_dash.html:1494 .\templates\prof_dash.html:2435
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:16
 msgid "Messages"
 msgstr "Nachrichten"
 
-#: .\templates\prof_dash.html:1495 .\templates\prof_dash.html:2509
+#: .\templates\prof_dash.html:1498 .\templates\prof_dash.html:2512
 msgid "Paramètres"
 msgstr "Einstellungen"
 
-#: .\templates\prof_dash.html:1509
+#: .\templates\prof_dash.html:1512
 msgid "Accueil"
 msgstr "Startseite"
 
-#: .\templates\prof_dash.html:1513
+#: .\templates\prof_dash.html:1516
 msgid "Déconnexion"
 msgstr "Abmelden"
 
-#: .\templates\prof_dash.html:1525
+#: .\templates\prof_dash.html:1528
 msgid "Remplacer le Fichier du Cours"
 msgstr "Kursdatei ersetzen"
 
-#: .\templates\prof_dash.html:1531
+#: .\templates\prof_dash.html:1534
 msgid "Glissez-déposez votre nouveau fichier ici"
 msgstr "Ziehen Sie Ihre neue Datei hierher"
 
-#: .\templates\prof_dash.html:1532
+#: .\templates\prof_dash.html:1535
 msgid "ou cliquez pour parcourir"
 msgstr "oder klicken Sie zum Durchsuchen"
 
-#: .\templates\prof_dash.html:1533
+#: .\templates\prof_dash.html:1536
 msgid "Formats acceptés: PDF, DOC, DOCX, PPT, PPTX (Max: 50MB)"
 msgstr "Erlaubte Formate: PDF, DOC, DOCX, PPT, PPTX (Max: 50MB)"
 
-#: .\templates\prof_dash.html:1549 .\templates\prof_dash.html:2652
-#: .\templates\prof_dash.html:2683 .\templates\prof_dash.html:3053
+#: .\templates\prof_dash.html:1552 .\templates\prof_dash.html:2655
+#: .\templates\prof_dash.html:2686 .\templates\prof_dash.html:3045
 msgid "Annuler"
 msgstr "Abbrechen"
 
-#: .\templates\prof_dash.html:1553
+#: .\templates\prof_dash.html:1556
 msgid "Remplacer"
 msgstr "Ersetzen"
 
-#: .\templates\prof_dash.html:1583 .\templates\prof_dash.html:2819
+#: .\templates\prof_dash.html:1586 .\templates\prof_dash.html:2822
 msgid "Langue"
 msgstr "Sprache"
 
-#: .\templates\prof_dash.html:1634
+#: .\templates\prof_dash.html:1637
 msgid "Cours créés"
 msgstr "Erstellte Kurse"
 
-#: .\templates\prof_dash.html:1637
+#: .\templates\prof_dash.html:1640
 msgid "+3 ce mois"
 msgstr "+3 diesen Monat"
 
-#: .\templates\prof_dash.html:1648
+#: .\templates\prof_dash.html:1651
 msgid "Étudiants inscrits"
 msgstr "Eingeschriebene Studenten"
 
-#: .\templates\prof_dash.html:1651
+#: .\templates\prof_dash.html:1654
 msgid "+18 cette semaine"
 msgstr "+18 diese Woche"
 
-#: .\templates\prof_dash.html:1662
+#: .\templates\prof_dash.html:1665
 msgid "Quiz générés"
 msgstr "Erstellte Quizze"
 
-#: .\templates\prof_dash.html:1665
+#: .\templates\prof_dash.html:1668
 msgid "+8 cette semaine"
 msgstr "+8 diese Woche"
 
-#: .\templates\prof_dash.html:1676
+#: .\templates\prof_dash.html:1679
 msgid "Taux de réussite moyen"
 msgstr "Durchschnittliche Erfolgsquote"
 
-#: .\templates\prof_dash.html:1679
+#: .\templates\prof_dash.html:1682
 #, python-format
 msgid "+5%% ce mois"
 msgstr "+5%% diesen Monat"
 
-#: .\templates\prof_dash.html:1689
+#: .\templates\prof_dash.html:1692
 msgid "Activité récente"
 msgstr "Letzte Aktivität"
 
-#: .\templates\prof_dash.html:1690
+#: .\templates\prof_dash.html:1693
 msgid "Voir tout"
 msgstr "Alles anzeigen"
 
-#: .\templates\prof_dash.html:1699
+#: .\templates\prof_dash.html:1702
 msgid "Quiz \\"
 msgstr "Quiz \\"
 
-#: .\templates\prof_dash.html:1700
+#: .\templates\prof_dash.html:1703
 msgid "Il y a 2 heures • 15 questions • Niveau Intermédiaire"
 msgstr "Vor 2 Stunden • 15 Fragen • Mittelstufe"
 
-#: .\templates\prof_dash.html:1702
+#: .\templates\prof_dash.html:1705
 msgid "Nouveau"
 msgstr "Neu"
 
-#: .\templates\prof_dash.html:1709
+#: .\templates\prof_dash.html:1712
 msgid "3 nouveaux étudiants inscrits"
 msgstr "3 neue Studenten eingeschrieben"
 
-#: .\templates\prof_dash.html:1710
+#: .\templates\prof_dash.html:1713
 msgid "Il y a 4 heures • Cours \\"
 msgstr "Vor 4 Stunden • Kurs \\"
 
-#: .\templates\prof_dash.html:1712
+#: .\templates\prof_dash.html:1715
 msgid "Inscription"
 msgstr "Einschreibung"
 
-#: .\templates\prof_dash.html:1719
+#: .\templates\prof_dash.html:1722
 msgid "Marie Dubois a obtenu 18/20 au quiz"
 msgstr "Marie Dubois hat 18/20 im Quiz erreicht"
 
-#: .\templates\prof_dash.html:1720
+#: .\templates\prof_dash.html:1723
 msgid "Il y a 6 heures • Quiz \\"
 msgstr "Vor 6 Stunden • Quiz \\"
 
-#: .\templates\prof_dash.html:1722
+#: .\templates\prof_dash.html:1725
 msgid "Résultat"
 msgstr "Ergebnis"
 
-#: .\templates\prof_dash.html:1731
+#: .\templates\prof_dash.html:1734
 msgid "Actions rapides"
 msgstr "Schnellaktionen"
 
-#: .\templates\prof_dash.html:1737
+#: .\templates\prof_dash.html:1740
 msgid "Créer un cours"
 msgstr "Kurs erstellen"
 
-#: .\templates\prof_dash.html:1741
+#: .\templates\prof_dash.html:1744
 msgid "Générer un quiz"
 msgstr "Quiz generieren"
 
-#: .\templates\prof_dash.html:1745
+#: .\templates\prof_dash.html:1748
 msgid "Voir les étudiants"
 msgstr "Studenten anzeigen"
 
-#: .\templates\prof_dash.html:1761 .\templates\prof_dash.html:2700
+#: .\templates\prof_dash.html:1764 .\templates\prof_dash.html:2703
 #, fuzzy
 #| msgid "Modules"
 msgid "Mes Modules"
 msgstr "Module"
 
-#: .\templates\prof_dash.html:1762
+#: .\templates\prof_dash.html:1765
 #, fuzzy
 #| msgid "Liste des Quiz"
 msgid "Afficher le Quiz"
 msgstr "Quizliste"
 
-#: .\templates\prof_dash.html:1766 .\templates\prof_dash.html:2703
+#: .\templates\prof_dash.html:1769 .\templates\prof_dash.html:2706
 msgid "Ajouter un nouveau module"
 msgstr ""
 
-#: .\templates\prof_dash.html:1779
+#: .\templates\prof_dash.html:1782
 #, fuzzy
 #| msgid "Mes Étudiants"
 msgid "étudiants"
 msgstr "Meine Studenten"
 
-#: .\templates\prof_dash.html:1779
+#: .\templates\prof_dash.html:1782
 msgid "quiz"
 msgstr ""
 
-#: .\templates\prof_dash.html:1779 .\templates\prof_dash.html:2798
+#: .\templates\prof_dash.html:1782 .\templates\prof_dash.html:2801
 msgid "Code"
 msgstr ""
 
-#: .\templates\prof_dash.html:1786 .\templates\prof_dash.html:2158
-#: .\templates\prof_dash.html:2185
+#: .\templates\prof_dash.html:1789 .\templates\prof_dash.html:2161
+#: .\templates\prof_dash.html:2188
 msgid "Modifier"
 msgstr ""
 
-#: .\templates\prof_dash.html:1795 .\templates\prof_dash.html:2304
-#: .\templates\prof_dash.html:2338
+#: .\templates\prof_dash.html:1798 .\templates\prof_dash.html:2307
+#: .\templates\prof_dash.html:2341
 msgid "Détails"
 msgstr ""
 
-#: .\templates\prof_dash.html:1801
+#: .\templates\prof_dash.html:1804
 msgid "Aucun module disponible."
 msgstr ""
 
-#: .\templates\prof_dash.html:1816
+#: .\templates\prof_dash.html:1819
 msgid "Détails du Module"
 msgstr ""
 
-#: .\templates\prof_dash.html:1825
+#: .\templates\prof_dash.html:1828
 msgid "Rechercher du contenu..."
 msgstr ""
 
-#: .\templates\prof_dash.html:1829
+#: .\templates\prof_dash.html:1832
 msgid "Effacer la recherche"
 msgstr ""
 
-#: .\templates\prof_dash.html:1839 .\templates\prof_dash.html:1847
+#: .\templates\prof_dash.html:1842 .\templates\prof_dash.html:1850
 msgid "Tous les types"
 msgstr ""
 
-#: .\templates\prof_dash.html:1857 .\templates\prof_dash.html:2137
-#: .\templates\prof_dash.html:2273 .\templates\prof_dash.html:2781
+#: .\templates\prof_dash.html:1860 .\templates\prof_dash.html:2140
+#: .\templates\prof_dash.html:2276 .\templates\prof_dash.html:2784
 msgid "Cours"
 msgstr ""
 
-#: .\templates\prof_dash.html:1865
+#: .\templates\prof_dash.html:1868
 msgid "Exercices"
 msgstr ""
 
-#: .\templates\prof_dash.html:1872 .\templates\prof_dash.html:2020
-#: .\templates\prof_dash.html:2152 .\templates\prof_dash.html:2736
+#: .\templates\prof_dash.html:1875 .\templates\prof_dash.html:2023
+#: .\templates\prof_dash.html:2155 .\templates\prof_dash.html:2739
 #, fuzzy
 #| msgid "Quiz \\"
 msgid "Quiz"
 msgstr "Quiz \\"
 
-#: .\templates\prof_dash.html:1880
+#: .\templates\prof_dash.html:1883
 msgid "Évaluations"
 msgstr ""
 
-#: .\templates\prof_dash.html:1897
+#: .\templates\prof_dash.html:1900
 msgid "Nom (A-Z)"
 msgstr ""
 
-#: .\templates\prof_dash.html:1902
+#: .\templates\prof_dash.html:1905
 msgid "Nom (Z-A)"
 msgstr ""
 
-#: .\templates\prof_dash.html:1907
+#: .\templates\prof_dash.html:1910
 msgid "Plus récent"
 msgstr ""
 
-#: .\templates\prof_dash.html:1912
+#: .\templates\prof_dash.html:1915
 msgid "Plus ancien"
 msgstr ""
 
-#: .\templates\prof_dash.html:1922 .\templates\prof_dash.html:2771
+#: .\templates\prof_dash.html:1925 .\templates\prof_dash.html:2774
 msgid "Ajouter du contenu"
 msgstr ""
 
-#: .\templates\prof_dash.html:1924
+#: .\templates\prof_dash.html:1927
 msgid "Ajouter"
 msgstr ""
 
-#: .\templates\prof_dash.html:1926 .\templates\prof_dash.html:2759
-#: .\templates\prof_dash.html:3071 .\templates\prof_dash.html:3095
+#: .\templates\prof_dash.html:1929 .\templates\prof_dash.html:2762
+#: .\templates\prof_dash.html:3063 .\templates\prof_dash.html:3087
 msgid "Fermer"
 msgstr ""
 
-#: .\templates\prof_dash.html:1938
+#: .\templates\prof_dash.html:1941
 msgid "Effacer les filtres"
 msgstr ""
 
-#: .\templates\prof_dash.html:1949
+#: .\templates\prof_dash.html:1952
 msgid "Recherche en cours..."
 msgstr ""
 
-#: .\templates\prof_dash.html:1957
+#: .\templates\prof_dash.html:1960
 msgid "Aucun résultat trouvé"
 msgstr ""
 
-#: .\templates\prof_dash.html:1958
+#: .\templates\prof_dash.html:1961
 msgid "Essayez de modifier vos critères de recherche ou vos filtres."
 msgstr ""
 
-#: .\templates\prof_dash.html:1960
+#: .\templates\prof_dash.html:1963
 msgid "Réinitialiser les filtres"
 msgstr ""
 
-#: .\templates\prof_dash.html:1978
+#: .\templates\prof_dash.html:1981
 msgid "4 éléments trouvés"
 msgstr ""
 
-#: .\templates\prof_dash.html:1981 .\templates\prof_dash.html:2221
+#: .\templates\prof_dash.html:1984 .\templates\prof_dash.html:2224
 msgid "Exporter"
 msgstr ""
 
-#: .\templates\prof_dash.html:1984
+#: .\templates\prof_dash.html:1987
 #, fuzzy
 #| msgid "Actions rapides"
 msgid "Actions groupées"
 msgstr "Schnellaktionen"
 
-#: .\templates\prof_dash.html:1999
+#: .\templates\prof_dash.html:2002
 #, fuzzy
 #| msgid "Générateur Quiz IA"
 msgid "Générateur de Quiz IA (RAG)"
 msgstr "KI-Quiz-Generator"
 
-#: .\templates\prof_dash.html:2006 .\templates\prof_dash.html:2731
+#: .\templates\prof_dash.html:2009 .\templates\prof_dash.html:2734
 #, fuzzy
 #| msgid "Cours créés"
 msgid "Cours associé"
 msgstr "Erstellte Kurse"
 
-#: .\templates\prof_dash.html:2008
+#: .\templates\prof_dash.html:2011
 #, fuzzy
 #| msgid "Créer un cours"
 msgid "Sélectionner un cours"
 msgstr "Kurs erstellen"
 
-#: .\templates\prof_dash.html:2009 .\templates\prof_dash.html:2119
-#: .\templates\prof_dash.html:2151 .\templates\prof_dash.html:2215
-#: .\templates\prof_dash.html:2732
+#: .\templates\prof_dash.html:2012 .\templates\prof_dash.html:2122
+#: .\templates\prof_dash.html:2154 .\templates\prof_dash.html:2218
+#: .\templates\prof_dash.html:2735
 msgid "Algorithmique avancée"
 msgstr ""
 
-#: .\templates\prof_dash.html:2010 .\templates\prof_dash.html:2120
-#: .\templates\prof_dash.html:2178 .\templates\prof_dash.html:2216
+#: .\templates\prof_dash.html:2013 .\templates\prof_dash.html:2123
+#: .\templates\prof_dash.html:2181 .\templates\prof_dash.html:2219
 msgid "Base de données"
 msgstr ""
 
-#: .\templates\prof_dash.html:2011 .\templates\prof_dash.html:2121
-#: .\templates\prof_dash.html:2217
+#: .\templates\prof_dash.html:2014 .\templates\prof_dash.html:2124
+#: .\templates\prof_dash.html:2220
 msgid "Intelligence Artificielle"
 msgstr ""
 
-#: .\templates\prof_dash.html:2017 .\templates\prof_dash.html:2735
-#: .\templates\prof_dash.html:2778
+#: .\templates\prof_dash.html:2020 .\templates\prof_dash.html:2738
+#: .\templates\prof_dash.html:2781
 msgid "Type de contenu"
 msgstr ""
 
-#: .\templates\prof_dash.html:2019 .\templates\prof_dash.html:2780
+#: .\templates\prof_dash.html:2022 .\templates\prof_dash.html:2783
 msgid "Sélectionner le type"
 msgstr ""
 
-#: .\templates\prof_dash.html:2021 .\templates\prof_dash.html:2968
+#: .\templates\prof_dash.html:2024 .\templates\prof_dash.html:2960
 msgid "Exercices pratiques"
 msgstr ""
 
-#: .\templates\prof_dash.html:2022 .\templates\prof_dash.html:2059
-#: .\templates\prof_dash.html:2924
+#: .\templates\prof_dash.html:2025 .\templates\prof_dash.html:2062
+#: .\templates\prof_dash.html:2916
 msgid "Évaluation"
 msgstr ""
 
-#: .\templates\prof_dash.html:2023
+#: .\templates\prof_dash.html:2026
 msgid "Questions de révision"
 msgstr ""
 
-#: .\templates\prof_dash.html:2032 .\templates\prof_dash.html:2739
-#: .\templates\prof_dash.html:2887
+#: .\templates\prof_dash.html:2035 .\templates\prof_dash.html:2742
+#: .\templates\prof_dash.html:2879
 msgid "Nombre de questions"
 msgstr ""
 
-#: .\templates\prof_dash.html:2039 .\templates\prof_dash.html:2743
-#: .\templates\prof_dash.html:2865 .\templates\prof_dash.html:2902
+#: .\templates\prof_dash.html:2042 .\templates\prof_dash.html:2746
+#: .\templates\prof_dash.html:2857 .\templates\prof_dash.html:2894
 msgid "Niveau de difficulté"
 msgstr ""
 
-#: .\templates\prof_dash.html:2041 .\templates\prof_dash.html:2053
-#: .\templates\prof_dash.html:2621 .\templates\prof_dash.html:2630
-#: .\templates\prof_dash.html:2808 .\templates\prof_dash.html:2821
-#: .\templates\prof_dash.html:2836 .\templates\prof_dash.html:2867
+#: .\templates\prof_dash.html:2044 .\templates\prof_dash.html:2056
+#: .\templates\prof_dash.html:2624 .\templates\prof_dash.html:2633
+#: .\templates\prof_dash.html:2811 .\templates\prof_dash.html:2824
+#: .\templates\prof_dash.html:2859
 msgid "Sélectionner"
 msgstr ""
 
-#: .\templates\prof_dash.html:2042 .\templates\prof_dash.html:2622
-#: .\templates\prof_dash.html:2868 .\templates\prof_dash.html:2906
+#: .\templates\prof_dash.html:2045 .\templates\prof_dash.html:2625
+#: .\templates\prof_dash.html:2860 .\templates\prof_dash.html:2898
 msgid "Débutant"
 msgstr ""
 
-#: .\templates\prof_dash.html:2043 .\templates\prof_dash.html:2154
-#: .\templates\prof_dash.html:2623 .\templates\prof_dash.html:2744
-#: .\templates\prof_dash.html:2869 .\templates\prof_dash.html:2907
+#: .\templates\prof_dash.html:2046 .\templates\prof_dash.html:2157
+#: .\templates\prof_dash.html:2626 .\templates\prof_dash.html:2747
+#: .\templates\prof_dash.html:2861 .\templates\prof_dash.html:2899
 msgid "Intermédiaire"
 msgstr ""
 
-#: .\templates\prof_dash.html:2044 .\templates\prof_dash.html:2181
-#: .\templates\prof_dash.html:2624 .\templates\prof_dash.html:2870
-#: .\templates\prof_dash.html:2908
+#: .\templates\prof_dash.html:2047 .\templates\prof_dash.html:2184
+#: .\templates\prof_dash.html:2627 .\templates\prof_dash.html:2862
+#: .\templates\prof_dash.html:2900
 msgid "Avancé"
 msgstr ""
 
-#: .\templates\prof_dash.html:2045 .\templates\prof_dash.html:2909
+#: .\templates\prof_dash.html:2048 .\templates\prof_dash.html:2901
 msgid "Expert"
 msgstr ""
 
-#: .\templates\prof_dash.html:2051 .\templates\prof_dash.html:2747
-#: .\templates\prof_dash.html:2915
+#: .\templates\prof_dash.html:2054 .\templates\prof_dash.html:2750
+#: .\templates\prof_dash.html:2907
 msgid "Taxonomie de Bloom"
 msgstr ""
 
-#: .\templates\prof_dash.html:2054 .\templates\prof_dash.html:2919
+#: .\templates\prof_dash.html:2057 .\templates\prof_dash.html:2911
 msgid "Connaissance"
 msgstr ""
 
-#: .\templates\prof_dash.html:2055 .\templates\prof_dash.html:2920
+#: .\templates\prof_dash.html:2058 .\templates\prof_dash.html:2912
 msgid "Compréhension"
 msgstr ""
 
-#: .\templates\prof_dash.html:2056 .\templates\prof_dash.html:2149
-#: .\templates\prof_dash.html:2748 .\templates\prof_dash.html:2921
+#: .\templates\prof_dash.html:2059 .\templates\prof_dash.html:2152
+#: .\templates\prof_dash.html:2751 .\templates\prof_dash.html:2913
 msgid "Application"
 msgstr ""
 
-#: .\templates\prof_dash.html:2057 .\templates\prof_dash.html:2176
-#: .\templates\prof_dash.html:2922
+#: .\templates\prof_dash.html:2060 .\templates\prof_dash.html:2179
+#: .\templates\prof_dash.html:2914
 msgid "Analyse"
 msgstr ""
 
-#: .\templates\prof_dash.html:2058 .\templates\prof_dash.html:2923
+#: .\templates\prof_dash.html:2061 .\templates\prof_dash.html:2915
 msgid "Synthèse"
 msgstr ""
 
-#: .\templates\prof_dash.html:2068
+#: .\templates\prof_dash.html:2071
 msgid "Mot de passe du quiz"
 msgstr ""
 
-#: .\templates\prof_dash.html:2069 .\templates\prof_dash.html:3030
+#: .\templates\prof_dash.html:2072 .\templates\prof_dash.html:3022
 msgid "Optionnel"
 msgstr ""
 
-#: .\templates\prof_dash.html:2074 .\templates\prof_dash.html:2933
+#: .\templates\prof_dash.html:2077 .\templates\prof_dash.html:2925
 msgid "Durée (minutes)"
 msgstr ""
 
-#: .\templates\prof_dash.html:2082
+#: .\templates\prof_dash.html:2085
 msgid "Description (Optionnel)"
 msgstr ""
 
-#: .\templates\prof_dash.html:2084
+#: .\templates\prof_dash.html:2087
 msgid "Instructions, contexte, objectifs..."
 msgstr ""
 
-#: .\templates\prof_dash.html:2090
+#: .\templates\prof_dash.html:2093
 #, fuzzy
 #| msgid "Générateur Quiz IA"
 msgid "Générer avec l'IA"
 msgstr "KI-Quiz-Generator"
 
-#: .\templates\prof_dash.html:2094 .\templates\prof_dash.html:2161
-#: .\templates\prof_dash.html:2188
+#: .\templates\prof_dash.html:2097 .\templates\prof_dash.html:2164
+#: .\templates\prof_dash.html:2191
 msgid "Aperçu"
 msgstr ""
 
-#: .\templates\prof_dash.html:2098
+#: .\templates\prof_dash.html:2101
 msgid "Réinitialiser"
 msgstr ""
 
-#: .\templates\prof_dash.html:2105
+#: .\templates\prof_dash.html:2108
 #, fuzzy
 #| msgid "Quiz générés"
 msgid "Quiz généré avec succès !"
 msgstr "Erstellte Quizze"
 
-#: .\templates\prof_dash.html:2106
+#: .\templates\prof_dash.html:2109
 msgid "Le quiz a été créé et est maintenant disponible pour vos étudiants."
 msgstr ""
 
-#: .\templates\prof_dash.html:2115
+#: .\templates\prof_dash.html:2118
 #, fuzzy
 #| msgid "Liste des Quiz"
 msgid "Liste des Quiz et Exercices"
 msgstr "Quizliste"
 
-#: .\templates\prof_dash.html:2118 .\templates\prof_dash.html:2214
+#: .\templates\prof_dash.html:2121 .\templates\prof_dash.html:2217
 msgid "Tous les cours"
 msgstr ""
 
-#: .\templates\prof_dash.html:2125
+#: .\templates\prof_dash.html:2128
 #, fuzzy
 #| msgid "Nouveau"
 msgid "Nouveau quiz"
 msgstr "Neu"
 
-#: .\templates\prof_dash.html:2136 .\templates\prof_dash.html:2607
-#: .\templates\prof_dash.html:2792
+#: .\templates\prof_dash.html:2139 .\templates\prof_dash.html:2610
+#: .\templates\prof_dash.html:2795
 msgid "Titre"
 msgstr ""
 
-#: .\templates\prof_dash.html:2138
+#: .\templates\prof_dash.html:2141
 msgid "Type"
 msgstr ""
 
-#: .\templates\prof_dash.html:2139
+#: .\templates\prof_dash.html:2142
 msgid "Questions"
 msgstr ""
 
-#: .\templates\prof_dash.html:2140 .\templates\prof_dash.html:2905
+#: .\templates\prof_dash.html:2143 .\templates\prof_dash.html:2897
 msgid "Difficulté"
 msgstr ""
 
-#: .\templates\prof_dash.html:2141
+#: .\templates\prof_dash.html:2144
 msgid "Date"
 msgstr ""
 
-#: .\templates\prof_dash.html:2142 .\templates\prof_dash.html:2277
+#: .\templates\prof_dash.html:2145 .\templates\prof_dash.html:2280
 #, fuzzy
 #| msgid "Actions rapides"
 msgid "Actions"
 msgstr "Schnellaktionen"
 
-#: .\templates\prof_dash.html:2148 .\templates\prof_dash.html:2394
+#: .\templates\prof_dash.html:2151 .\templates\prof_dash.html:2397
 msgid "Algorithmes de tri"
 msgstr ""
 
-#: .\templates\prof_dash.html:2167 .\templates\prof_dash.html:2194
-#: .\templates\prof_dash.html:2686
+#: .\templates\prof_dash.html:2170 .\templates\prof_dash.html:2197
+#: .\templates\prof_dash.html:2689
 msgid "Supprimer"
 msgstr ""
 
-#: .\templates\prof_dash.html:2175
+#: .\templates\prof_dash.html:2178
 msgid "Requêtes SQL avancées"
 msgstr ""
 
-#: .\templates\prof_dash.html:2179
+#: .\templates\prof_dash.html:2182
 msgid "Exercice"
 msgstr ""
 
-#: .\templates\prof_dash.html:2212
+#: .\templates\prof_dash.html:2215
 msgid "Rechercher..."
 msgstr ""
 
-#: .\templates\prof_dash.html:2234
+#: .\templates\prof_dash.html:2237
 #, fuzzy
 #| msgid "Voir les étudiants"
 msgid "Total étudiants"
 msgstr "Studenten anzeigen"
 
-#: .\templates\prof_dash.html:2243
+#: .\templates\prof_dash.html:2246
 #, fuzzy
 #| msgid "+3 ce mois"
 msgid "Actifs ce mois"
 msgstr "+3 diesen Monat"
 
-#: .\templates\prof_dash.html:2252
+#: .\templates\prof_dash.html:2255
 #, fuzzy
 #| msgid "Taux de réussite moyen"
 msgid "Taux de réussite"
 msgstr "Durchschnittliche Erfolgsquote"
 
-#: .\templates\prof_dash.html:2261
+#: .\templates\prof_dash.html:2264
 msgid "Temps moyen/semaine"
 msgstr ""
 
-#: .\templates\prof_dash.html:2271
+#: .\templates\prof_dash.html:2274
 #, fuzzy
 #| msgid "Mes Étudiants"
 msgid "Étudiant"
 msgstr "Meine Studenten"
 
-#: .\templates\prof_dash.html:2272 .\templates\prof_dash.html:2524
+#: .\templates\prof_dash.html:2275 .\templates\prof_dash.html:2527
 msgid "Email"
 msgstr ""
 
-#: .\templates\prof_dash.html:2274
+#: .\templates\prof_dash.html:2277
 msgid "Dernière activité"
 msgstr ""
 
-#: .\templates\prof_dash.html:2275
+#: .\templates\prof_dash.html:2278
 msgid "Moyenne"
 msgstr ""
 
-#: .\templates\prof_dash.html:2276
+#: .\templates\prof_dash.html:2279
 msgid "Statut"
 msgstr ""
 
-#: .\templates\prof_dash.html:2293
+#: .\templates\prof_dash.html:2296
 msgid "3 cours"
 msgstr ""
 
-#: .\templates\prof_dash.html:2294
+#: .\templates\prof_dash.html:2297
 #, fuzzy
 #| msgid "Il y a 6 heures • Quiz \\"
 msgid "Il y a 2 heures"
 msgstr "Vor 6 Stunden • Quiz \\"
 
-#: .\templates\prof_dash.html:2301
+#: .\templates\prof_dash.html:2304
 msgid "Actif"
 msgstr ""
 
-#: .\templates\prof_dash.html:2309 .\templates\prof_dash.html:2341
+#: .\templates\prof_dash.html:2312 .\templates\prof_dash.html:2344
 #, fuzzy
 #| msgid "Messages"
 msgid "Message"
 msgstr "Nachrichten"
 
-#: .\templates\prof_dash.html:2327
+#: .\templates\prof_dash.html:2330
 msgid "2 cours"
 msgstr ""
 
-#: .\templates\prof_dash.html:2328
+#: .\templates\prof_dash.html:2331
 msgid "Il y a 1 jour"
 msgstr ""
 
-#: .\templates\prof_dash.html:2335
+#: .\templates\prof_dash.html:2338
 msgid "Moyen"
 msgstr ""
 
-#: .\templates\prof_dash.html:2362
+#: .\templates\prof_dash.html:2365
 msgid "Performance par cours"
 msgstr ""
 
-#: .\templates\prof_dash.html:2374
+#: .\templates\prof_dash.html:2377
 #, fuzzy
 #| msgid "Étudiants inscrits"
 msgid "Évolution des inscriptions"
 msgstr "Eingeschriebene Studenten"
 
-#: .\templates\prof_dash.html:2389
+#: .\templates\prof_dash.html:2392
 msgid "Quiz les plus difficiles"
 msgstr ""
 
-#: .\templates\prof_dash.html:2395
+#: .\templates\prof_dash.html:2398
 #, python-format
 msgid "45%% réussite"
 msgstr ""
 
-#: .\templates\prof_dash.html:2398
+#: .\templates\prof_dash.html:2401
 msgid "Requêtes complexes"
 msgstr ""
 
-#: .\templates\prof_dash.html:2399
+#: .\templates\prof_dash.html:2402
 #, python-format
 msgid "62%% réussite"
 msgstr ""
 
-#: .\templates\prof_dash.html:2402
+#: .\templates\prof_dash.html:2405
 msgid "Réseaux de neurones"
 msgstr ""
 
-#: .\templates\prof_dash.html:2403
+#: .\templates\prof_dash.html:2406
 #, python-format
 msgid "78%% réussite"
 msgstr ""
 
-#: .\templates\prof_dash.html:2412
+#: .\templates\prof_dash.html:2415
 msgid "Recommandations IA"
 msgstr ""
 
-#: .\templates\prof_dash.html:2416
+#: .\templates\prof_dash.html:2419
 msgid "Suggestions basées sur l'analyse IA :"
 msgstr ""
 
-#: .\templates\prof_dash.html:2418
+#: .\templates\prof_dash.html:2421
 msgid "Renforcer les exercices sur les algorithmes de tri (taux d'échec élevé)"
 msgstr ""
 
-#: .\templates\prof_dash.html:2419
+#: .\templates\prof_dash.html:2422
 msgid "Pierre Laurent nécessite un suivi personnalisé en base de données"
 msgstr ""
 
-#: .\templates\prof_dash.html:2420
+#: .\templates\prof_dash.html:2423
 #, python-format
 msgid "Le cours d'IA connaît une excellente progression (+25%% de réussite)"
 msgstr ""
 
-#: .\templates\prof_dash.html:2435
+#: .\templates\prof_dash.html:2438
 #, fuzzy
 #| msgid "Nouveau"
 msgid "Nouveau message"
 msgstr "Neu"
 
-#: .\templates\prof_dash.html:2443
+#: .\templates\prof_dash.html:2446
 msgid "Conversations"
 msgstr ""
 
-#: .\templates\prof_dash.html:2452
+#: .\templates\prof_dash.html:2455
 msgid "Question sur le devoir..."
 msgstr ""
 
-#: .\templates\prof_dash.html:2462
+#: .\templates\prof_dash.html:2465
 msgid "Demande d'aide SQL"
 msgstr ""
 
-#: .\templates\prof_dash.html:2477
+#: .\templates\prof_dash.html:2480
 msgid "En ligne"
 msgstr ""
 
-#: .\templates\prof_dash.html:2484
+#: .\templates\prof_dash.html:2487
 msgid "Bonjour Professeur, j'ai une question concernant l'exercice 3 du TP."
 msgstr ""
 
-#: .\templates\prof_dash.html:2487
+#: .\templates\prof_dash.html:2490
 msgid "Bonjour Marie, quel est le problème exactement ?"
 msgstr ""
 
-#: .\templates\prof_dash.html:2490
+#: .\templates\prof_dash.html:2493
 msgid ""
 "Je ne comprends pas comment implémenter l'algorithme de tri fusion. Pouvez-"
 "vous m'expliquer ?"
 msgstr ""
 
-#: .\templates\prof_dash.html:2496
+#: .\templates\prof_dash.html:2499
 msgid "Écrire un message..."
 msgstr ""
 
-#: .\templates\prof_dash.html:2515
+#: .\templates\prof_dash.html:2518
 msgid "Profil"
 msgstr ""
 
-#: .\templates\prof_dash.html:2520
+#: .\templates\prof_dash.html:2523
 msgid "Nom complet"
 msgstr ""
 
-#: .\templates\prof_dash.html:2528
+#: .\templates\prof_dash.html:2531
 msgid "Spécialité"
 msgstr ""
 
-#: .\templates\prof_dash.html:2529 .\templates\prof_dash.html:2631
-#: .\templates\prof_dash.html:2809 .\templates\prof_dash.html:2837
+#: .\templates\prof_dash.html:2532 .\templates\prof_dash.html:2634
+#: .\templates\prof_dash.html:2812
 msgid "Informatique"
 msgstr ""
 
-#: .\templates\prof_dash.html:2532
+#: .\templates\prof_dash.html:2535
 msgid "Bio"
 msgstr ""
 
-#: .\templates\prof_dash.html:2534
+#: .\templates\prof_dash.html:2537
 msgid ""
 "Professeur d'informatique spécialisé en algorithmique et bases de données."
 msgstr ""
 
-#: .\templates\prof_dash.html:2536
+#: .\templates\prof_dash.html:2539
 msgid "Enregistrer"
 msgstr ""
 
-#: .\templates\prof_dash.html:2544
+#: .\templates\prof_dash.html:2547
 msgid "Sécurité"
 msgstr ""
 
-#: .\templates\prof_dash.html:2549
+#: .\templates\prof_dash.html:2552
 msgid "Mot de passe actuel"
 msgstr ""
 
-#: .\templates\prof_dash.html:2553
+#: .\templates\prof_dash.html:2556
 msgid "Nouveau mot de passe"
 msgstr ""
 
-#: .\templates\prof_dash.html:2557
+#: .\templates\prof_dash.html:2560
 msgid "Confirmer le nouveau mot de passe"
 msgstr ""
 
-#: .\templates\prof_dash.html:2560
+#: .\templates\prof_dash.html:2563
 msgid "Changer le mot de passe"
 msgstr ""
 
-#: .\templates\prof_dash.html:2567
+#: .\templates\prof_dash.html:2570
 msgid "Préférences"
 msgstr ""
 
-#: .\templates\prof_dash.html:2571
+#: .\templates\prof_dash.html:2574
 msgid "Thème"
 msgstr ""
 
-#: .\templates\prof_dash.html:2573
+#: .\templates\prof_dash.html:2576
 msgid "Sombre"
 msgstr ""
 
-#: .\templates\prof_dash.html:2574
+#: .\templates\prof_dash.html:2577
 msgid "Clair"
 msgstr ""
 
-#: .\templates\prof_dash.html:2575
+#: .\templates\prof_dash.html:2578
 msgid "Système"
 msgstr ""
 
-#: .\templates\prof_dash.html:2580
+#: .\templates\prof_dash.html:2583
 msgid "Notifications par email"
 msgstr ""
 
-#: .\templates\prof_dash.html:2584
+#: .\templates\prof_dash.html:2587
 msgid "Rapport hebdomadaire"
 msgstr ""
 
-#: .\templates\prof_dash.html:2598
+#: .\templates\prof_dash.html:2601
 #, fuzzy
 #| msgid "Créer un cours"
 msgid "Créer un nouveau Module"
 msgstr "Kurs erstellen"
 
-#: .\templates\prof_dash.html:2599 .\templates\prof_dash.html:2671
-#: .\templates\prof_dash.html:2720 .\templates\prof_dash.html:2772
+#: .\templates\prof_dash.html:2602 .\templates\prof_dash.html:2674
+#: .\templates\prof_dash.html:2723 .\templates\prof_dash.html:2775
 msgid "Close"
 msgstr ""
 
-#: .\templates\prof_dash.html:2611
+#: .\templates\prof_dash.html:2614
 msgid "Code du Module"
 msgstr ""
 
-#: .\templates\prof_dash.html:2619
+#: .\templates\prof_dash.html:2622
 #, fuzzy
 #| msgid "Nouveau"
 msgid "Niveau"
 msgstr "Neu"
 
-#: .\templates\prof_dash.html:2628 .\templates\prof_dash.html:2806
-#: .\templates\prof_dash.html:2834
+#: .\templates\prof_dash.html:2631 .\templates\prof_dash.html:2809
 msgid "Domaine"
 msgstr ""
 
-#: .\templates\prof_dash.html:2632 .\templates\prof_dash.html:2810
-#: .\templates\prof_dash.html:2838
+#: .\templates\prof_dash.html:2635 .\templates\prof_dash.html:2813
 #, fuzzy
 #| msgid "Statistiques"
 msgid "Mathématiques"
 msgstr "Statistiken"
 
-#: .\templates\prof_dash.html:2633 .\templates\prof_dash.html:2811
-#: .\templates\prof_dash.html:2839
+#: .\templates\prof_dash.html:2636 .\templates\prof_dash.html:2814
 msgid "Sciences"
 msgstr ""
 
-#: .\templates\prof_dash.html:2634 .\templates\prof_dash.html:2812
-#: .\templates\prof_dash.html:2840
+#: .\templates\prof_dash.html:2637 .\templates\prof_dash.html:2815
 msgid "Lettres"
 msgstr ""
 
-#: .\templates\prof_dash.html:2645 .\templates\prof_dash.html:3008
+#: .\templates\prof_dash.html:2648 .\templates\prof_dash.html:3000
 #, fuzzy
 #| msgid "Inscription"
 msgid "Description"
 msgstr "Einschreibung"
 
-#: .\templates\prof_dash.html:2654
+#: .\templates\prof_dash.html:2657
 #, fuzzy
 #| msgid "Créer un cours"
 msgid "Créer le cours"
 msgstr "Kurs erstellen"
 
-#: .\templates\prof_dash.html:2657 .\templates\prof_dash.html:3057
+#: .\templates\prof_dash.html:2660 .\templates\prof_dash.html:3049
 msgid "Création..."
 msgstr ""
 
-#: .\templates\prof_dash.html:2670
+#: .\templates\prof_dash.html:2673
 msgid "Confirmer la suppression"
 msgstr ""
 
-#: .\templates\prof_dash.html:2676
+#: .\templates\prof_dash.html:2679
 msgid "Êtes-vous sûr ?"
 msgstr ""
 
-#: .\templates\prof_dash.html:2677
+#: .\templates\prof_dash.html:2680
 msgid "Cette action supprimera définitivement le module"
 msgstr ""
 
-#: .\templates\prof_dash.html:2678
+#: .\templates\prof_dash.html:2681
 msgid "et toutes ses données associées."
 msgstr ""
 
-#: .\templates\prof_dash.html:2679
+#: .\templates\prof_dash.html:2682
 msgid "Cette action est irréversible."
 msgstr ""
 
-#: .\templates\prof_dash.html:2689
+#: .\templates\prof_dash.html:2692
 msgid "Suppression..."
 msgstr ""
 
-#: .\templates\prof_dash.html:2719
+#: .\templates\prof_dash.html:2722
 msgid "Aperçu des paramètres du quiz"
 msgstr ""
 
-#: .\templates\prof_dash.html:2725
+#: .\templates\prof_dash.html:2728
 msgid ""
 "Ceci est un aperçu des paramètres qui seront utilisés pour générer le quiz "
 "avec l'IA."
 msgstr ""
 
-#: .\templates\prof_dash.html:2751
+#: .\templates\prof_dash.html:2754
 msgid "Durée"
 msgstr ""
 
-#: .\templates\prof_dash.html:2752
+#: .\templates\prof_dash.html:2755
 msgid "30 minutes"
 msgstr ""
 
-#: .\templates\prof_dash.html:2760
+#: .\templates\prof_dash.html:2763
 #, fuzzy
 #| msgid "Générer un quiz"
 msgid "Générer le quiz"
 msgstr "Quiz generieren"
 
-#: .\templates\prof_dash.html:2782
+#: .\templates\prof_dash.html:2785
 msgid "Exercice (IA)"
 msgstr ""
 
-#: .\templates\prof_dash.html:2783
+#: .\templates\prof_dash.html:2786
 #, fuzzy
 #| msgid "Quiz \\"
 msgid "Quiz (IA)"
 msgstr "Quiz \\"
 
-#: .\templates\prof_dash.html:2784
+#: .\templates\prof_dash.html:2787
 msgid "Évaluation (IA)"
 msgstr ""
 
-#: .\templates\prof_dash.html:2813 .\templates\prof_dash.html:2841
+#: .\templates\prof_dash.html:2816
 msgid "Histoire-Géographie"
 msgstr ""
 
-#: .\templates\prof_dash.html:2814 .\templates\prof_dash.html:2842
+#: .\templates\prof_dash.html:2817
 #, fuzzy
 #| msgid "Langue"
 msgid "Langues"
 msgstr "Sprache"
 
-#: .\templates\prof_dash.html:2822
+#: .\templates\prof_dash.html:2825
 msgid "Anglais"
 msgstr ""
 
-#: .\templates\prof_dash.html:2824
-#, fuzzy
-#| msgid "Deutsch"
-msgid "Deutch"
-msgstr "Deutsch"
-
-#: .\templates\prof_dash.html:2850
+#: .\templates\prof_dash.html:2842
 #, fuzzy
 #| msgid "Remplacer le Fichier du Cours"
 msgid "Fichier du cours"
 msgstr "Kursdatei ersetzen"
 
-#: .\templates\prof_dash.html:2853
+#: .\templates\prof_dash.html:2845
 #, fuzzy
 #| msgid "Formats acceptés: PDF, DOC, DOCX, PPT, PPTX (Max: 50MB)"
 msgid "Formats acceptés: PDF, Word, PowerPoint (Max 10MB)"
 msgstr "Erlaubte Formate: PDF, DOC, DOCX, PPT, PPTX (Max: 50MB)"
 
-#: .\templates\prof_dash.html:2859
+#: .\templates\prof_dash.html:2851
 msgid "Durée estimée (heures)"
 msgstr ""
 
-#: .\templates\prof_dash.html:2881
+#: .\templates\prof_dash.html:2873
 msgid "Contenu généré par IA"
 msgstr ""
 
-#: .\templates\prof_dash.html:2881
+#: .\templates\prof_dash.html:2873
 msgid ""
 "Configurez les paramètres ci-dessous pour que l'IA génère automatiquement le "
 "contenu."
 msgstr ""
 
-#: .\templates\prof_dash.html:2890
+#: .\templates\prof_dash.html:2882
 msgid "Nombre"
 msgstr ""
 
-#: .\templates\prof_dash.html:2891
+#: .\templates\prof_dash.html:2883
 msgid "5 questions"
 msgstr ""
 
-#: .\templates\prof_dash.html:2892
+#: .\templates\prof_dash.html:2884
 msgid "10 questions"
 msgstr ""
 
-#: .\templates\prof_dash.html:2893
+#: .\templates\prof_dash.html:2885
 msgid "15 questions"
 msgstr ""
 
-#: .\templates\prof_dash.html:2894
+#: .\templates\prof_dash.html:2886
 msgid "20 questions"
 msgstr ""
 
-#: .\templates\prof_dash.html:2895
+#: .\templates\prof_dash.html:2887
 msgid "25 questions"
 msgstr ""
 
-#: .\templates\prof_dash.html:2896
+#: .\templates\prof_dash.html:2888
 msgid "30 questions"
 msgstr ""
 
-#: .\templates\prof_dash.html:2918
+#: .\templates\prof_dash.html:2910
 msgid "Niveau Bloom"
 msgstr ""
 
-#: .\templates\prof_dash.html:2940
+#: .\templates\prof_dash.html:2932
 msgid "Type de questions"
 msgstr ""
 
-#: .\templates\prof_dash.html:2942
+#: .\templates\prof_dash.html:2934
 msgid "Mixte (QCM + Texte libre)"
 msgstr ""
 
-#: .\templates\prof_dash.html:2943
+#: .\templates\prof_dash.html:2935
 msgid "QCM uniquement"
 msgstr ""
 
-#: .\templates\prof_dash.html:2944
+#: .\templates\prof_dash.html:2936
 msgid "Texte libre uniquement"
 msgstr ""
 
-#: .\templates\prof_dash.html:2945
+#: .\templates\prof_dash.html:2937
 msgid "Vrai/Faux"
 msgstr ""
 
-#: .\templates\prof_dash.html:2952
+#: .\templates\prof_dash.html:2944
 msgid "Sélectionner le Cours"
 msgstr ""
 
-#: .\templates\prof_dash.html:2966
+#: .\templates\prof_dash.html:2958
 msgid "Type d'exercice"
 msgstr ""
 
-#: .\templates\prof_dash.html:2969
+#: .\templates\prof_dash.html:2961
 msgid "Résolution de problèmes"
 msgstr ""
 
-#: .\templates\prof_dash.html:2970
+#: .\templates\prof_dash.html:2962
 msgid "Études de cas"
 msgstr ""
 
-#: .\templates\prof_dash.html:2971
+#: .\templates\prof_dash.html:2963
 msgid "Simulations"
 msgstr ""
 
-#: .\templates\prof_dash.html:2981
+#: .\templates\prof_dash.html:2973
 msgid "Type d'évaluation"
 msgstr ""
 
-#: .\templates\prof_dash.html:2983
+#: .\templates\prof_dash.html:2975
 msgid "Évaluation formative"
 msgstr ""
 
-#: .\templates\prof_dash.html:2984
+#: .\templates\prof_dash.html:2976
 msgid "Évaluation sommative"
 msgstr ""
 
-#: .\templates\prof_dash.html:2985
+#: .\templates\prof_dash.html:2977
 msgid "Évaluation diagnostique"
 msgstr ""
 
-#: .\templates\prof_dash.html:2991
+#: .\templates\prof_dash.html:2983
 msgid "Note maximale"
 msgstr ""
 
-#: .\templates\prof_dash.html:3000
+#: .\templates\prof_dash.html:2992
 msgid "Instructions spéciales pour l'IA"
 msgstr ""
 
-#: .\templates\prof_dash.html:3002
+#: .\templates\prof_dash.html:2994
 msgid ""
 "Ex: Inclure des exemples concrets, se concentrer sur les aspects pratiques..."
 msgstr ""
 
-#: .\templates\prof_dash.html:3010
+#: .\templates\prof_dash.html:3002
 msgid "Description du contenu, objectifs pédagogiques..."
 msgstr ""
 
-#: .\templates\prof_dash.html:3019
+#: .\templates\prof_dash.html:3011
 msgid "Paramètres avancés (optionnel)"
 msgstr ""
 
-#: .\templates\prof_dash.html:3028
+#: .\templates\prof_dash.html:3020
 msgid "Mot de passe d'accès"
 msgstr ""
 
-#: .\templates\prof_dash.html:3035
+#: .\templates\prof_dash.html:3027
 msgid "Date de publication"
 msgstr ""
 
-#: .\templates\prof_dash.html:3044
+#: .\templates\prof_dash.html:3036
 #, fuzzy
 #| msgid "3 nouveaux étudiants inscrits"
 msgid "Visible par tous les étudiants inscrits"
 msgstr "3 neue Studenten eingeschrieben"
 
-#: .\templates\prof_dash.html:3055
+#: .\templates\prof_dash.html:3047
 msgid "Créer"
 msgstr ""
 
-#: .\templates\prof_dash.html:3070
+#: .\templates\prof_dash.html:3062
 msgid "Feedback IA"
 msgstr ""
 
-#: .\templates\prof_dash.html:3077
+#: .\templates\prof_dash.html:3069
 msgid "Génération du feedback en cours..."
 msgstr ""
 
-#: .\templates\prof_dash.html:3083
+#: .\templates\prof_dash.html:3075
 msgid "Aucun feedback disponible"
 msgstr ""
 
-#: .\templates\prof_dash.html:3084
+#: .\templates\prof_dash.html:3076
 msgid "Le feedback n'a pas encore été généré pour ce contenu."
 msgstr ""
 
-#: .\templates\prof_dash.html:3100
+#: .\templates\prof_dash.html:3092
 msgid "Entraîner l'IA sur les Taxonomies"
 msgstr ""
 
@@ -2696,3 +2687,8 @@ msgstr ""
 #, python-brace-format
 msgid "Try [blue]'{command_path} {help_option}'[/] for help."
 msgstr ""
+
+#, fuzzy
+#~| msgid "Deutsch"
+#~ msgid "Deutch"
+#~ msgstr "Deutsch"

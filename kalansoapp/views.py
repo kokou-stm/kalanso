@@ -768,9 +768,8 @@ def create_content(request):
                 
 
                 Renvoi l'exercice sous le format ci dessus et assure-toi que les questions respectent le niveau attendu.
-                
-                Format de l'exerice attendu:
-               
+                Le test  de chaque question doit etre complete donc longue si possible.
+                Format de l'exercice attendu:
                 [
                 "consigne de l'exercice",
                 "1. Texte de la question 1",
@@ -778,6 +777,7 @@ def create_content(request):
                 "3. Texte de la question 3",
                 ...
                 ]
+            
                 Rapelle toi que tu dois générer {data.get("questionCount")[:]} questions
 
                 L'exercice doit etre uniquement dans la langue : {data.get("lang")[:]}

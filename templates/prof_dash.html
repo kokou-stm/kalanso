@@ -1,3 +1,6 @@
+
+
+
 {% load i18n %}
 <!DOCTYPE html>
 <html lang="fr">
@@ -2016,7 +2019,7 @@
                             <div class="mb-3">
                                 <label class="form-label">{% trans "Type de contenu" %}</label>
                                 <select class="form-select" id="contentTypeQuiz" required>
-                                    <option value="">{% trans "Sélectionner le type" %}</option>
+                                    <option value="" selected>{% trans "Sélectionner le type" %}</option>
                                     <option value="quiz">{% trans "Quiz" %}</option>
                                     <option value="exercice">{% trans "Exercices pratiques" %}</option>
                                     <option value="evaluation">{% trans "Évaluation" %}</option>
@@ -2817,11 +2820,11 @@
 
                         <div class="mb-3 col-md-6">
                             <label class="form-label">{% trans "Langue" %} <span class="text-danger">*</span></label>
-                            <select class="form-select" id="contentDomain" name="domain" required>
+                            <select class="form-select" id="contentLangue" name="lang" required>
                                 <option value="">{% trans "Sélectionner" %}</option>
-                                <option value="en">{% trans "Anglais" %}</option>
-                                <option value="fr">{% trans "Français" %}</option>
-                                <option value="de">{% trans "Deutch" %}</option>
+                                <option value="Anglais">{% trans "Anglais" %}</option>
+                                <option value="Français">{% trans "Français" %}</option>
+                                <option value="Deutsch">{% trans "Deutsch" %}</option>
                                
                             </select>
                         </div>
@@ -3384,6 +3387,8 @@
                 formData.append('titre', document.getElementById('module-titre').value);
                 formData.append('code', document.getElementById('module-code').value);
                 formData.append('domaine', document.getElementById('module-domain').value);
+                formData.append('lang', document.getElementById('module-lang').value);
+                
                 formData.append('niveau', document.getElementById('module-level').value);
                 formData.append('description', document.getElementById('module-description').value);
 
@@ -4359,6 +4364,8 @@
                 submitLoader.style.display = 'inline-block';
                 submitBtn.disabled = true;
 
+                console.log('Données du formulaire:', Object.fromEntries(formData.entries()));
+
                 try {
                     const response = await fetch('/api/create-content/', {
                         method: 'POST',
@@ -4369,7 +4376,7 @@
                     });
 
                     const dataadd = await response.json();
-
+                   console.log('Réponse du serveur:', dataadd);
                     if (response.ok && dataadd.success) {
                         console.log('Contenu créé avec succès:', dataadd.type);
 
@@ -5168,6 +5175,7 @@
     </script>
     <script>
         function openCreateContentModal() {
+            document.getElementById("createContentForm").reset();
             const modal = new bootstrap.Modal(document.getElementById('createContentModal'));
             modal.show();
         }
@@ -5981,7 +5989,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
+            overflow-y: auto;
             background-color: rgba(0, 0, 0, 0.6);
         }
 

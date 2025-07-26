@@ -679,6 +679,7 @@ def chat_with_openai(number, difficulty, path):
 
 @csrf_exempt
 def create_content(request):
+   
     if request.method == "POST":
         data = request.POST
         content_type = data.get("contentType")
@@ -751,7 +752,7 @@ def create_content(request):
                 persist_path = os.path.join("media", "chroma", module_code+"_1")  # 🔹 Récupération de l'index des cours liés
                 # question_prompt = f"Génère une question d'exercice basée sur les connaissances du module {module_code}."
                 question_prompt = f"""
-                Génère un exercice à questions détaillées de type '{data.get("exerciseType")[0]}' pour le module '{module.titre}' en '{data.get("domain")[0]}'.
+                Génère un exercice à questions détaillées dans la langue {data.get("lang")[:]} de type '{data.get("exerciseType")[0]}' pour le module '{module.titre}' en '{data.get("domain")[0]}'.
 
                 L'exercice doit correspondre à un niveau '{data.get("aiDifficulty")[0]}' et contenir {data.get("questionCount")[:]} questions sous forme de '{data.get("questionType")[0]}'.
 
@@ -764,6 +765,7 @@ def create_content(request):
                 Voici quelques exemples de types de questions proposés par l'enseignant: 
                 
                 {prompt_update.retour_enseignant}
+                
 
                 Renvoi l'exercice sous le format ci dessus et assure-toi que les questions respectent le niveau attendu.
                 
@@ -777,9 +779,12 @@ def create_content(request):
                 ...
                 ]
                 Rapelle toi que tu dois générer {data.get("questionCount")[:]} questions
+
+                L'exercice doit etre uniquement dans la langue : {data.get("lang")[:]}
+
                 """
 
-                print("Question Prompt: ", question_prompt)
+                print("Langue : ", data.get("lang")[:])
                 print("--"*10)
 
                 # 🔥 Récupération du contexte via RAG
@@ -1019,6 +1024,7 @@ def create_content(request):
         except Module.DoesNotExist:
             return JsonResponse({"error": "Module introuvable"}, status=404)
 
+    
     return JsonResponse({"error": "Requête invalide"}, status=400)
 
 
